@@ -5,11 +5,11 @@ import eu.nomad_lab.DefaultPythonInterpreter
 import org.{ json4s => jn }
 import scala.collection.breakOut
 
-object Cp2kParser extends SimpleExternalParserGenerator(
-  name = "Cp2kParser",
+object CpmdParser extends SimpleExternalParserGenerator(
+  name = "CpmdParser",
   parserInfo = jn.JObject(
     ("name" -> jn.JString("CpmdParser")) ::
-      ("parserId" -> jn.JString("CpmdParser" + lab.Cp2kVersionInfo.version)) ::
+      ("parserId" -> jn.JString("CpmdParser" + lab.CpmdVersionInfo.version)) ::
       ("versionInfo" -> jn.JObject(
         ("nomadCoreVersion" -> jn.JObject(lab.NomadCoreVersionInfo.toMap.map {
           case (k, v) => k -> jn.JString(v.toString)
@@ -21,16 +21,14 @@ object Cp2kParser extends SimpleExternalParserGenerator(
       )) :: Nil
   ),
   mainFileTypes = Seq("text/.*"),
-  mainFileRe = """  \*\*\*\* \*\*\*\* \*\*\*\*\*\*  \*\*  PROGRAM STARTED AT\s(?<cpmdStartedAt>.*)
- \*\*\*\*\* \*\* \*\*\*  \*\*\* \*\*   PROGRAM STARTED ON\s*.*
- \*\*    \*\*\*\*   \*\*\*\*\*\*    PROGRAM STARTED BY .*
- \*\*\*\*\* \*\*    \*\* \*\* \*\*   PROGRAM PROCESS ID .*
-  \*\*\*\* \*\*  \*\*\*\*\*\*\*  \*\*  PROGRAM STARTED IN .*
-(?:\s*\n|                                      \s+.*
-)*
-(?:\s*CP2K\| version string:\s*(?<cpmdVersionString>.*)
-)?(?:\s*CP2K\| source code revision number:\s*(?<cpmdRevision>.*)
-)?""".r,
+  mainFileRe = """               \*\*\*\*\*\*  \*\*\*\*\*\*    \*\*\*\*  \*\*\*\*  \*\*\*\*\*\*
+              \*\*\*\*\*\*\*  \*\*\*\*\*\*\*   \*\*\*\*\*\*\*\*\*\*  \*\*\*\*\*\*\*
+             \*\*\*       \*\*   \*\*\*  \*\* \*\*\*\* \*\*  \*\*   \*\*\*
+             \*\*        \*\*   \*\*\*  \*\*  \*\*  \*\*  \*\*    \*\*
+             \*\*        \*\*\*\*\*\*\*   \*\*      \*\*  \*\*    \*\*
+             \*\*\*       \*\*\*\*\*\*    \*\*      \*\*  \*\*   \*\*\*
+              \*\*\*\*\*\*\*  \*\*        \*\*      \*\*  \*\*\*\*\*\*\*
+               \*\*\*\*\*\*  \*\*        \*\*      \*\*  \*\*\*\*\*\*""".r,
   cmd = Seq(DefaultPythonInterpreter.python2Exe(), "${envDir}/parsers/cpmd/parser/parser-cpmd/cpmdparser/scalainterface.py",
     "${mainFilePath}"),
   cmdCwd = "${mainFilePath}/..",
@@ -38,16 +36,17 @@ object Cp2kParser extends SimpleExternalParserGenerator(
     "parser-cpmd/cpmdparser/__init__.py",
     "parser-cpmd/cpmdparser/setup_paths.py",
     "parser-cpmd/cpmdparser/parser.py",
+    "parser-cpmd/cpmdparser/scalainterface.py",
     "parser-cpmd/cpmdparser/generic/__init__.py",
     "parser-cpmd/cpmdparser/versions/__init__.py",
-    "parser-cpmd/cpmdparser/versions/versionsetup.py",
     "parser-cpmd/cpmdparser/versions/cpmd41/__init__.py",
-    "parser-cpmd/cpmdparser/scalainterface.py",
+    "parser-cpmd/cpmdparser/versions/cpmd41/commonmatcher.py",
+    "parser-cpmd/cpmdparser/versions/cpmd41/mainparser.py",
+    "parser-cpmd/cpmdparser/versions/cpmd41/inputparser.py",
     "nomad_meta_info/public.nomadmetainfo.json",
     "nomad_meta_info/common.nomadmetainfo.json",
     "nomad_meta_info/meta_types.nomadmetainfo.json",
     "nomad_meta_info/cpmd.nomadmetainfo.json",
-    "nomad_meta_info/cpmd.general.nomadmetainfo.json"
   ) ++ DefaultPythonInterpreter.commonFiles(),
   dirMap = Map(
     "parser-cpmd" -> "parsers/cpmd/parser/parser-cpmd",

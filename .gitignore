@@ -53,4 +53,5 @@ TAGS
 lib/
 env/
 
-# CP2K files
+# CPMD files
+parser/parser-cpmd/cpmdparser.egg-info/
