@@ -40,7 +40,7 @@ object CpmdParser extends SimpleExternalParserGenerator(
     "parser-cpmd/cpmdparser/generic/__init__.py",
     "parser-cpmd/cpmdparser/versions/__init__.py",
     "parser-cpmd/cpmdparser/versions/cpmd41/__init__.py",
-    "parser-cpmd/cpmdparser/versions/cpmd41/commonmatcher.py",
+    "parser-cpmd/cpmdparser/versions/cpmd41/commonparser.py",
     "parser-cpmd/cpmdparser/versions/cpmd41/mainparser.py",
     "parser-cpmd/cpmdparser/versions/cpmd41/inputparser.py",
     "nomad_meta_info/public.nomadmetainfo.json",

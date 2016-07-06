@@ -1,15 +1,15 @@
-from nomadcore.baseclasses import CommonMatcher
+from nomadcore.baseclasses import CommonParser
 
 
 #===============================================================================
-class CPMDCommonMatcher(CommonMatcher):
+class CPMDCommonParser(CommonParser):
     """
     This class is used to store and instantiate common parts of the
     hierarchical SimpleMatcher structure used in the parsing of a CPMD
     calculation.
     """
     def __init__(self, parser_context):
-        super(CPMDCommonMatcher, self).__init__(parser_context)
+        super(CPMDCommonParser, self).__init__(parser_context)
 
     #===========================================================================
     # onClose triggers
