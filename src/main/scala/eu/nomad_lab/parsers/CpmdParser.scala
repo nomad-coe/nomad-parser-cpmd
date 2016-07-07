@@ -21,16 +21,15 @@ object CpmdParser extends SimpleExternalParserGenerator(
       )) :: Nil
   ),
   mainFileTypes = Seq("text/.*"),
-  mainFileRe = """  \*\*\*\* \*\*\*\* \*\*\*\*\*\*  \*\*  PROGRAM STARTED AT\s(?<cpmdStartedAt>.*)
- \*\*\*\*\* \*\* \*\*\*  \*\*\* \*\*   PROGRAM STARTED ON\s*.*
- \*\*    \*\*\*\*   \*\*\*\*\*\*    PROGRAM STARTED BY .*
- \*\*\*\*\* \*\*    \*\* \*\* \*\*   PROGRAM PROCESS ID .*
-  \*\*\*\* \*\*  \*\*\*\*\*\*\*  \*\*  PROGRAM STARTED IN .*
-(?:\s*\n|                                      \s+.*
-)*
-(?:\s*CP2K\| version string:\s*(?<cpmdVersionString>.*)
-)?(?:\s*CP2K\| source code revision number:\s*(?<cpmdRevision>.*)
-)?""".r,
+  mainFileRe = """               \*\*\*\*\*\*  \*\*\*\*\*\*    \*\*\*\*  \*\*\*\*  \*\*\*\*\*\*
+              \*\*\*\*\*\*\*  \*\*\*\*\*\*\*   \*\*\*\*\*\*\*\*\*\*  \*\*\*\*\*\*\*
+             \*\*\*       \*\*   \*\*\*  \*\* \*\*\*\* \*\*  \*\*   \*\*\*
+             \*\*        \*\*   \*\*\*  \*\*  \*\*  \*\*  \*\*    \*\*
+             \*\*        \*\*\*\*\*\*\*   \*\*      \*\*  \*\*    \*\*
+             \*\*\*       \*\*\*\*\*\*    \*\*      \*\*  \*\*   \*\*\*
+              \*\*\*\*\*\*\*  \*\*        \*\*      \*\*  \*\*\*\*\*\*\*
+               \*\*\*\*\*\*  \*\*        \*\*      \*\*  \*\*\*\*\*\*
+""".r,
   cmd = Seq(DefaultPythonInterpreter.pythonExe(), "${envDir}/parsers/cpmd/parser/parser-cpmd/cpmdparser/scalainterface.py",
     "${mainFilePath}"),
   cmdCwd = "${mainFilePath}/..",
