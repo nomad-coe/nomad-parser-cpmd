@@ -21,15 +21,17 @@ object CpmdParser extends SimpleExternalParserGenerator(
       )) :: Nil
   ),
   mainFileTypes = Seq("text/.*"),
-  mainFileRe = """               \*\*\*\*\*\*  \*\*\*\*\*\*    \*\*\*\*  \*\*\*\*  \*\*\*\*\*\*
-              \*\*\*\*\*\*\*  \*\*\*\*\*\*\*   \*\*\*\*\*\*\*\*\*\*  \*\*\*\*\*\*\*
-             \*\*\*       \*\*   \*\*\*  \*\* \*\*\*\* \*\*  \*\*   \*\*\*
-             \*\*        \*\*   \*\*\*  \*\*  \*\*  \*\*  \*\*    \*\*
-             \*\*        \*\*\*\*\*\*\*   \*\*      \*\*  \*\*    \*\*
-             \*\*\*       \*\*\*\*\*\*    \*\*      \*\*  \*\*   \*\*\*
-              \*\*\*\*\*\*\*  \*\*        \*\*      \*\*  \*\*\*\*\*\*\*
-               \*\*\*\*\*\*  \*\*        \*\*      \*\*  \*\*\*\*\*\*""".r,
-  cmd = Seq(DefaultPythonInterpreter.python2Exe(), "${envDir}/parsers/cpmd/parser/parser-cpmd/cpmdparser/scalainterface.py",
+  mainFileRe = """  \*\*\*\* \*\*\*\* \*\*\*\*\*\*  \*\*  PROGRAM STARTED AT\s(?<cpmdStartedAt>.*)
+ \*\*\*\*\* \*\* \*\*\*  \*\*\* \*\*   PROGRAM STARTED ON\s*.*
+ \*\*    \*\*\*\*   \*\*\*\*\*\*    PROGRAM STARTED BY .*
+ \*\*\*\*\* \*\*    \*\* \*\* \*\*   PROGRAM PROCESS ID .*
+  \*\*\*\* \*\*  \*\*\*\*\*\*\*  \*\*  PROGRAM STARTED IN .*
+(?:\s*\n|                                      \s+.*
+)*
+(?:\s*CP2K\| version string:\s*(?<cpmdVersionString>.*)
+)?(?:\s*CP2K\| source code revision number:\s*(?<cpmdRevision>.*)
+)?""".r,
+  cmd = Seq(DefaultPythonInterpreter.pythonExe(), "${envDir}/parsers/cpmd/parser/parser-cpmd/cpmdparser/scalainterface.py",
     "${mainFilePath}"),
   cmdCwd = "${mainFilePath}/..",
   resList = Seq(
@@ -37,16 +39,15 @@ object CpmdParser extends SimpleExternalParserGenerator(
     "parser-cpmd/cpmdparser/setup_paths.py",
     "parser-cpmd/cpmdparser/parser.py",
     "parser-cpmd/cpmdparser/scalainterface.py",
-    "parser-cpmd/cpmdparser/generic/__init__.py",
     "parser-cpmd/cpmdparser/versions/__init__.py",
     "parser-cpmd/cpmdparser/versions/cpmd41/__init__.py",
-    "parser-cpmd/cpmdparser/versions/cpmd41/commonparser.py",
     "parser-cpmd/cpmdparser/versions/cpmd41/mainparser.py",
     "parser-cpmd/cpmdparser/versions/cpmd41/inputparser.py",
+    "parser-cpmd/cpmdparser/versions/cpmd41/commonparser.py",
     "nomad_meta_info/public.nomadmetainfo.json",
     "nomad_meta_info/common.nomadmetainfo.json",
     "nomad_meta_info/meta_types.nomadmetainfo.json",
-    "nomad_meta_info/cpmd.nomadmetainfo.json",
+    "nomad_meta_info/cpmd.nomadmetainfo.json"
   ) ++ DefaultPythonInterpreter.commonFiles(),
   dirMap = Map(
     "parser-cpmd" -> "parsers/cpmd/parser/parser-cpmd",

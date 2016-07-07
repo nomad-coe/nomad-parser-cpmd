@@ -22,6 +22,7 @@ class CPMDMainParser(MainHierarchicalParser):
         """
         super(CPMDMainParser, self).__init__(file_path, parser_context)
         self.setup_common_matcher(CPMDCommonParser(parser_context))
+        self.n_scf_iterations = 0
 
         #=======================================================================
         # Cache levels
@@ -54,7 +55,7 @@ class CPMDMainParser(MainHierarchicalParser):
                         SM( " PATH TO THE RESTART FILES:\s+{}".format(self.regexs.regex_eol)),
                         SM( " GRAM-SCHMIDT ORTHOGONALIZATION"),
                         SM( " MAXIMUM NUMBER OF STEPS:\s+{} STEPS".format(self.regexs.regex_i)),
-                        SM( " MAXIMUM NUMBER OF ITERATIONS FOR SC:\s+{} STEPS".format(self.regexs.regex_i)),
+                        SM( " MAXIMUM NUMBER OF ITERATIONS FOR SC:\s+(?P<scf_max_iteration>{}) STEPS".format(self.regexs.regex_i)),
                         SM( " PRINT INTERMEDIATE RESULTS EVERY\s+{} STEPS".format(self.regexs.regex_i)),
                         SM( " STORE INTERMEDIATE RESULTS EVERY\s+{} STEPS".format(self.regexs.regex_i)),
                         SM( " NUMBER OF DISTINCT RESTART FILES:\s+{}".format(self.regexs.regex_i)),
@@ -62,7 +63,7 @@ class CPMDMainParser(MainHierarchicalParser):
                         SM( " FICTITIOUS ELECTRON MASS:\s+{}".format(self.regexs.regex_f)),
                         SM( " TIME STEP FOR ELECTRONS:\s+{}".format(self.regexs.regex_f)),
                         SM( " TIME STEP FOR IONS:\s+{}".format(self.regexs.regex_f)),
-                        SM( " CONVERGENCE CRITERIA FOR WAVEFUNCTION OPTIMIZATION:\s+{}".format(self.regexs.regex_f)),
+                        SM( " CONVERGENCE CRITERIA FOR WAVEFUNCTION OPTIMIZATION:\s+(?P<scf_threshold_energy_change__hartree>{})".format(self.regexs.regex_f)),
                         SM( " WAVEFUNCTION OPTIMIZATION BY PRECONDITIONED DIIS"),
                         SM( " THRESHOLD FOR THE WF-HESSIAN IS\s+{}".format(self.regexs.regex_f)),
                         SM( " MAXIMUM NUMBER OF VECTORS RETAINED FOR DIIS:\s+{}".format(self.regexs.regex_i)),
@@ -81,7 +82,7 @@ class CPMDMainParser(MainHierarchicalParser):
                         # SM( " PROGRAM CPMD STARTED AT: (?P<x_cpmd_start_datetime>{})".format(self.regexs.regex_eol)),
                     ]
                 ),
-                SM( " ***************************** ATOMS ****************************".replace("*", "\*"),
+                SM( re.escape(" ***************************** ATOMS ****************************"),
                     sections=["x_cpmd_section_system_information"],
                     subMatchers=[
                         SM( "   NR   TYPE        X(BOHR)        Y(BOHR)        Z(BOHR)     MBL".replace("(", "\(").replace(")", "\)"),
@@ -90,13 +91,19 @@ class CPMDMainParser(MainHierarchicalParser):
                         SM( " CHARGE:\s+(?P<total_charge>{})".format(self.regexs.regex_i)),
                     ]
                 ),
-                SM( "    \|    Pseudopotential Report",
+                SM( re.escape("    |    Pseudopotential Report"),
                     sections=["x_cpmd_section_pseudopotential_information"],
+                ),
+                SM( re.escape(" *   ATOM       MASS   RAGGIO NLCC              PSEUDOPOTENTIAL *"),
+                    sections=["x_cpmd_section_atom_kinds"],
                     subMatchers=[
-                        # SM( " PROGRAM CPMD STARTED AT: (?P<x_cpmd_start_datetime>{})".format(self.regexs.regex_eol)),
+                        SM( " \*\s+(?P<x_cpmd_atom_kind_label>{0})\s+(?P<x_cpmd_atom_kind_mass>{1})\s+(?P<x_cpmd_atom_kind_raggio>{1})\s+(?P<x_cpmd_atom_kind_nlcc>{0})\s+(?P<x_cpmd_atom_kind_pseudopotential_l>{0})\s+(?P<x_cpmd_atom_kind_pseudopotential_type>{0})\s+\*".format(self.regexs.regex_word, self.regexs.regex_f),
+                            sections=["x_cpmd_section_atom_kind"],
+                            repeats=True,
+                        ),
                     ]
                 ),
-                SM( " ************************** SUPERCELL ***************************".replace("*", "\*"),
+                SM( re.escape(" ************************** SUPERCELL ***************************"),
                     sections=["x_cpmd_section_supercell"],
                     subMatchers=[
                         SM( " SYMMETRY:\s+(?P<x_cpmd_cell_symmetry>{})".format(self.regexs.regex_eol)),
@@ -126,13 +133,13 @@ class CPMDMainParser(MainHierarchicalParser):
                 SM( " NFI      GEMAX       CNORM           ETOT        DETOT      TCPU",
                     sections=["x_cpmd_section_scf"],
                     subMatchers=[
-                        SM( "\s+{0}\s+{1}\s+{1}\s+{1}\s+{1}\s+{1}".format(self.regexs.regex_i, self.regexs.regex_f),
-                            sections=["section_scf_iteration"],
+                        SM( "\s+(?P<x_cpmd_scf_nfi>{0})\s+(?P<x_cpmd_scf_gemax>{1})\s+(?P<x_cpmd_scf_cnorm>{1})\s+(?P<x_cpmd_scf_etot__hartree>{1})\s+(?P<x_cpmd_scf_detot__hartree>{1})\s+(?P<x_cpmd_scf_tcpu__s>{1})".format(self.regexs.regex_i, self.regexs.regex_f),
+                            sections=["x_cpmd_section_scf_iteration"],
                             repeats=True,
                         ),
                     ]
                 ),
-                SM( " *                        FINAL RESULTS                         *".replace("*", "\*"),
+                SM( re.escape(" *                        FINAL RESULTS                         *"),
                     sections=["x_cpmd_section_final_results"],
                     subMatchers=[
                         SM( "   ATOM          COORDINATES            GRADIENTS \(-FORCES\)",
@@ -143,7 +150,7 @@ class CPMDMainParser(MainHierarchicalParser):
                         SM( " \(X\)     EXCHANGE-CORRELATION ENERGY =\s+(?P<energy_XC_potential__hartree>{}) A\.U\.".format(self.regexs.regex_f)),
                     ]
                 ),
-                SM( " *                            TIMING                            *".replace("*", "\*"),
+                SM( re.escape(" *                            TIMING                            *"),
                     sections=["x_cpmd_section_timing"],
                     subMatchers=[
                     ]
@@ -195,6 +202,33 @@ class CPMDMainParser(MainHierarchicalParser):
         backend.addValue("basis_set_cell_dependent_name", "PW_{}".format(cutoff))
         backend.addValue("basis_set_planewave_cutoff", si_cutoff)
         backend.closeSection("section_basis_set_cell_dependent", basis_id)
+
+    def onClose_x_cpmd_section_scf_iteration(self, backend, gIndex, section):
+        # SCF step energy and energy change
+        scf_id = backend.openSection("section_scf_iteration")
+        energy = section.get_latest_value("x_cpmd_scf_etot")
+        backend.addValue("energy_total_scf_iteration", energy)
+        denergy = section.get_latest_value("x_cpmd_scf_detot")
+        backend.addValue("energy_change_scf_iteration", denergy)
+        backend.closeSection("section_scf_iteration", scf_id)
+        self.n_scf_iterations += 1
+
+    def onClose_x_cpmd_section_scf(self, backend, gIndex, section):
+        backend.addValue("number_of_scf_iterations", self.n_scf_iterations)
+
+    def onClose_x_cpmd_section_atom_kind(self, backend, gIndex, section):
+        # Atomic kinds
+        label = section.get_latest_value("x_cpmd_atom_kind_label")
+        number = self.get_atom_number(label)
+        id_kind = backend.openSection("section_method_atom_kind")
+        backend.addValue("method_atom_kind_atom_number", number)
+        backend.addValue("method_atom_kind_label", label)
+        backend.closeSection("section_method_atom_kind", id_kind)
+
+    def onClose_section_single_configuration_calculation(self, backend, gIndex, section):
+        # For single point calculations there is only one method and system.
+        backend.addValue("single_configuration_calculation_to_system_ref", 0)
+        backend.addValue("single_configuration_to_calculation_method_ref", 0)
 
     #=======================================================================
     # adHoc
@@ -287,3 +321,42 @@ class CPMDMainParser(MainHierarchicalParser):
         vectorstr = vectorstr.strip().split()
         vec_array = np.array([float(x) for x in vectorstr])
         return vec_array
+
+    def get_atom_number(self, symbol):
+        """ Returns the atomic number when given the atomic symbol.
+
+        Args:
+            symbol: atomic symbol as string
+
+        Returns:
+            The atomic number (number of protons) for the given symbol.
+        """
+        chemical_symbols = [
+            'X',  'H',  'He', 'Li', 'Be',
+            'B',  'C',  'N',  'O',  'F',
+            'Ne', 'Na', 'Mg', 'Al', 'Si',
+            'P',  'S',  'Cl', 'Ar', 'K',
+            'Ca', 'Sc', 'Ti', 'V',  'Cr',
+            'Mn', 'Fe', 'Co', 'Ni', 'Cu',
+            'Zn', 'Ga', 'Ge', 'As', 'Se',
+            'Br', 'Kr', 'Rb', 'Sr', 'Y',
+            'Zr', 'Nb', 'Mo', 'Tc', 'Ru',
+            'Rh', 'Pd', 'Ag', 'Cd', 'In',
+            'Sn', 'Sb', 'Te', 'I',  'Xe',
+            'Cs', 'Ba', 'La', 'Ce', 'Pr',
+            'Nd', 'Pm', 'Sm', 'Eu', 'Gd',
+            'Tb', 'Dy', 'Ho', 'Er', 'Tm',
+            'Yb', 'Lu', 'Hf', 'Ta', 'W',
+            'Re', 'Os', 'Ir', 'Pt', 'Au',
+            'Hg', 'Tl', 'Pb', 'Bi', 'Po',
+            'At', 'Rn', 'Fr', 'Ra', 'Ac',
+            'Th', 'Pa', 'U',  'Np', 'Pu',
+            'Am', 'Cm', 'Bk', 'Cf', 'Es',
+            'Fm', 'Md', 'No', 'Lr'
+        ]
+
+        atom_numbers = {}
+        for Z, name in enumerate(chemical_symbols):
+            atom_numbers[name] = Z
+
+        return atom_numbers[symbol]
