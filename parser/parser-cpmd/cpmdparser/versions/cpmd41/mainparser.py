@@ -7,8 +7,6 @@ from .commonparser import CPMDCommonParser
 from .inputparser import CPMDInputParser
 import re
 import logging
-import time
-import pytz
 import datetime
 import numpy as np
 logger = logging.getLogger("nomad")
@@ -308,6 +306,21 @@ class CPMDMainParser(MainHierarchicalParser):
     #=======================================================================
     # misc. functions
     def timestamp_from_string(self, timestring):
+
+        class UTCtzinfo(datetime.tzinfo):
+            """Class that represents the UTC timezone.
+            """
+            ZERO = datetime.timedelta(0)
+
+            def utcoffset(self, dt):
+                return UTCtzinfo.ZERO
+
+            def tzname(self, dt):
+                return "UTC"
+
+            def dst(self, dt):
+                return UTCtzinfo.ZERO
+
         """Returns the seconds since epoch for the given date and the wall
         clock seconds for the given wall clock time. Assumes UTC timezone.
         """
@@ -316,8 +329,8 @@ class CPMDMainParser(MainHierarchicalParser):
         year, month, day = [int(x) for x in date.split("-")]
         hour, minute, second, msec = [float(x) for x in re.split("[:.]", clock_time)]
 
-        date_obj = datetime.datetime(year, month, day, tzinfo=pytz.utc)
-        date_timestamp = (date_obj - datetime.datetime(1970, 1, 1, tzinfo=pytz.utc)).total_seconds()
+        date_obj = datetime.datetime(year, month, day, tzinfo=UTCtzinfo())
+        date_timestamp = (date_obj - datetime.datetime(1970, 1, 1, tzinfo=UTCtzinfo())).total_seconds()
 
         wall_time = hour*3600+minute*60+second+0.001*msec
         return date_timestamp, wall_time
