@@ -7,6 +7,8 @@ from .commonparser import CPMDCommonParser
 from .inputparser import CPMDInputParser
 import re
 import logging
+import time
+import pytz
 import datetime
 import numpy as np
 logger = logging.getLogger("nomad")
@@ -306,13 +308,19 @@ class CPMDMainParser(MainHierarchicalParser):
     #=======================================================================
     # misc. functions
     def timestamp_from_string(self, timestring):
+        """Returns the seconds since epoch for the given date and the wall
+        clock seconds for the given wall clock time. Assumes UTC timezone.
+        """
         timestring = timestring.strip()
-        date, time = timestring.split()
+        date, clock_time = timestring.split()
         year, month, day = [int(x) for x in date.split("-")]
-        hour, minute, second, msec = [float(x) for x in re.split("[:.]", time)]
-        date_stamp = datetime.datetime(year, month, day).timestamp()
+        hour, minute, second, msec = [float(x) for x in re.split("[:.]", clock_time)]
+
+        date_obj = datetime.datetime(year, month, day, tzinfo=pytz.utc)
+        date_timestamp = (date_obj - datetime.datetime(1970, 1, 1, tzinfo=pytz.utc)).total_seconds()
+
         wall_time = hour*3600+minute*60+second+0.001*msec
-        return date_stamp, wall_time
+        return date_timestamp, wall_time
 
     def vector_from_string(self, vectorstr):
         """Returns a numpy array from a string comprising of floating
