@@ -142,7 +142,7 @@ def generate_pickle(filepath):
     input_tree = generate_input_tree(filepath)
     file_name = "../versions/cpmd41/input_data/cpmd_input_tree.pickle"
     fh = open(file_name, "wb")
-    pickle.dump(input_tree, fh)
+    pickle.dump(input_tree, fh, protocol=2)
 
 
 #===============================================================================
