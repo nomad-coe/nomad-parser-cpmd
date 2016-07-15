@@ -4,23 +4,21 @@ from nomadcore.baseclasses import MainHierarchicalParser
 from nomadcore.unit_conversion.unit_conversion import convert_unit
 from nomadcore.caching_backend import CachingLevel
 from .commonparser import CPMDCommonParser
-from .inputparser import CPMDInputParser
 import re
 import logging
-import datetime
 import numpy as np
 logger = logging.getLogger("nomad")
 
 
 #===============================================================================
-class CPMDMainParser(MainHierarchicalParser):
+class CPMDSinglePointParser(MainHierarchicalParser):
     """The main parser class that is called for all run types. Parses the CPMD
     output file.
     """
     def __init__(self, file_path, parser_context):
         """
         """
-        super(CPMDMainParser, self).__init__(file_path, parser_context)
+        super(CPMDSinglePointParser, self).__init__(file_path, parser_context)
         self.setup_common_matcher(CPMDCommonParser(parser_context))
         self.n_scf_iterations = 0
 
@@ -36,18 +34,7 @@ class CPMDMainParser(MainHierarchicalParser):
             forwardMatch=True,
             sections=['section_run', "section_single_configuration_calculation", "section_system", "section_method"],
             subMatchers=[
-                SM( " PROGRAM CPMD STARTED AT",
-                    forwardMatch=True,
-                    sections=["x_cpmd_section_start_information"],
-                    subMatchers=[
-                        SM( " PROGRAM CPMD STARTED AT: (?P<x_cpmd_start_datetime>{})".format(self.regexs.regex_eol)),
-                        SM( "\s+VERSION (?P<program_version>\d+\.\d+)"),
-                        SM( " THE INPUT FILE IS:\s+(?P<x_cpmd_input_filename>{})".format(self.regexs.regex_eol)),
-                        SM( " THIS JOB RUNS ON:\s+(?P<x_cpmd_run_host_name>{})".format(self.regexs.regex_eol)),
-                        SM( " THE PROCESS ID IS:\s+(?P<x_cpmd_process_id>{})".format(self.regexs.regex_i)),
-                        SM( " THE JOB WAS SUBMITTED BY:\s+(?P<x_cpmd_run_user_name>{})".format(self.regexs.regex_eol)),
-                    ]
-                ),
+                self.cm.header(),
                 SM( " SINGLE POINT DENSITY OPTIMIZATION",
                     sections=["x_cpmd_section_run_type_information"],
                     subMatchers=[
@@ -150,38 +137,12 @@ class CPMDMainParser(MainHierarchicalParser):
                         SM( " \(X\)     EXCHANGE-CORRELATION ENERGY =\s+(?P<energy_XC_potential__hartree>{}) A\.U\.".format(self.regexs.regex_f)),
                     ]
                 ),
-                SM( re.escape(" *                            TIMING                            *"),
-                    sections=["x_cpmd_section_timing"],
-                    subMatchers=[
-                    ]
-                ),
-                SM( "       CPU TIME :",
-                    forwardMatch=True,
-                    sections=["x_cpmd_section_end_information"],
-                    subMatchers=[
-                        # SM( " PROGRAM CPMD STARTED AT: (?P<x_cpmd_start_datetime>{})".format(self.regexs.regex_eol)),
-                    ]
-                )
+                self.cm.footer(),
             ]
         )
 
     #=======================================================================
     # onClose triggers
-    def onClose_x_cpmd_section_start_information(self, backend, gIndex, section):
-        # Starting date and time
-        start_datetime = section.get_latest_value("x_cpmd_start_datetime")
-        start_date_stamp, start_wall_time = self.timestamp_from_string(start_datetime)
-        backend.addValue("time_run_date_start", start_date_stamp)
-        backend.addValue("time_run_wall_start", start_wall_time)
-
-        # Input file
-        input_filename = section.get_latest_value("x_cpmd_input_filename")
-        input_filepath = self.file_service.set_file_id(input_filename, "input")
-        if input_filepath is not None:
-            input_parser = CPMDInputParser(input_filepath, self.parser_context)
-            input_parser.parse()
-        else:
-            logger.warning("The input file for the calculation could not be found.")
 
     def onClose_x_cpmd_section_supercell(self, backend, gIndex, section):
         # Simulation cell
@@ -304,37 +265,7 @@ class CPMDMainParser(MainHierarchicalParser):
         return wrapper
 
     #=======================================================================
-    # misc. functions
-    def timestamp_from_string(self, timestring):
-
-        class UTCtzinfo(datetime.tzinfo):
-            """Class that represents the UTC timezone.
-            """
-            ZERO = datetime.timedelta(0)
-
-            def utcoffset(self, dt):
-                return UTCtzinfo.ZERO
-
-            def tzname(self, dt):
-                return "UTC"
-
-            def dst(self, dt):
-                return UTCtzinfo.ZERO
-
-        """Returns the seconds since epoch for the given date and the wall
-        clock seconds for the given wall clock time. Assumes UTC timezone.
-        """
-        timestring = timestring.strip()
-        date, clock_time = timestring.split()
-        year, month, day = [int(x) for x in date.split("-")]
-        hour, minute, second, msec = [float(x) for x in re.split("[:.]", clock_time)]
-
-        date_obj = datetime.datetime(year, month, day, tzinfo=UTCtzinfo())
-        date_timestamp = (date_obj - datetime.datetime(1970, 1, 1, tzinfo=UTCtzinfo())).total_seconds()
-
-        wall_time = hour*3600+minute*60+second+0.001*msec
-        return date_timestamp, wall_time
-
+    # Misc. functions
     def vector_from_string(self, vectorstr):
         """Returns a numpy array from a string comprising of floating
         point numbers.
