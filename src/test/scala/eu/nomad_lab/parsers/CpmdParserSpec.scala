@@ -12,4 +12,7 @@ object CpmdParserSpec extends Specification {
   "test energy_force with json" >> {
     ParserRun.parse(CpmdParser, "parsers/cpmd/test/examples/single_point/output.out", "json") must_== ParseResult.ParseSuccess
   }
+  "test energy_force with json" >> {
+    ParserRun.parse(CpmdParser, "parsers/cpmd/test/examples/geo_opt/output.out", "json") must_== ParseResult.ParseSuccess
+  }
 }
