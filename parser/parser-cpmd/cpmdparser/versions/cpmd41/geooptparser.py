@@ -35,7 +35,7 @@ class CPMDGeoOptParser(MainHierarchicalParser):
         # Main structure
         self.root_matcher = SM("",
             forwardMatch=True,
-            sections=['section_run', "section_frame_sequence", "section_sampling_method", "section_system", "section_method"],
+            sections=['section_run', "section_frame_sequence", "section_sampling_method",  "section_method"],
             subMatchers=[
                 self.cm.header(),
                 self.cm.method(),
@@ -65,7 +65,7 @@ class CPMDGeoOptParser(MainHierarchicalParser):
                             forwardMatch=True,
                             endReStr=re.escape(" *** CNSTR="),
                             repeats=True,
-                            sections=["section_single_configuration_calculation", "x_cpmd_section_geo_opt_step"],
+                            sections=["section_single_configuration_calculation", "section_system", "x_cpmd_section_geo_opt_step"],
                             subMatchers=[
                                 SM( "\s+(?P<x_cpmd_geo_opt_scf_nfi>{0})\s+(?P<x_cpmd_geo_opt_scf_gemax>{1})\s+(?P<x_cpmd_geo_opt_scf_cnorm>{1})\s+(?P<x_cpmd_geo_opt_scf_etot__hartree>{1})\s+(?P<x_cpmd_geo_opt_scf_detot__hartree>{1})\s+(?P<x_cpmd_geo_opt_scf_tcpu__s>{1})".format(self.regexs.int, self.regexs.float),
                                     sections=["x_cpmd_section_geo_opt_scf_iteration"],
@@ -128,6 +128,11 @@ class CPMDGeoOptParser(MainHierarchicalParser):
         # For single point calculations there is only one method and system.
         self.sampling_method_gid = gIndex
         backend.addValue("sampling_method", "geometry_optimization")
+
+    def onClose_section_system(self, backend, gIndex, section):
+        self.cache_service.addArrayValues("atom_labels")
+        self.cache_service.addArrayValues("simulation_cell", unit="bohr")
+        self.cache_service.addValue("number_of_atoms")
 
     #=======================================================================
     # adHoc

@@ -84,6 +84,9 @@ class CPMDSinglePointParser(MainHierarchicalParser):
 
     def onClose_section_system(self, backend, gIndex, section):
         self.cache_service.addArrayValues("atom_positions", "initial_positions", unit="bohr")
+        self.cache_service.addArrayValues("atom_labels")
+        self.cache_service.addArrayValues("simulation_cell", unit="bohr")
+        self.cache_service.addValue("number_of_atoms")
 
     #=======================================================================
     # adHoc

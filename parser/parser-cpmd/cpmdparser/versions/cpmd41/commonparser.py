@@ -21,7 +21,10 @@ class CPMDCommonParser(CommonParser):
 
         #=======================================================================
         # Globally cached values
-        self.cache_service.add("initial_positions")
+        self.cache_service.add("initial_positions", single=False, update=False)
+        self.cache_service.add("atom_labels", single=False, update=False)
+        self.cache_service.add("number_of_atoms", single=False, update=False)
+        self.cache_service.add("simulation_cell", single=False, update=False)
 
     #===========================================================================
     # Common SimpleMatchers
@@ -235,7 +238,7 @@ class CPMDCommonParser(CommonParser):
         A2_array = self.vector_from_string(A2)
         A3_array = self.vector_from_string(A3)
         cell = np.vstack((A1_array, A2_array, A3_array))
-        backend.addArrayValues("simulation_cell", cell, unit="bohr")
+        self.cache_service["simulation_cell"] = cell
 
         # Plane wave basis
         cutoff = section.get_latest_value("x_cpmd_wave_function_cutoff")
@@ -291,9 +294,8 @@ class CPMDCommonParser(CommonParser):
             # If anything found, push the results to the correct section
             if len(coordinates) != 0:
                 self.cache_service["initial_positions"] = coordinates
-                # parser.backend.addArrayValues("atom_positions", coordinates, unit="bohr")
-                parser.backend.addArrayValues("atom_labels", labels)
-                parser.backend.addValue("number_of_atoms", coordinates.shape[0])
+                self.cache_service["atom_labels"] = labels
+                self.cache_service["number_of_atoms"] = coordinates.shape[0]
 
         return wrapper
 
