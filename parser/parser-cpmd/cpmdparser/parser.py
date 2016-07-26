@@ -37,6 +37,7 @@ class CPMDParser(ParserInterface):
         regex_version = re.compile("\s+VERSION ([\d\.]+)")
         regex_single_point = re.compile(r" SINGLE POINT DENSITY OPTIMIZATION")
         regex_geo_opt = re.compile(r" OPTIMIZATION OF IONIC POSITIONS")
+        regex_md = re.compile(r" CAR-PARRINELLO MOLECULAR DYNAMICS")
         run_type = None
         n_lines = 1000
         version_id = None
@@ -61,6 +62,11 @@ class CPMDParser(ParserInterface):
                 result_single_point = regex_single_point.match(line)
                 if result_single_point:
                     run_type = CPMDRunType(module_name="singlepointparser", class_name="CPMDSinglePointParser")
+
+                # Look for MD calculation
+                result_md = regex_md.match(line)
+                if result_md:
+                    run_type = CPMDRunType(module_name="mdparser", class_name="CPMDMDParser")
 
         if version_id is None:
             msg = "Could not find a version specification from the given main file."

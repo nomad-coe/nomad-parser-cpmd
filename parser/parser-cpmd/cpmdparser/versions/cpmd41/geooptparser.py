@@ -1,8 +1,6 @@
 from __future__ import absolute_import
 from nomadcore.simple_parser import SimpleMatcher as SM
 from nomadcore.baseclasses import MainHierarchicalParser
-# from nomadcore.unit_conversion.unit_conversion import convert_unit
-# from nomadcore.caching_backend import CachingLevel
 import numpy as np
 from .commonparser import CPMDCommonParser
 import re

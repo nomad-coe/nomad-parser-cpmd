@@ -25,6 +25,8 @@ class CPMDCommonParser(CommonParser):
         self.cache_service.add("atom_labels", single=False, update=False)
         self.cache_service.add("number_of_atoms", single=False, update=False)
         self.cache_service.add("simulation_cell", single=False, update=False)
+        self.cache_service.add("n_steps")
+        self.cache_service.add("ensemble_type")
 
     #===========================================================================
     # Common SimpleMatchers
@@ -50,7 +52,7 @@ class CPMDCommonParser(CommonParser):
         """Returns the simplematcher that parses informatio about the method
         used. Common to all run types.
         """
-        return SM( "(?: SINGLE POINT DENSITY OPTIMIZATION)|(?: OPTIMIZATION OF IONIC POSITIONS)",
+        return SM( "(?: SINGLE POINT DENSITY OPTIMIZATION)|(?: OPTIMIZATION OF IONIC POSITIONS)|(?: CAR-PARRINELLO MOLECULAR DYNAMICS)",
             subMatchers=[
                 SM( " USING SEED",
                     forwardMatch=True,
@@ -59,7 +61,13 @@ class CPMDCommonParser(CommonParser):
                         SM( " USING SEED\s+{}\s+TO INIT. PSEUDO RANDOM NUMBER GEN.".format(self.regexs.int)),
                         SM( " PATH TO THE RESTART FILES:\s+{}".format(self.regexs.eol)),
                         SM( " GRAM-SCHMIDT ORTHOGONALIZATION"),
-                        SM( " MAXIMUM NUMBER OF STEPS:\s+{} STEPS".format(self.regexs.int)),
+                        SM( " ITERATIVE ORTHOGONALIZATION",
+                            subMatchers={
+                                SM("    MAXIT:\s+{}".format(self.regexs.int)),
+                                SM("    EPS:\s+{}".format(self.regexs.float)),
+                            }
+                        ),
+                        SM( " MAXIMUM NUMBER OF STEPS:\s+(?P<x_cpmd_max_steps>{}) STEPS".format(self.regexs.int)),
                         SM( " MAXIMUM NUMBER OF ITERATIONS FOR SC:\s+(?P<scf_max_iteration>{}) STEPS".format(self.regexs.int)),
                         SM( " PRINT INTERMEDIATE RESULTS EVERY\s+{} STEPS".format(self.regexs.int)),
                         SM( " STORE INTERMEDIATE RESULTS EVERY\s+{} STEPS".format(self.regexs.int)),
@@ -69,6 +77,12 @@ class CPMDCommonParser(CommonParser):
                         SM( " FICTITIOUS ELECTRON MASS:\s+{}".format(self.regexs.float)),
                         SM( " TIME STEP FOR ELECTRONS:\s+{}".format(self.regexs.float)),
                         SM( " TIME STEP FOR IONS:\s+{}".format(self.regexs.float)),
+
+                        SM( " TRAJECTORIES ARE SAVED ON FILE"),
+                        SM( " TRAJEC\.xyz IS SAVED ON FILE"),
+                        SM( " ELECTRON DYNAMICS:"),
+                        SM( " ION DYNAMICS:(?P<x_cpmd_ion_temperature_control>{})".format(self.regexs.eol)),
+
                         SM( " CONVERGENCE CRITERIA FOR WAVEFUNCTION OPTIMIZATION:\s+(?P<scf_threshold_energy_change__hartree>{})".format(self.regexs.float)),
                         SM( " WAVEFUNCTION OPTIMIZATION BY PRECONDITIONED DIIS"),
                         SM( " THRESHOLD FOR THE WF-HESSIAN IS\s+{}".format(self.regexs.float)),
@@ -259,7 +273,16 @@ class CPMDCommonParser(CommonParser):
         }
         geo_opt_method = geo_opt_method_mapping.get(geo_opt_method)
         if geo_opt_method is not None:
-            backend.addValue("geometry_optimization_method", "bfgs")
+            backend.addValue("geometry_optimization_method", geo_opt_method)
+
+        # Number of steps
+        n_steps = section.get_latest_value("x_cpmd_max_steps")
+        self.cache_service["n_steps"] = n_steps
+
+        # Temperature control for ions
+        temp_control = section.get_latest_value("x_cpmd_ion_temperature_control")
+        if temp_control.strip() == "THE TEMPERATURE IS NOT CONTROLLED":
+            self.cache_service["ensemble_type"] = "NVE"
 
     #===========================================================================
     # adHoc functions

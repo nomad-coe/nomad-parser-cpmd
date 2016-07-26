@@ -41,6 +41,7 @@ object CpmdParser extends SimpleExternalParserGenerator(
     "parser-cpmd/cpmdparser/versions/__init__.py",
     "parser-cpmd/cpmdparser/versions/cpmd41/__init__.py",
     "parser-cpmd/cpmdparser/versions/cpmd41/geooptparser.py",
+    "parser-cpmd/cpmdparser/versions/cpmd41/mdparser.py",
     "parser-cpmd/cpmdparser/versions/cpmd41/singlepointparser.py",
     "parser-cpmd/cpmdparser/versions/cpmd41/inputparser.py",
     "parser-cpmd/cpmdparser/versions/cpmd41/commonparser.py",
