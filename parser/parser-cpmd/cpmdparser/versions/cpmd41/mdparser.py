@@ -30,6 +30,7 @@ class CPMDMDParser(MainHierarchicalParser):
         self.xyz_filepath = self.file_service.get_absolute_path_to_file("TRAJEC.xyz")
         self.trajectory_filepath = self.file_service.get_absolute_path_to_file("TRAJECTORY")
         self.ftrajectory_filepath = self.file_service.get_absolute_path_to_file("FTRAJECTORY")
+        self.energies_filepath = self.file_service.get_absolute_path_to_file("ENERGIES")
 
         #=======================================================================
         # Cache levels
@@ -60,8 +61,24 @@ class CPMDMDParser(MainHierarchicalParser):
                         SM( " TIME FOR INITIALIZATION:\s+{} SECONDS".format(self.regexs.float)),
                     ]
                 ),
-                SM( "       NFI    EKINC   TEMPP           EKS      ECLASSIC          EHAM         DIS    TCPU",
-                    adHoc=self.ad_hoc_parse_md(),
+                SM( "       NFI    EKINC   TEMPP           EKS      ECLASSIC          EHAM         DIS    TCPU"),
+                SM( re.escape(" *                      AVERAGED QUANTITIES                     *"),
+                    sections=["x_cpmd_section_md_averaged_quantities"],
+                    subMatchers=[
+                        SM( re.escape("                              MEAN VALUE       +/-  RMS DEVIATION")),
+                        SM( re.escape("                                     <x>     [<x^2>-<x>^2]**(1/2)")),
+                        SM( " ELECTRON KINETIC ENERGY\s+(?P<x_cpmd_electron_kinetic_energy_mean>{0})\s+(?P<x_cpmd_electron_kinetic_energy_std>{0})".format(self.regexs.float)),
+                        SM( " IONIC TEMPERATURE\s+(?P<x_cpmd_ionic_temperature_mean>{0})\s+(?P<x_cpmd_ionic_temperature_std>{0})".format(self.regexs.float)),
+                        SM( " DENSITY FUNCTIONAL ENERGY\s+(?P<x_cpmd_density_functional_energy_mean>{0})\s+(?P<x_cpmd_density_functional_energy_std>{0})".format(self.regexs.float)),
+                        SM( " CLASSICAL ENERGY\s+(?P<x_cpmd_classical_energy_mean>{0})\s+(?P<x_cpmd_classical_energy_std>{0})".format(self.regexs.float)),
+                        SM( " CONSERVED ENERGY\s+(?P<x_cpmd_conserved_energy_mean>{0})\s+(?P<x_cpmd_conserved_energy_std>{0})".format(self.regexs.float)),
+                        SM( " NOSE ENERGY ELECTRONS\s+(?P<x_cpmd_nose_energy_electrons_mean>{0})\s+(?P<x_cpmd_nose_energy_electrons_std>{0})".format(self.regexs.float)),
+                        SM( " NOSE ENERGY IONS\s+(?P<x_cpmd_nose_energy_ions_mean>{0})\s+(?P<x_cpmd_nose_energy_ions_std>{0})              0.000000              0.00000    ".format(self.regexs.float)),
+                        SM( " CONSTRAINTS ENERGY\s+(?P<x_cpmd_constraints_energy_mean>{0})\s+(?P<x_cpmd_constraints_energy_std>{0})".format(self.regexs.float)),
+                        SM( " RESTRAINTS ENERGY\s+(?P<x_cpmd_restraints_energy_mean>{0})\s+(?P<x_cpmd_restraints_energy_std>{0})".format(self.regexs.float)),
+                        SM( " ION DISPLACEMENT\s+(?P<x_cpmd_ion_displacement_mean>{0})\s+(?P<x_cpmd_ion_displacement_std>{0})".format(self.regexs.float)),
+                        SM( " CPU TIME\s+(?P<x_cpmd_cpu_time_mean>{0})".format(self.regexs.float)),
+                    ]
                 ),
                 self.cm.footer(),
             ]
@@ -69,91 +86,142 @@ class CPMDMDParser(MainHierarchicalParser):
 
     #=======================================================================
     # onClose triggers
-    # def onClose_section_single_configuration_calculation(self, backend, gIndex, section):
-        # # For single point calculations there is only one method and system.
-        # backend.addValue("single_configuration_calculation_to_system_ref", 0)
-        # backend.addValue("single_configuration_to_calculation_method_ref", 0)
-        # self.frame_refs.append(gIndex)
-
-    # def onClose_section_frame_sequence(self, backend, gIndex, section):
-        # backend.addValue("number_of_frames_in_sequence", self.n_frames)
-        # if self.sampling_method_gid is not None:
-            # backend.addValue("frame_sequence_to_sampling_ref", self.sampling_method_gid)
-        # if self.frame_refs:
-            # backend.addArrayValues("frame_sequence_local_frames_ref", np.array(self.frame_refs))
-        # if self.energies:
-            # backend.addArrayValues("frame_sequence_potential_energy", np.array(self.energies))
-
     def onClose_section_sampling_method(self, backend, gIndex, section):
         self.sampling_method_gid = gIndex
         backend.addValue("sampling_method", "molecular_dynamics")
         self.cache_service.addValue("ensemble_type")
 
-    # def onClose_section_system(self, backend, gIndex, section):
-        # self.cache_service.addArrayValues("atom_labels")
-        # self.cache_service.addArrayValues("simulation_cell", unit="bohr")
-        # self.cache_service.addValue("number_of_atoms")
+    def onClose_x_cpmd_section_md_averaged_quantities(self, backend, gIndex, section):
+        cons_mean = section.get_latest_value("x_cpmd_conserved_energy_mean")
+        cons_std = section.get_latest_value("x_cpmd_conserved_energy_std")
+        temp_mean = section.get_latest_value("x_cpmd_ionic_temperature_mean")
+        temp_std = section.get_latest_value("x_cpmd_ionic_temperature_std")
+        pot_mean = section.get_latest_value("x_cpmd_density_functional_energy_mean")
+        pot_std = section.get_latest_value("x_cpmd_density_functional_energy_std")
+
+        self.parse_md()
+        backend.addArrayValues("frame_sequence_temperature_stats", np.array([temp_mean, temp_std]), unit="K")
+        backend.addArrayValues("frame_sequence_conserved_quantity_stats", np.array([cons_mean, cons_std]), unit="hartree")
+        backend.addArrayValues("frame_sequence_potential_energy_stats", np.array([pot_mean, pot_std]), unit="hartree")
 
     #=======================================================================
     # adHoc
-    def ad_hoc_parse_md(self):
+    def parse_md(self):
         """Parses all the md step information.
         """
-        def wrapper(parser):
+        # Decide from which file trajectory is read
+        traj_file = None
+        traj_step = 1
+        trajec_file_iterator = None
+        if self.dcd_filepath is not None:
+            traj_file = self.dcd_filepath
+        elif self.xyz_filepath is not None:
+            traj_file = self.xyz_filepath
 
-            # Decide from which file trajectory is read
-            traj_file = None
-            traj_format = None
-            traj_step = 1
-            traj_iterator = None
-            traj_unit = None
-            if self.dcd_filepath:
-                traj_file = self.dcd_filepath
-                traj_format = "dcd"
-                traj_unit = "angstrom"
-            elif self.xyz_filepath:
-                traj_file = self.xyz_filepath
-                traj_format = "xyz"
-                traj_unit = "angstrom"
-            elif self.trajectory_filepath:
-                traj_file = self.trajectory_filepath
-                traj_format = "custom"
-                traj_unit = "bohr"
+        # Initialize the TRAJEC file iterator
+        if traj_file is not None:
+            try:
+                trajec_file_iterator = nomadcore.configurationreading.iread(traj_file)
+            except ValueError:
+                pass
 
-            # Initialize the trajectory iterator
-            if traj_format == "custom":
-                n_atoms = self.cache_service["number_of_atoms"]
-                traj_iterator = nomadcore.csvparsing.iread(traj_file, columns=[1, 2, 3], n_conf=n_atoms)
-            else:
-                try:
-                    traj_iterator = nomadcore.configurationreading.iread(traj_file)
-                except ValueError:
-                    pass
+        # Initialize the TRAJECTORY file iterator
+        trajectory_file_iterator = None
+        if self.trajectory_filepath is not None:
+            n_atoms = self.cache_service["number_of_atoms"]
+            trajectory_file_iterator = nomadcore.csvparsing.iread(self.trajectory_filepath, columns=range(7), n_conf=n_atoms)
 
-            # Start reading the frames
-            i_frame = 0
-            n_frames = self.cache_service["n_steps"]
-            parser.backend.addValue("number_of_frames_in_sequence", n_frames)
+        # Initialize the ENERGIES file iterator
+        energies_iterator = nomadcore.csvparsing.iread(self.energies_filepath, columns=range(8))
 
-            for i_frame in range(n_frames):
-                scc_id = parser.backend.openSection("section_single_configuration_calculation")
-                sys_id = parser.backend.openSection("section_system")
+        # Start reading the frames
+        i_frame = 0
+        n_frames = self.cache_service["n_steps"]
+        time_step = self.cache_service["time_step_ions"]
+        self.backend.addArrayValues("frame_sequence_time", np.array([(x+1)*time_step for x in range(n_frames)]))
+        self.backend.addValue("number_of_frames_in_sequence", n_frames)
 
-                # System
-                self.cache_service.addArrayValues("atom_labels")
-                self.cache_service.addArrayValues("simulation_cell", unit="bohr")
-                self.cache_service.addValue("number_of_atoms")
+        temperatures = []
+        potential_energies = []
+        kinetic_energies = []
+        conserved_quantities = []
 
-                # Coordinates
+        for i_frame in range(n_frames):
+
+            # Open sections
+            scc_id = self.backend.openSection("section_single_configuration_calculation")
+            sys_id = self.backend.openSection("section_system")
+
+            # System
+            self.cache_service.addArrayValues("atom_labels")
+            self.cache_service.addArrayValues("simulation_cell", unit="bohr")
+            self.cache_service.addValue("number_of_atoms")
+
+            # TRAJEC file
+            if trajec_file_iterator is not None:
                 if i_frame % traj_step == 0:
                     try:
-                        pos = next(traj_iterator)
+                        pos = next(trajec_file_iterator)
                     except StopIteration:
-                        LOGGER.error("Could not get the next geometries from an external file. It seems that the number of MD steps in the CPMD outputfile doesn't match the number of steps found in the external trajectory file.")
+                        LOGGER.error("Could not get the next geometries from a TRAJEC file.")
                     else:
-                        parser.backend.addArrayValues("atom_positions", pos, unit=traj_unit)
+                        self.backend.addArrayValues("atom_positions", pos, unit="angstrom")
 
-                parser.backend.closeSection("section_single_configuration_calculation", scc_id)
-                parser.backend.closeSection("section_system", sys_id)
+            # TRAJECTORY file
+            if trajectory_file_iterator is not None:
+                try:
+                    values = next(trajectory_file_iterator)
+                except StopIteration:
+                    LOGGER.error("Could not get the next configuration from a TRAJECTORY file.")
+                else:
+                    velocities = values[:, 4:]
+                    self.backend.addArrayValues("atom_velocities", velocities, unit="bohr/(hbar/hartree)")
 
-        return wrapper
+                    if trajec_file_iterator is None:
+                        pos = values[:, 1:4]
+                        self.backend.addArrayValues("atom_positions", pos, unit="bohr")
+
+            # Energies file
+            if energies_iterator is not None:
+                try:
+                    values = next(energies_iterator)
+                except StopIteration:
+                    LOGGER.error("Could not get the next configuration from an ENERGIES file.")
+                else:
+                    potential_energy = values[3]
+                    conserved_quantity = values[5]
+                    ion_total_energy = values[4]
+                    kinetic_energy = ion_total_energy - potential_energy
+                    temperature = values[2]
+                    # electronic_kinetic_energy = values[1]
+                    # msd = values[6]
+                    # i_step = values[0]
+                    tcpu = values[7]
+                    conserved_quantities.append(conserved_quantity)
+                    potential_energies.append(potential_energy)
+                    kinetic_energies.append(kinetic_energy)
+                    temperatures.append(temperature)
+                    self.backend.addRealValue("energy_total", potential_energy, unit="hartree")
+                    self.backend.addValue("time_calculation", tcpu)
+
+            # Close sections
+            self.backend.closeSection("section_single_configuration_calculation", scc_id)
+            self.backend.closeSection("section_system", sys_id)
+
+        # Push the summaries
+        potential_energies = np.array(potential_energies)
+        self.backend.addArrayValues("frame_sequence_potential_energy", potential_energies, unit="hartree")
+        kinetic_energies = np.array(kinetic_energies)
+        self.backend.addArrayValues("frame_sequence_kinetic_energy", kinetic_energies, unit="hartree")
+        conserved_quantities = np.array(conserved_quantities)
+        self.backend.addArrayValues("frame_sequence_conserved_quantity", conserved_quantities, unit="hartree")
+        temperatures = np.array(temperatures)
+        self.backend.addArrayValues("frame_sequence_temperature", temperatures, unit="K")
+
+        # Push the statistics. CPMD prints some statistics at the end, but the
+        # mean and std of kinetic energy are missing
+        kin_mean = kinetic_energies.mean()
+        kin_temp = (kinetic_energies - kin_mean)
+        kin_std = np.sqrt(np.dot(kin_temp, kin_temp)/kinetic_energies.size)
+        kin_temp = None
+        self.backend.addArrayValues("frame_sequence_kinetic_energy_stats", np.array([kin_mean, kin_std]), unit="hartree")

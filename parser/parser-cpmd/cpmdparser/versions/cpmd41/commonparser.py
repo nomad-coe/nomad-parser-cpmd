@@ -27,6 +27,7 @@ class CPMDCommonParser(CommonParser):
         self.cache_service.add("simulation_cell", single=False, update=False)
         self.cache_service.add("n_steps")
         self.cache_service.add("ensemble_type")
+        self.cache_service.add("time_step_ions")
 
     #===========================================================================
     # Common SimpleMatchers
@@ -75,8 +76,8 @@ class CPMDCommonParser(CommonParser):
                         SM( " NUMBER OF DISTINCT RESTART FILES:\s+{}".format(self.regexs.int)),
                         SM( " TEMPERATURE IS CALCULATED ASSUMING EXTENDED BULK BEHAVIOR"),
                         SM( " FICTITIOUS ELECTRON MASS:\s+{}".format(self.regexs.float)),
-                        SM( " TIME STEP FOR ELECTRONS:\s+{}".format(self.regexs.float)),
-                        SM( " TIME STEP FOR IONS:\s+{}".format(self.regexs.float)),
+                        SM( " TIME STEP FOR ELECTRONS:\s+(?P<x_cpmd_time_step_electrons__hbar_hartree_1>{})".format(self.regexs.float)),
+                        SM( " TIME STEP FOR IONS:\s+(?P<x_cpmd_time_step_ions__hbar_hartree_1>{})".format(self.regexs.float)),
 
                         SM( " TRAJECTORIES ARE SAVED ON FILE"),
                         SM( " TRAJEC\.xyz IS SAVED ON FILE"),
@@ -281,8 +282,13 @@ class CPMDCommonParser(CommonParser):
 
         # Temperature control for ions
         temp_control = section.get_latest_value("x_cpmd_ion_temperature_control")
-        if temp_control.strip() == "THE TEMPERATURE IS NOT CONTROLLED":
-            self.cache_service["ensemble_type"] = "NVE"
+        if temp_control is not None:
+            if temp_control.strip() == "THE TEMPERATURE IS NOT CONTROLLED":
+                self.cache_service["ensemble_type"] = "NVE"
+
+        # Ions time step
+        time_step_ions = section.get_latest_value("x_cpmd_time_step_ions")
+        self.cache_service["time_step_ions"] = time_step_ions
 
     #===========================================================================
     # adHoc functions
