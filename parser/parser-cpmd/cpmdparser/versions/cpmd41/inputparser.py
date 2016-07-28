@@ -15,10 +15,14 @@ class CPMDInputParser(BasicParser):
         """
         super(CPMDInputParser, self).__init__(file_path, parser_context)
         self.input_tree = None
+        self.cache_service.add("trajectory_range", False)
+        self.cache_service.add("trajectory_sample", False)
+        self.cache_service.add("print_freq", 1)
 
     def parse(self):
         self.setup_input_tree(self.parser_context.version_id)
         self.collect_input()
+        self.analyze_input()
         self.fill_metadata()
 
     def collect_input(self):
@@ -108,6 +112,27 @@ class CPMDInputParser(BasicParser):
                 # If no keyword was found, the line is a parameter line
                 if keyword_object is None:
                     parameters.append(line)
+
+    def analyze_input(self):
+        # Get the trajectory print settings
+        root = self.input_tree
+        cpmd = root.get_section("CPMD")
+        trajectory = cpmd.get_keyword("TRAJECTORY")
+        if trajectory:
+            options = trajectory.options
+            if options:
+                if "RANGE" in options:
+                    self.cache_service["trajectory_range"] = True
+                if "SAMPLE" in options:
+                    self.cache_service["trajectory_sample"] = True
+                    parameters = trajectory.parameters
+                    try:
+                        lines = parameters.split("\n")
+                        print_freq = int(lines[-1])
+                    except (IndexError, ValueError):
+                        self.cache_service["print_freq"] = None
+                    else:
+                        self.cache_service["print_freq"] = print_freq
 
     def fill_metadata(self):
         """Goes through the input data and pushes everything to the

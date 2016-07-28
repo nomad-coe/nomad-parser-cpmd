@@ -110,6 +110,11 @@ class CPMDMDParser(MainHierarchicalParser):
         """Parses all the md step information.
         """
         # Decide from which file trajectory is read
+        n_atoms = self.cache_service["number_of_atoms"]
+        trajectory_range = self.cache_service["trajectory_range"]
+        trajectory_sample = self.cache_service["trajectory_sample"]
+        print_freq = self.cache_service["print_freq"]
+        read_trajectory = True
         traj_file = None
         traj_step = 1
         trajec_file_iterator = None
@@ -125,11 +130,15 @@ class CPMDMDParser(MainHierarchicalParser):
             except ValueError:
                 pass
 
-        # Initialize the TRAJECTORY file iterator
+        # If RANGE is not specified, initialize the TRAJECTORY and FTRAJECTORY
+        # iterators if files available
+        ftrajectory_file_iterator = None
         trajectory_file_iterator = None
-        if self.trajectory_filepath is not None:
-            n_atoms = self.cache_service["number_of_atoms"]
-            trajectory_file_iterator = nomadcore.csvparsing.iread(self.trajectory_filepath, columns=range(7), n_conf=n_atoms)
+        if not trajectory_range:
+            if self.ftrajectory_filepath is not None:
+                ftrajectory_file_iterator = nomadcore.csvparsing.iread(self.ftrajectory_filepath, columns=range(10), n_conf=n_atoms)
+            if self.trajectory_filepath is not None:
+                trajectory_file_iterator = nomadcore.csvparsing.iread(self.trajectory_filepath, columns=range(7), n_conf=n_atoms)
 
         # Initialize the ENERGIES file iterator
         energies_iterator = nomadcore.csvparsing.iread(self.energies_filepath, columns=range(8))
@@ -157,29 +166,49 @@ class CPMDMDParser(MainHierarchicalParser):
             self.cache_service.addArrayValues("simulation_cell", unit="bohr")
             self.cache_service.addValue("number_of_atoms")
 
-            # TRAJEC file
-            if trajec_file_iterator is not None:
-                if i_frame % traj_step == 0:
-                    try:
-                        pos = next(trajec_file_iterator)
-                    except StopIteration:
-                        LOGGER.error("Could not get the next geometries from a TRAJEC file.")
-                    else:
-                        self.backend.addArrayValues("atom_positions", pos, unit="angstrom")
+            if print_freq is not None:
+                if i_frame % print_freq == 0:
 
-            # TRAJECTORY file
-            if trajectory_file_iterator is not None:
-                try:
-                    values = next(trajectory_file_iterator)
-                except StopIteration:
-                    LOGGER.error("Could not get the next configuration from a TRAJECTORY file.")
-                else:
-                    velocities = values[:, 4:]
-                    self.backend.addArrayValues("atom_velocities", velocities, unit="bohr/(hbar/hartree)")
+                    # TRAJEC file
+                    if trajec_file_iterator is not None:
+                        try:
+                            pos = next(trajec_file_iterator)
+                        except StopIteration:
+                            LOGGER.error("Could not get the next geometries from a TRAJEC file.")
+                        else:
+                            self.backend.addArrayValues("atom_positions", pos, unit="angstrom")
 
-                    if trajec_file_iterator is None:
-                        pos = values[:, 1:4]
-                        self.backend.addArrayValues("atom_positions", pos, unit="bohr")
+                    # FTRAJECTORY file
+                    if ftrajectory_file_iterator is not None:
+                        try:
+                            values = next(ftrajectory_file_iterator)
+                        except StopIteration:
+                            LOGGER.error("Could not get the next configuration from a FTRAJECTORY file.")
+                        else:
+                            velocities = values[:, 4:7]
+                            self.backend.addArrayValues("atom_velocities", velocities, unit="bohr/(hbar/hartree)")
+
+                            forces = values[:, 7:10]
+                            self.backend.addArrayValues("atom_forces", forces, unit="forceAu")
+
+                            if trajec_file_iterator is None:
+                                pos = values[:, 1:4]
+                                self.backend.addArrayValues("atom_positions", pos, unit="bohr")
+
+                    # TRAJECTORY file
+                    if ftrajectory_file_iterator is None:
+                        if trajectory_file_iterator is not None:
+                            try:
+                                values = next(trajectory_file_iterator)
+                            except StopIteration:
+                                LOGGER.error("Could not get the next configuration from a TRAJECTORY file.")
+                            else:
+                                velocities = values[:, 4:]
+                                self.backend.addArrayValues("atom_velocities", velocities, unit="bohr/(hbar/hartree)")
+
+                                if trajec_file_iterator is None:
+                                    pos = values[:, 1:4]
+                                    self.backend.addArrayValues("atom_positions", pos, unit="bohr")
 
             # Energies file
             if energies_iterator is not None:
@@ -203,6 +232,9 @@ class CPMDMDParser(MainHierarchicalParser):
                     temperatures.append(temperature)
                     self.backend.addRealValue("energy_total", potential_energy, unit="hartree")
                     self.backend.addValue("time_calculation", tcpu)
+
+            # Add reference to system
+            self.backend.addValue("single_configuration_calculation_to_system_ref", sys_id)
 
             # Close sections
             self.backend.closeSection("section_single_configuration_calculation", scc_id)
