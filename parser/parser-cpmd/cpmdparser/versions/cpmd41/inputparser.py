@@ -1,6 +1,7 @@
 import os
 import pickle
 import logging
+import numpy as np
 from nomadcore.baseclasses import BasicParser
 from cpmdparser.generic.inputparsing import metainfo_data_prefix, metainfo_section_prefix
 logger = logging.getLogger("nomad")
@@ -18,6 +19,7 @@ class CPMDInputParser(BasicParser):
         self.cache_service.add("trajectory_range", False)
         self.cache_service.add("trajectory_sample", False)
         self.cache_service.add("print_freq", 1)
+        self.cache_service.add("configuration_periodic_dimensions", single=False, update=False)
 
     def parse(self):
         self.setup_input_tree(self.parser_context.version_id)
@@ -104,7 +106,10 @@ class CPMDInputParser(BasicParser):
                         old_keyword_object.parameters = "\n".join(parameters)
                         parameters = []
                     options = splitted[i_match+1:]
-                    options = " ".join(options)
+                    if options:
+                        options = " ".join(options)
+                    else:
+                        options = None
                     keyword_object.options = options
                     keyword_object.accessed = True
                     old_keyword_object = keyword_object
@@ -114,6 +119,7 @@ class CPMDInputParser(BasicParser):
                     parameters.append(line)
 
     def analyze_input(self):
+
         # Get the trajectory print settings
         root = self.input_tree
         cpmd = root.get_section("CPMD")
@@ -133,6 +139,138 @@ class CPMDInputParser(BasicParser):
                         self.cache_service["print_freq"] = None
                     else:
                         self.cache_service["print_freq"] = print_freq
+
+        # Get the periodicity settings
+        system = root.get_section("SYSTEM")
+        symmetry = system.get_keyword("SYMMETRY")
+        symmetry_parameters = symmetry.parameters.strip()
+        cluster = system.get_keyword("CLUSTER")
+        surface = system.get_keyword("SURFACE")
+        polymer = system.get_keyword("POLYMER")
+
+        # Bulk
+        if symmetry_parameters != "0" and symmetry_parameters != "ISOLATED" and cluster.accessed is False:
+            periodicity = [True, True, True]
+
+        # Surface
+        elif surface.accessed:
+            options = surface.options
+            if options is None:
+                options = "XY"
+            else:
+                options = options.strip()
+            if options == "XY":
+                periodicity = [True, True, False]
+            elif options == "XZ":
+                periodicity = [True, False, True]
+            elif options == "YZ":
+                periodicity = [False, True, True]
+
+        # Polymer
+        elif polymer.accessed:
+            periodicity = [True, False, False]
+
+        # Isolated
+        elif cluster.accessed or symmetry_parameters == "ISOLATED" or symmetry_parameters == "0":
+            periodicity = [False, False, False]
+
+        self.cache_service["configuration_periodic_dimensions"] = np.array(periodicity)
+
+        # Get the XC functional
+        class XCFunctional(object):
+            def __init__(self, name, weight=1, parameters=None):
+                self.name = name
+                self.weight = weight
+                self.parameters = parameters
+
+        xc_list = []
+        dft = root.get_section("DFT")
+        if dft is not None:
+            functional = dft.get_keyword("FUNCTIONAL")
+            if functional is not None:
+                xc = functional.options
+                if xc is not None:
+                    xc = xc.strip()
+
+                    if xc == "LDA":
+                        xc_list.append(XCFunctional("LDA_XC_TETER93"))
+
+                    elif xc == "BLYP":
+                        xc_list.append(XCFunctional("GGA_X_B88"))
+                        xc_list.append(XCFunctional("GGA_C_LYP"))
+
+                    elif xc == "B3LYP":
+                        xc_list.append(XCFunctional("HYB_GGA_XC_B3LYP"))
+
+                    elif xc == "PBE":
+                        xc_list.append(XCFunctional("GGA_X_PBE"))
+                        xc_list.append(XCFunctional("GGA_C_PBE"))
+
+                    elif xc == "OLYP":
+                        xc_list.append(XCFunctional("GGA_X_OPTX"))
+                        xc_list.append(XCFunctional("GGA_C_LYP"))
+
+                    elif xc == "HCTH":
+                        xc_list.append(XCFunctional("GGA_XC_HCTH_120"))
+
+                    elif xc == "PBE0":
+                        xc_list.append(XCFunctional("HYB_GGA_XC_PBEH"))
+
+                    elif xc == "BP":
+                        xc_list.append(XCFunctional("GGA_X_B88"))
+                        xc_list.append(XCFunctional("GGA_C_P86"))
+
+                    elif xc == "XLYP":
+                        xc_list.append(XCFunctional("GGA_XC_XLYP"))
+
+                    elif xc == "PBES":
+                        xc_list.append(XCFunctional("GGA_C_PBE_SOL"))
+                        xc_list.append(XCFunctional("GGA_X_PBE_SOL"))
+
+                    elif xc == "REVPBE":
+                        xc_list.append(XCFunctional("GGA_C_PBE"))
+                        xc_list.append(XCFunctional("GGA_X_PBE_R"))
+
+                    elif xc == "TPSS":
+                        xc_list.append(XCFunctional("MGGA_C_TPSS"))
+                        xc_list.append(XCFunctional("MGGA_X_TPSS"))
+
+                    # This version of OPTX is not yet found on the official list
+                    # elif xc == "OPTX":
+
+                    elif xc == "B1LYP":
+                        xc_list.append(XCFunctional("HYB_GGA_XC_B1LYP"))
+
+                    elif xc == "X3LYP":
+                        xc_list.append(XCFunctional("HYB_GGA_XC_X3LYP"))
+
+                    elif xc == "HSE06":
+                        xc_list.append(XCFunctional("HYB_GGA_XC_HSE06"))
+
+        # Sort the functionals alphabetically by name
+        xc_list.sort(key=lambda x: x.name)
+        xc_summary = ""
+
+        # For every defined functional, stream the information to the
+        # backend and construct the summary string
+        for i, functional in enumerate(xc_list):
+
+            gId = self.backend.openSection("section_XC_functionals")
+            self.backend.addValue("XC_functional_name", functional.name)
+            self.backend.addValue("XC_functional_weight", functional.weight)
+            if functional.parameters is not None:
+                pass
+            self.backend.closeSection("section_XC_functionals", gId)
+
+            if i != 0:
+                xc_summary += "+"
+            xc_summary += "{}*{}".format(functional.weight, functional.name)
+            if functional.parameters is not None:
+                xc_summary += ":{}".format()
+
+        # Stream summary
+        if xc_summary is not "":
+            self.backend.addValue("XC_functional", xc_summary)
 
     def fill_metadata(self):
         """Goes through the input data and pushes everything to the

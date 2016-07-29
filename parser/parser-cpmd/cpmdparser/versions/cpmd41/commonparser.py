@@ -209,6 +209,9 @@ class CPMDCommonParser(CommonParser):
         backend.addValue("program_name", "CPMD")
         backend.addValue("program_basis_set_type", "plane waves")
 
+    def onClose_section_system(self, backend, gIndex, section):
+        self.cache_service.addArrayValues("configuration_periodic_dimensions")
+
     def onClose_section_method(self, backend, gIndex, section):
         backend.addValue("electronic_structure_method", "DFT")
         basis_id = backend.openSection("section_method_basis_set")
