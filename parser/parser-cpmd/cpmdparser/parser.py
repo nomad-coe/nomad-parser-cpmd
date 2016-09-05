@@ -18,7 +18,7 @@ class CPMDRunType(object):
 #===============================================================================
 class CPMDParser(ParserInterface):
     """This class handles the initial setup before any parsing can happen. It
-    determines which version of CP2K was used to generate the output and then
+    determines which version of CPMD was used to generate the output and then
     sets up a correct main parser.
 
     After the implementation has been setup, you can parse the files with
@@ -31,7 +31,7 @@ class CPMDParser(ParserInterface):
         """Setups the version by looking at the output file and the version
         specified in it.
         """
-        # Search for the CP2K version specification and the RUN_TYPE for the
+        # Search for the CPMD version specification and the run type for the
         # calculation. The correct and optimized parser is initialized based on
         # this information.
         regex_version = re.compile("\s+VERSION ([\d\.]+)")
@@ -85,7 +85,7 @@ class CPMDParser(ParserInterface):
         self.parser_context.file_service.set_file_id(filename, "output")
 
         # Setup the correct main parser based on the version id. If no match
-        # for the version is found, use the main parser for CP2K 2.6.2
+        # for the version is found, use the main parser for CPMD 4.1
         self.setup_main_parser(version_id, run_type)
 
     def get_metainfo_filename(self):
