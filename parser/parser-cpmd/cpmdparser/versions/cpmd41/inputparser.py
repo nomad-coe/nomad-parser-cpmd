@@ -102,9 +102,11 @@ class CPMDInputParser(BasicParser):
                 # If keyword object found, place the options and save any
                 # parameters that were found before
                 if keyword_object is not None:
+                    # print(keyword_object.name)
                     if parameters:
-                        old_keyword_object.parameters = "\n".join(parameters)
-                        parameters = []
+                        if old_keyword_object is not None:
+                            old_keyword_object.parameters = "\n".join(parameters)
+                            parameters = []
                     options = splitted[i_match+1:]
                     if options:
                         options = " ".join(options)
@@ -114,8 +116,9 @@ class CPMDInputParser(BasicParser):
                     keyword_object.accessed = True
                     old_keyword_object = keyword_object
 
-                # If no keyword was found, the line is a parameter line
-                if keyword_object is None:
+                # If no keyword was found, and a section is open, the line is a
+                # parameter line
+                if keyword_object is None and len(section_stack) != 0:
                     parameters.append(line)
 
     def analyze_input(self):

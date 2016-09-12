@@ -100,9 +100,13 @@ class CPMDMDParser(MainHierarchicalParser):
         pot_std = section.get_latest_value("x_cpmd_density_functional_energy_std")
 
         self.parse_md()
-        backend.addArrayValues("frame_sequence_temperature_stats", np.array([temp_mean, temp_std]), unit="K")
-        backend.addArrayValues("frame_sequence_conserved_quantity_stats", np.array([cons_mean, cons_std]), unit="hartree")
-        backend.addArrayValues("frame_sequence_potential_energy_stats", np.array([pot_mean, pot_std]), unit="hartree")
+
+        if temp_mean is not None and temp_std is not None:
+            backend.addArrayValues("frame_sequence_temperature_stats", np.array([temp_mean, temp_std]), unit="K")
+        if cons_mean is not None and cons_std is not None:
+            backend.addArrayValues("frame_sequence_conserved_quantity_stats", np.array([cons_mean, cons_std]), unit="hartree")
+        if pot_mean is not None and pot_std is not None:
+            backend.addArrayValues("frame_sequence_potential_energy_stats", np.array([pot_mean, pot_std]), unit="hartree")
 
     #=======================================================================
     # adHoc
@@ -141,7 +145,9 @@ class CPMDMDParser(MainHierarchicalParser):
                 trajectory_file_iterator = nomadcore.csvparsing.iread(self.trajectory_filepath, columns=range(7), n_conf=n_atoms)
 
         # Initialize the ENERGIES file iterator
-        energies_iterator = nomadcore.csvparsing.iread(self.energies_filepath, columns=range(8))
+        energies_iterator = None
+        if self.energies_filepath is not None:
+            energies_iterator = nomadcore.csvparsing.iread(self.energies_filepath, columns=range(8))
 
         # Start reading the frames
         i_frame = 0

@@ -37,7 +37,7 @@ class CPMDParser(ParserInterface):
         regex_version = re.compile("\s+VERSION ([\d\.]+)")
         regex_single_point = re.compile(r" SINGLE POINT DENSITY OPTIMIZATION")
         regex_geo_opt = re.compile(r" OPTIMIZATION OF IONIC POSITIONS")
-        regex_md = re.compile(r" CAR-PARRINELLO MOLECULAR DYNAMICS")
+        regex_md = re.compile(r"( CAR-PARRINELLO MOLECULAR DYNAMICS)|( BORN-OPPENHEIMER MOLECULAR DYNAMICS)")
         run_type = None
         n_lines = 1000
         version_id = None
@@ -74,7 +74,7 @@ class CPMDParser(ParserInterface):
             raise RuntimeError(msg)
 
         if run_type is None:
-            msg = "Could not find a run type specification from the given main file."
+            msg = "Could not find a run type specification from the given main file at: {}".format(self.parser_context.main_file)
             logger.exception(msg)
             raise RuntimeError(msg)
 
@@ -104,7 +104,7 @@ class CPMDParser(ParserInterface):
             parser_module = importlib.import_module(base)
         except ImportError:
             logger.warning("Could not find a parser for version '{}'. Trying to default to the base implementation for CPMD 4.1".format(version_id))
-            base = "cpmdparser.versions.cp2k41.{}".format(run_type.module_name)
+            base = "cpmdparser.versions.cpmd41.{}".format(run_type.module_name)
             try:
                 parser_module = importlib.import_module(base)
             except ImportError:

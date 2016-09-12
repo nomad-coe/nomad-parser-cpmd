@@ -1,6 +1,7 @@
 import re
 import logging
 import datetime
+import calendar
 import numpy as np
 from nomadcore.baseclasses import CommonParser
 from nomadcore.simple_parser import SimpleMatcher as SM
@@ -53,7 +54,7 @@ class CPMDCommonParser(CommonParser):
         """Returns the simplematcher that parses informatio about the method
         used. Common to all run types.
         """
-        return SM( "(?: SINGLE POINT DENSITY OPTIMIZATION)|(?: OPTIMIZATION OF IONIC POSITIONS)|(?: CAR-PARRINELLO MOLECULAR DYNAMICS)",
+        return SM( "(?: SINGLE POINT DENSITY OPTIMIZATION)|(?: OPTIMIZATION OF IONIC POSITIONS)|(?: CAR-PARRINELLO MOLECULAR DYNAMICS)|(?: BORN-OPPENHEIMER MOLECULAR DYNAMICS)",
             subMatchers=[
                 SM( " USING SEED",
                     forwardMatch=True,
@@ -231,9 +232,11 @@ class CPMDCommonParser(CommonParser):
     def onClose_x_cpmd_section_start_information(self, backend, gIndex, section):
         # Starting date and time
         start_datetime = section.get_latest_value("x_cpmd_start_datetime")
-        start_date_stamp, start_wall_time = self.timestamp_from_string(start_datetime)
-        backend.addValue("time_run_date_start", start_date_stamp)
-        backend.addValue("time_run_wall_start", start_wall_time)
+        timestamp = self.timestamp_from_string(start_datetime)
+        if timestamp:
+            start_date_stamp, start_wall_time = timestamp
+            backend.addValue("time_run_date_start", start_date_stamp)
+            backend.addValue("time_run_wall_start", start_wall_time)
 
         # Input file
         input_filename = section.get_latest_value("x_cpmd_input_filename")
@@ -346,7 +349,6 @@ class CPMDCommonParser(CommonParser):
             while match:
                 line = parser.fIn.readline()
                 result = regex_compiled.match(line)
-                # print(line)
 
                 if result:
                     match = True
@@ -393,16 +395,38 @@ class CPMDCommonParser(CommonParser):
         """Returns the seconds since epoch for the given date and the wall
         clock seconds for the given wall clock time. Assumes UTC timezone.
         """
-        timestring = timestring.strip()
-        date, clock_time = timestring.split()
-        year, month, day = [int(x) for x in date.split("-")]
-        hour, minute, second, msec = [float(x) for x in re.split("[:.]", clock_time)]
+        # The start datetime can be formatted in different ways. First we try
+        # to determine which way is used.
+        try:
+            timestring = timestring.strip()
+            splitted = timestring.split()
+            n_split = len(splitted)
+            if n_split == 2:
+                date, clock_time = timestring.split()
+                year, month, day = [int(x) for x in date.split("-")]
+                hour, minute, second, msec = [float(x) for x in re.split("[:.]", clock_time)]
 
-        date_obj = datetime.datetime(year, month, day, tzinfo=UTCtzinfo())
-        date_timestamp = (date_obj - datetime.datetime(1970, 1, 1, tzinfo=UTCtzinfo())).total_seconds()
+                date_obj = datetime.datetime(year, month, day, tzinfo=UTCtzinfo())
+                date_timestamp = (date_obj - datetime.datetime(1970, 1, 1, tzinfo=UTCtzinfo())).total_seconds()
 
-        wall_time = hour*3600+minute*60+second+0.001*msec
-        return date_timestamp, wall_time
+                wall_time = hour*3600+minute*60+second+0.001*msec
+            elif n_split == 5:
+                weekday, month, day, clock_time, year = timestring.split()
+                year = int(year)
+                day = int(day)
+                hour, minute, second = [float(x) for x in re.split("[:]", clock_time)]
+                month_name_to_number = dict((v, k) for k, v in enumerate(calendar.month_abbr))
+                month = month_name_to_number[month]
+
+                date_obj = datetime.datetime(year, month, day, tzinfo=UTCtzinfo())
+                date_timestamp = (date_obj - datetime.datetime(1970, 1, 1, tzinfo=UTCtzinfo())).total_seconds()
+                wall_time = hour*3600+minute*60+second
+        # If any sxception is encountered here, just return None as the
+        # datetime is not very crucial
+        except Exception:
+            return None
+        else:
+            return date_timestamp, wall_time
 
     def get_atom_number(self, symbol):
         """ Returns the atomic number when given the atomic symbol.
