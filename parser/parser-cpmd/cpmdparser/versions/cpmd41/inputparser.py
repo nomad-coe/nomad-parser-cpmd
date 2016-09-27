@@ -16,10 +16,6 @@ class CPMDInputParser(BasicParser):
         """
         super(CPMDInputParser, self).__init__(file_path, parser_context)
         self.input_tree = None
-        self.cache_service.add("trajectory_range", False)
-        self.cache_service.add("trajectory_sample", False)
-        self.cache_service.add("print_freq", 1)
-        self.cache_service.add("configuration_periodic_dimensions", single=False, update=False)
 
     def parse(self):
         self.setup_input_tree(self.parser_context.version_id)

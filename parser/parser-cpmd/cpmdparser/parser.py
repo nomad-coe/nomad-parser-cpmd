@@ -38,6 +38,8 @@ class CPMDParser(ParserInterface):
         regex_single_point = re.compile(r" SINGLE POINT DENSITY OPTIMIZATION")
         regex_geo_opt = re.compile(r" OPTIMIZATION OF IONIC POSITIONS")
         regex_md = re.compile(r"( CAR-PARRINELLO MOLECULAR DYNAMICS)|( BORN-OPPENHEIMER MOLECULAR DYNAMICS)")
+        regex_vib = re.compile(r" PERFORM A VIBRATIONAL ANALYSIS BY FINITE DIFFERENCES")
+        regex_prop = re.compile(r" CALCULATE SOME PROPERTIES")
         run_type = None
         n_lines = 1000
         version_id = None
@@ -67,6 +69,16 @@ class CPMDParser(ParserInterface):
                 result_md = regex_md.match(line)
                 if result_md:
                     run_type = CPMDRunType(module_name="mdparser", class_name="CPMDMDParser")
+
+                # Look for vibrational analysis
+                result_vib = regex_vib.match(line)
+                if result_vib:
+                    run_type = CPMDRunType(module_name="vibrationparser", class_name="CPMDVibrationParser")
+
+                # Look for properties calculation
+                result_prop = regex_prop.match(line)
+                if result_prop:
+                    run_type = CPMDRunType(module_name="propertiesparser", class_name="CPMDPropertiesParser")
 
         if version_id is None:
             msg = "Could not find a version specification from the given main file."

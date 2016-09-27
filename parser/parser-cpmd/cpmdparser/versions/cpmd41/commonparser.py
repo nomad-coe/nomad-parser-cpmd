@@ -30,6 +30,11 @@ class CPMDCommonParser(CommonParser):
         self.cache_service.add("ensemble_type")
         self.cache_service.add("time_step_ions")
 
+        self.cache_service.add("trajectory_range", False)
+        self.cache_service.add("trajectory_sample", False)
+        self.cache_service.add("print_freq", 1)
+        self.cache_service.add("configuration_periodic_dimensions", single=False, update=False)
+
     #===========================================================================
     # Common SimpleMatchers
     def header(self):

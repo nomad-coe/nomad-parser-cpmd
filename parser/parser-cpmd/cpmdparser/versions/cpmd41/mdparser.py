@@ -247,19 +247,24 @@ class CPMDMDParser(MainHierarchicalParser):
             self.backend.closeSection("section_system", sys_id)
 
         # Push the summaries
-        potential_energies = np.array(potential_energies)
-        self.backend.addArrayValues("frame_sequence_potential_energy", potential_energies, unit="hartree")
-        kinetic_energies = np.array(kinetic_energies)
-        self.backend.addArrayValues("frame_sequence_kinetic_energy", kinetic_energies, unit="hartree")
-        conserved_quantities = np.array(conserved_quantities)
-        self.backend.addArrayValues("frame_sequence_conserved_quantity", conserved_quantities, unit="hartree")
-        temperatures = np.array(temperatures)
-        self.backend.addArrayValues("frame_sequence_temperature", temperatures, unit="K")
+        if potential_energies:
+            potential_energies = np.array(potential_energies)
+            self.backend.addArrayValues("frame_sequence_potential_energy", potential_energies, unit="hartree")
+        if kinetic_energies:
+            kinetic_energies = np.array(kinetic_energies)
+            self.backend.addArrayValues("frame_sequence_kinetic_energy", kinetic_energies, unit="hartree")
 
-        # Push the statistics. CPMD prints some statistics at the end, but the
-        # mean and std of kinetic energy are missing
-        kin_mean = kinetic_energies.mean()
-        kin_temp = (kinetic_energies - kin_mean)
-        kin_std = np.sqrt(np.dot(kin_temp, kin_temp)/kinetic_energies.size)
-        kin_temp = None
-        self.backend.addArrayValues("frame_sequence_kinetic_energy_stats", np.array([kin_mean, kin_std]), unit="hartree")
+            # Push the statistics. CPMD prints some statistics at the end, but the
+            # mean and std of kinetic energy are missing
+            kin_mean = kinetic_energies.mean()
+            kin_temp = (kinetic_energies - kin_mean)
+            kin_std = np.sqrt(np.dot(kin_temp, kin_temp)/kinetic_energies.size)
+            kin_temp = None
+            self.backend.addArrayValues("frame_sequence_kinetic_energy_stats", np.array([kin_mean, kin_std]), unit="hartree")
+
+        if conserved_quantities:
+            conserved_quantities = np.array(conserved_quantities)
+            self.backend.addArrayValues("frame_sequence_conserved_quantity", conserved_quantities, unit="hartree")
+        if temperatures:
+            temperatures = np.array(temperatures)
+            self.backend.addArrayValues("frame_sequence_temperature", temperatures, unit="K")
