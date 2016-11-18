@@ -2,13 +2,13 @@ import os
 import pickle
 import logging
 import numpy as np
-from nomadcore.baseclasses import BasicParser
+from nomadcore.baseclasses import AbstractBaseParser
 from cpmdparser.generic.inputparsing import metainfo_data_prefix, metainfo_section_prefix
 logger = logging.getLogger("nomad")
 
 
 #===============================================================================
-class CPMDInputParser(BasicParser):
+class CPMDInputParser(AbstractBaseParser):
     """Parses the CPMD input file.
     """
     def __init__(self, file_path, parser_context):
