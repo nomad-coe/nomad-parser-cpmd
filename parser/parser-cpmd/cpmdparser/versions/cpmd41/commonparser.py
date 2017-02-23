@@ -35,6 +35,9 @@ class CPMDCommonParser(CommonParser):
         self.cache_service.add("print_freq", 1)
         self.cache_service.add("configuration_periodic_dimensions", single=False, update=False)
 
+        self.cache_service.add("single_configuration_calculation_to_system_ref", single=False, update=True)
+        self.cache_service.add("single_configuration_to_calculation_method_ref", single=False, update=False)
+
     #===========================================================================
     # Common SimpleMatchers
     def header(self):
@@ -210,10 +213,22 @@ class CPMDCommonParser(CommonParser):
         )
 
     #===========================================================================
+    # onOpen triggers
+    def onOpen_section_method(self, backend, gIndex, section):
+        self.cache_service["single_configuration_to_calculation_method_ref"] = gIndex
+
+    def onOpen_section_system(self, backend, gIndex, section):
+        self.cache_service["single_configuration_calculation_to_system_ref"] = gIndex
+
+    #===========================================================================
     # onClose triggers
     def onClose_section_run(self, backend, gIndex, section):
         backend.addValue("program_name", "CPMD")
         backend.addValue("program_basis_set_type", "plane waves")
+
+    def onClose_section_single_configuration_calculation(self, backend, gIndex, section):
+        self.cache_service.addValue("single_configuration_calculation_to_system_ref")
+        self.cache_service.addValue("single_configuration_to_calculation_method_ref")
 
     def onClose_section_system(self, backend, gIndex, section):
         self.cache_service.addArrayValues("configuration_periodic_dimensions")

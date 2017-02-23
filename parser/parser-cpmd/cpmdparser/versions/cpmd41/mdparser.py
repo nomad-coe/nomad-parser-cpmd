@@ -84,7 +84,7 @@ class CPMDMDParser(MainHierarchicalParser):
             ]
         )
 
-    #=======================================================================
+    #===========================================================================
     # onClose triggers
     def onClose_section_sampling_method(self, backend, gIndex, section):
         self.sampling_method_gid = gIndex
@@ -108,7 +108,7 @@ class CPMDMDParser(MainHierarchicalParser):
         if pot_mean is not None and pot_std is not None:
             backend.addArrayValues("frame_sequence_potential_energy_stats", np.array([pot_mean, pot_std]), unit="hartree")
 
-    #=======================================================================
+    #===========================================================================
     # adHoc
     def parse_md(self):
         """Parses all the md step information.
@@ -238,9 +238,6 @@ class CPMDMDParser(MainHierarchicalParser):
                     temperatures.append(temperature)
                     self.backend.addRealValue("energy_total", potential_energy, unit="hartree")
                     self.backend.addValue("time_calculation", tcpu)
-
-            # Add reference to system
-            self.backend.addValue("single_configuration_calculation_to_system_ref", sys_id)
 
             # Close sections
             self.backend.closeSection("section_single_configuration_calculation", scc_id)

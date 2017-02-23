@@ -108,9 +108,6 @@ class CPMDGeoOptParser(MainHierarchicalParser):
         self.n_frames += 1
 
     def onClose_section_single_configuration_calculation(self, backend, gIndex, section):
-        # For single point calculations there is only one method and system.
-        backend.addValue("single_configuration_calculation_to_system_ref", 0)
-        backend.addValue("single_configuration_to_calculation_method_ref", 0)
         self.frame_refs.append(gIndex)
 
     def onClose_section_frame_sequence(self, backend, gIndex, section):

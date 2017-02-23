@@ -77,11 +77,6 @@ class CPMDSinglePointParser(MainHierarchicalParser):
     def onClose_x_cpmd_section_scf(self, backend, gIndex, section):
         backend.addValue("number_of_scf_iterations", self.n_scf_iterations)
 
-    def onClose_section_single_configuration_calculation(self, backend, gIndex, section):
-        # For single point calculations there is only one method and system.
-        backend.addValue("single_configuration_calculation_to_system_ref", 0)
-        backend.addValue("single_configuration_to_calculation_method_ref", 0)
-
     def onClose_section_system(self, backend, gIndex, section):
         self.cache_service.addArrayValues("atom_positions", "initial_positions", unit="bohr")
         self.cache_service.addArrayValues("atom_labels")
