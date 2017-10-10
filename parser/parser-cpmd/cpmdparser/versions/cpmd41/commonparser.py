@@ -237,7 +237,7 @@ class CPMDCommonParser(CommonParser):
         backend.addValue("electronic_structure_method", "DFT")
         basis_id = backend.openSection("section_method_basis_set")
         backend.addValue("method_basis_set_kind", "wavefunction")
-        backend.addValue("mapping_section_method_basis_set_cell_associated", 0)
+        backend.addValue("mapping_section_method_basis_set_cell_dependent", 0)
         backend.closeSection("section_method_basis_set", basis_id)
 
     def onClose_x_cpmd_section_atom_kind(self, backend, gIndex, section):
