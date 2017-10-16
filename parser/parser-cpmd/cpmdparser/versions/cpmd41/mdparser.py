@@ -10,7 +10,6 @@ import nomadcore.configurationreading
 LOGGER = logging.getLogger("nomad")
 
 
-#===============================================================================
 class CPMDMDParser(MainHierarchicalParser):
     """The main parser class that is called for all run types. Parses the CPMD
     output file.

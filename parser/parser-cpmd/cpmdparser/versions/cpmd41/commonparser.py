@@ -10,7 +10,6 @@ from .inputparser import CPMDInputParser
 logger = logging.getLogger("nomad")
 
 
-#===============================================================================
 class CPMDCommonParser(CommonParser):
     """
     This class is used to store and instantiate common parts of the

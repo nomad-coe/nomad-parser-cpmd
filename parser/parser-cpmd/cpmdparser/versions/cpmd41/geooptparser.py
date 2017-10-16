@@ -8,7 +8,6 @@ import logging
 LOGGER = logging.getLogger("nomad")
 
 
-#===============================================================================
 class CPMDGeoOptParser(MainHierarchicalParser):
     """The main parser class that is called for all run types. Parses the CPMD
     output file.

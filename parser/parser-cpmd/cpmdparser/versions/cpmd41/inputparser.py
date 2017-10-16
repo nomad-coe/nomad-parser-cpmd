@@ -7,7 +7,6 @@ from cpmdparser.generic.inputparsing import metainfo_data_prefix, metainfo_secti
 logger = logging.getLogger("nomad")
 
 
-#===============================================================================
 class CPMDInputParser(AbstractBaseParser):
     """Parses the CPMD input file.
     """
