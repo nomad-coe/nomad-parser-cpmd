@@ -125,4 +125,4 @@ class CPMDParser(ParserInterface):
         except AttributeError:
             logger.exception("A parser class '{}' could not be found in the module '[]'.".format(run_type.class_name, parser_module))
             raise
-        self.main_parser = parser_class(self.parser_context.main_file, self.parser_context)
+        self.main_parser = parser_class(self.parser_context)

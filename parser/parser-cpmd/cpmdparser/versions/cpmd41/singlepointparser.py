@@ -1,7 +1,6 @@
 from __future__ import absolute_import
 from nomadcore.simple_parser import SimpleMatcher as SM
 from nomadcore.baseclasses import MainHierarchicalParser
-# from nomadcore.caching_backend import CachingLevel
 from .commonparser import CPMDCommonParser
 import re
 import logging
@@ -9,15 +8,14 @@ import numpy as np
 LOGGER = logging.getLogger("nomad")
 
 
-#===============================================================================
 class CPMDSinglePointParser(MainHierarchicalParser):
     """The main parser class that is called for all run types. Parses the CPMD
     output file.
     """
-    def __init__(self, file_path, parser_context):
+    def __init__(self, parser_context):
         """
         """
-        super(CPMDSinglePointParser, self).__init__(file_path, parser_context)
+        super(CPMDSinglePointParser, self).__init__(parser_context)
         self.setup_common_matcher(CPMDCommonParser(parser_context))
         self.n_scf_iterations = 0
 

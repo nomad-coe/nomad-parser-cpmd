@@ -10,19 +10,19 @@ logger = logging.getLogger("nomad")
 class CPMDInputParser(AbstractBaseParser):
     """Parses the CPMD input file.
     """
-    def __init__(self, file_path, parser_context):
+    def __init__(self, parser_context):
         """
         """
-        super(CPMDInputParser, self).__init__(file_path, parser_context)
+        super(CPMDInputParser, self).__init__(parser_context)
         self.input_tree = None
 
-    def parse(self):
+    def parse(self, filepath):
         self.setup_input_tree(self.parser_context.version_id)
-        self.collect_input()
+        self.collect_input(filepath)
         self.analyze_input()
         self.fill_metadata()
 
-    def collect_input(self):
+    def collect_input(self, filepath):
         """This function will first go through the input file and gather the
         information to the input tree.
 
@@ -33,7 +33,7 @@ class CPMDInputParser(AbstractBaseParser):
         # The input file should be relatively small so we are better off
         # loading it into memory all at once.
         lines = None
-        with open(self.file_path, "r") as fin:
+        with open(filepath, "r") as fin:
             lines = fin.readlines()
 
         # Read the input line by line

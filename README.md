@@ -41,8 +41,8 @@ git clone https://gitlab.mpcdf.mpg.de/nomad-lab/nomad-meta-info.git
 Finally download and install the parser:
 
 ```sh
-git clone https://gitlab.mpcdf.mpg.de/nomad-lab/parser-cp2k.git
-cd parser-cp2k
+git clone https://gitlab.mpcdf.mpg.de/nomad-lab/parser-cpmd.git
+cd parser-cpmd
 pip install -e .
 ```
 

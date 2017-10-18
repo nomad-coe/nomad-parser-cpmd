@@ -14,10 +14,10 @@ class CPMDMDParser(MainHierarchicalParser):
     """The main parser class that is called for all run types. Parses the CPMD
     output file.
     """
-    def __init__(self, file_path, parser_context):
+    def __init__(self, parser_context):
         """
         """
-        super(CPMDMDParser, self).__init__(file_path, parser_context)
+        super(CPMDMDParser, self).__init__(parser_context)
         self.setup_common_matcher(CPMDCommonParser(parser_context))
         self.sampling_method_gid = None
         self.frame_refs = []

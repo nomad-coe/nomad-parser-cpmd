@@ -261,8 +261,8 @@ class CPMDCommonParser(CommonParser):
         input_filename = section.get_latest_value("x_cpmd_input_filename")
         input_filepath = self.file_service.set_file_id(input_filename, "input")
         if input_filepath is not None:
-            input_parser = CPMDInputParser(input_filepath, self.parser_context)
-            input_parser.parse()
+            input_parser = CPMDInputParser(self.parser_context)
+            input_parser.parse(input_filepath)
         else:
             logger.warning("The input file for the calculation could not be found.")
 
