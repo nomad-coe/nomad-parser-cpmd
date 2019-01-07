@@ -54,4 +54,4 @@ lib/
 env/
 
 # CPMD files
-parser/parser-cpmd/cpmdparser.egg-info/
+cpmdparser.egg-info/
