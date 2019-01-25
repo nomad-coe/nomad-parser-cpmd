@@ -166,7 +166,7 @@ def generate_input_metainfos(filepath):
         "type": "nomad_meta_info_1_0",
         "description": "Metainfo for the values parsed from a CPMD input file.",
         "dependencies": [ {
-            "relativePath": "cpmd.general.nomadmetainfo.json"
+            "relativePath": "cpmd_general.nomadmetainfo.json"
             }],
     }
 

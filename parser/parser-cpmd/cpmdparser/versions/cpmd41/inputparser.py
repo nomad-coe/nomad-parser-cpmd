@@ -21,6 +21,10 @@ from cpmdparser.generic.inputparsing import metainfo_data_prefix, metainfo_secti
 logger = logging.getLogger("nomad")
 
 
+def metaN(metaName):
+    """Retrurns a normalized meta name"""
+    return metaName.replace(".", "_").lower()
+
 class CPMDInputParser(AbstractBaseParser):
     """Parses the CPMD input file.
     """
@@ -267,12 +271,12 @@ class CPMDInputParser(AbstractBaseParser):
         # backend and construct the summary string
         for i, functional in enumerate(xc_list):
 
-            gId = self.backend.openSection("section_XC_functionals")
-            self.backend.addValue("XC_functional_name", functional.name)
-            self.backend.addValue("XC_functional_weight", functional.weight)
+            gId = self.backend.openSection("section_xc_functionals")
+            self.backend.addValue("xc_functional_name", functional.name)
+            self.backend.addValue("xc_functional_weight", functional.weight)
             if functional.parameters is not None:
                 pass
-            self.backend.closeSection("section_XC_functionals", gId)
+            self.backend.closeSection("section_xc_functionals", gId)
 
             if i != 0:
                 xc_summary += "+"
@@ -282,7 +286,7 @@ class CPMDInputParser(AbstractBaseParser):
 
         # Stream summary
         if xc_summary is not "":
-            self.backend.addValue("XC_functional", xc_summary)
+            self.backend.addValue("xc_functional", xc_summary)
 
     def fill_metadata(self):
         """Goes through the input data and pushes everything to the
@@ -299,40 +303,40 @@ class CPMDInputParser(AbstractBaseParser):
                 section_name = metainfo_section_prefix + "{}".format(section.name)
             else:
                 section_name = metainfo_section_prefix[:-1]
-            gid = self.backend.openSection(section_name)
+            gid = self.backend.openSection(metaN(section_name))
 
             # Keywords
             for keyword_list in section.keywords.values():
                 for keyword in keyword_list:
                     if keyword.accessed:
                         # Open keyword section
-                        keyword_name = metainfo_section_prefix + "{}.{}".format(section.name, keyword.unique_name.replace(" ", "_"))
-                        key_id = self.backend.openSection(keyword_name)
+                        keyword_name = metainfo_section_prefix + "{}_{}".format(section.name, keyword.unique_name.replace(" ", "_"))
+                        key_id = self.backend.openSection(metaN(keyword_name))
 
                         # Add options
                         if keyword.options:
-                            option_name = metainfo_data_prefix + "{}.{}_options".format(section.name, keyword.unique_name.replace(" ", "_"))
-                            self.backend.addValue(option_name, keyword.options)
+                            option_name = metainfo_data_prefix + "{}_{}_options".format(section.name, keyword.unique_name.replace(" ", "_"))
+                            self.backend.addValue(metaN(option_name), keyword.options)
 
                         # Add parameters
                         if keyword.parameters:
-                            parameter_name = metainfo_data_prefix + "{}.{}_parameters".format(section.name, keyword.unique_name.replace(" ", "_"))
-                            self.backend.addValue(parameter_name, keyword.parameters)
+                            parameter_name = metainfo_data_prefix + "{}_{}_parameters".format(section.name, keyword.unique_name.replace(" ", "_"))
+                            self.backend.addValue(metaN(parameter_name), keyword.parameters)
 
                         # Close keyword section
-                        self.backend.closeSection(keyword_name, key_id)
+                        self.backend.closeSection(metaN(keyword_name), key_id)
 
             # # Default keyword
             default_keyword = section.default_keyword
             if default_keyword is not None:
                 name = metainfo_data_prefix + "{}_default_keyword".format(section.name)
-                self.backend.addValue(name, default_keyword)
+                self.backend.addValue(metaN(name), default_keyword)
 
             # Subsections
             for subsection in section.subsections.values():
                 fill_metadata_recursively(subsection)
 
-            self.backend.closeSection(section_name, gid)
+            self.backend.closeSection(metaN(section_name), gid)
 
         fill_metadata_recursively(self.input_tree)
 

@@ -34,7 +34,6 @@ class CPMDGeoOptParser(MainHierarchicalParser):
         self.n_frames = 0
         self.sampling_method_gid = None
         self.frame_refs = []
-        self.energies = []
 
         #=======================================================================
         # Cache levels
@@ -113,9 +112,11 @@ class CPMDGeoOptParser(MainHierarchicalParser):
         total_energy = section.get_latest_value("x_cpmd_geo_opt_step_etot")
         if total_energy:
             backend.addValue("energy_total", total_energy)
-            self.energies.append(total_energy)
+            backend.addValue("potential_energy", total_energy)
         forces = section.get_latest_value("x_cpmd_geo_opt_step_forces")
+        fId = backend.openSection("section_atom_forces")
         backend.addArrayValues("atom_forces", forces)
+        backend.closeSection("section_atom_forces", fId)
         positions = section.get_latest_value("x_cpmd_geo_opt_step_positions")
         backend.addArrayValues("atom_positions", positions)
         self.n_frames += 1
@@ -126,11 +127,9 @@ class CPMDGeoOptParser(MainHierarchicalParser):
     def onClose_section_frame_sequence(self, backend, gIndex, section):
         backend.addValue("number_of_frames_in_sequence", self.n_frames)
         if self.sampling_method_gid is not None:
-            backend.addValue("frame_sequence_to_sampling_ref", self.sampling_method_gid)
+            backend.addValue("frame_sequence_to_sampling_method_ref", self.sampling_method_gid)
         if self.frame_refs:
-            backend.addArrayValues("frame_sequence_local_frames_ref", np.array(self.frame_refs))
-        if self.energies:
-            backend.addArrayValues("frame_sequence_potential_energy", np.array(self.energies))
+            backend.addArrayValues("frame_sequence_to_frames_ref", np.array(self.frame_refs))
 
     def onClose_section_sampling_method(self, backend, gIndex, section):
         # For single point calculations there is only one method and system.

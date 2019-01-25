@@ -49,7 +49,7 @@ class CPMDCommonParser(CommonParser):
         self.cache_service.add("configuration_periodic_dimensions", single=False, update=False)
 
         self.cache_service.add("single_configuration_calculation_to_system_ref", single=False, update=True)
-        self.cache_service.add("single_configuration_to_calculation_method_ref", single=False, update=False)
+        self.cache_service.add("single_configuration_calculation_to_method_ref", single=False, update=False)
 
     #===========================================================================
     # Common SimpleMatchers
@@ -177,13 +177,13 @@ class CPMDCommonParser(CommonParser):
                 SM( " LATTICE CONSTANT\(a\.u\.\):\s+(?P<x_cpmd_cell_lattice_constant>{})".format(self.regexs.float)),
                 SM( " CELL DIMENSION:\s+(?P<x_cpmd_cell_dimension>{})".format(self.regexs.eol)),
                 SM( " VOLUME\(OMEGA IN BOHR\^3\):\s+(?P<x_cpmd_cell_volume>{})".format(self.regexs.float)),
-                SM( " LATTICE VECTOR A1\(BOHR\):\s+(?P<x_cpmd_lattice_vector_A1>{})".format(self.regexs.eol)),
-                SM( " LATTICE VECTOR A2\(BOHR\):\s+(?P<x_cpmd_lattice_vector_A2>{})".format(self.regexs.eol)),
-                SM( " LATTICE VECTOR A3\(BOHR\):\s+(?P<x_cpmd_lattice_vector_A3>{})".format(self.regexs.eol)),
-                SM( " RECIP\. LAT\. VEC\. B1\(2Pi/BOHR\):\s+(?P<x_cpmd_reciprocal_lattice_vector_B1>{})".format(self.regexs.eol)),
-                SM( " RECIP\. LAT\. VEC\. B2\(2Pi/BOHR\):\s+(?P<x_cpmd_reciprocal_lattice_vector_B2>{})".format(self.regexs.eol)),
-                SM( " RECIP\. LAT\. VEC\. B3\(2Pi/BOHR\):\s+(?P<x_cpmd_reciprocal_lattice_vector_B3>{})".format(self.regexs.eol)),
-                SM( " RECIP\. LAT\. VEC\. B3\(2Pi/BOHR\):\s+(?P<x_cpmd_reciprocal_lattice_vector_B3>{})".format(self.regexs.eol)),
+                SM( " LATTICE VECTOR A1\(BOHR\):\s+(?P<x_cpmd_lattice_vector_a1>{})".format(self.regexs.eol)),
+                SM( " LATTICE VECTOR A2\(BOHR\):\s+(?P<x_cpmd_lattice_vector_a2>{})".format(self.regexs.eol)),
+                SM( " LATTICE VECTOR A3\(BOHR\):\s+(?P<x_cpmd_lattice_vector_a3>{})".format(self.regexs.eol)),
+                SM( " RECIP\. LAT\. VEC\. B1\(2Pi/BOHR\):\s+(?P<x_cpmd_reciprocal_lattice_vector_b1>{})".format(self.regexs.eol)),
+                SM( " RECIP\. LAT\. VEC\. B2\(2Pi/BOHR\):\s+(?P<x_cpmd_reciprocal_lattice_vector_b2>{})".format(self.regexs.eol)),
+                SM( " RECIP\. LAT\. VEC\. B3\(2Pi/BOHR\):\s+(?P<x_cpmd_reciprocal_lattice_vector_b3>{})".format(self.regexs.eol)),
+                SM( " RECIP\. LAT\. VEC\. B3\(2Pi/BOHR\):\s+(?P<x_cpmd_reciprocal_lattice_vector_b3>{})".format(self.regexs.eol)),
                 SM( " REAL SPACE MESH:\s+(?P<x_cpmd_real_space_mesh>{})".format(self.regexs.eol)),
                 SM( " WAVEFUNCTION CUTOFF\(RYDBERG\):\s+(?P<x_cpmd_wave_function_cutoff>{})".format(self.regexs.float)),
                 SM( " DENSITY CUTOFF\(RYDBERG\):          \(DUAL= 4\.00\)\s+(?P<x_cpmd_density_cutoff>{})".format(self.regexs.float)),
@@ -228,7 +228,7 @@ class CPMDCommonParser(CommonParser):
     #===========================================================================
     # onOpen triggers
     def onOpen_section_method(self, backend, gIndex, section):
-        self.cache_service["single_configuration_to_calculation_method_ref"] = gIndex
+        self.cache_service["single_configuration_calculation_to_method_ref"] = gIndex
 
     def onOpen_section_system(self, backend, gIndex, section):
         self.cache_service["single_configuration_calculation_to_system_ref"] = gIndex
@@ -241,7 +241,7 @@ class CPMDCommonParser(CommonParser):
 
     def onClose_section_single_configuration_calculation(self, backend, gIndex, section):
         self.cache_service.addValue("single_configuration_calculation_to_system_ref")
-        self.cache_service.addValue("single_configuration_to_calculation_method_ref")
+        self.cache_service.addValue("single_configuration_calculation_to_method_ref")
 
     def onClose_section_system(self, backend, gIndex, section):
         self.cache_service.addArrayValues("configuration_periodic_dimensions")
@@ -285,9 +285,9 @@ class CPMDCommonParser(CommonParser):
 
     def onClose_x_cpmd_section_supercell(self, backend, gIndex, section):
         # Simulation cell
-        A1 = section.get_latest_value("x_cpmd_lattice_vector_A1")
-        A2 = section.get_latest_value("x_cpmd_lattice_vector_A2")
-        A3 = section.get_latest_value("x_cpmd_lattice_vector_A3")
+        A1 = section.get_latest_value("x_cpmd_lattice_vector_a1")
+        A2 = section.get_latest_value("x_cpmd_lattice_vector_a2")
+        A3 = section.get_latest_value("x_cpmd_lattice_vector_a3")
         A1_array = self.vector_from_string(A1)
         A2_array = self.vector_from_string(A2)
         A3_array = self.vector_from_string(A3)

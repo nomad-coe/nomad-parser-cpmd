@@ -208,7 +208,9 @@ class CPMDMDParser(MainHierarchicalParser):
                             self.backend.addArrayValues("atom_velocities", velocities, unit="bohr/(hbar/hartree)")
 
                             forces = values[:, 7:10]
+                            fId = self.backend.openSection("section_atom_forces")
                             self.backend.addArrayValues("atom_forces", forces, unit="forceAu")
+                            self.backend.closeSection("section_atom_forces", fId)
 
                             if trajec_file_iterator is None:
                                 pos = values[:, 1:4]
@@ -245,36 +247,13 @@ class CPMDMDParser(MainHierarchicalParser):
                     # msd = values[6]
                     # i_step = values[0]
                     tcpu = values[7]
-                    conserved_quantities.append(conserved_quantity)
-                    potential_energies.append(potential_energy)
-                    kinetic_energies.append(kinetic_energy)
-                    temperatures.append(temperature)
+                    self.backend.addRealValue("conserved_quantity", conserved_quantity, unit="hartree")
+                    self.backend.addRealValue("potential_energy", potential_energy, unit="hartree")
+                    self.backend.addRealValue("kinetic_energy", kinetic_energy, unit="hartree")
+                    self.backend.addRealValue("instant_temperature", temperature, unit="K")
                     self.backend.addRealValue("energy_total", potential_energy, unit="hartree")
                     self.backend.addValue("time_calculation", tcpu)
 
             # Close sections
             self.backend.closeSection("section_single_configuration_calculation", scc_id)
             self.backend.closeSection("section_system", sys_id)
-
-        # Push the summaries
-        if potential_energies:
-            potential_energies = np.array(potential_energies)
-            self.backend.addArrayValues("frame_sequence_potential_energy", potential_energies, unit="hartree")
-        if kinetic_energies:
-            kinetic_energies = np.array(kinetic_energies)
-            self.backend.addArrayValues("frame_sequence_kinetic_energy", kinetic_energies, unit="hartree")
-
-            # Push the statistics. CPMD prints some statistics at the end, but the
-            # mean and std of kinetic energy are missing
-            kin_mean = kinetic_energies.mean()
-            kin_temp = (kinetic_energies - kin_mean)
-            kin_std = np.sqrt(np.dot(kin_temp, kin_temp)/kinetic_energies.size)
-            kin_temp = None
-            self.backend.addArrayValues("frame_sequence_kinetic_energy_stats", np.array([kin_mean, kin_std]), unit="hartree")
-
-        if conserved_quantities:
-            conserved_quantities = np.array(conserved_quantities)
-            self.backend.addArrayValues("frame_sequence_conserved_quantity", conserved_quantities, unit="hartree")
-        if temperatures:
-            temperatures = np.array(temperatures)
-            self.backend.addArrayValues("frame_sequence_temperature", temperatures, unit="K")

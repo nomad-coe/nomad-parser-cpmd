@@ -67,7 +67,7 @@ class CPMDSinglePointParser(MainHierarchicalParser):
                         ),
                         SM( " \(K\+E1\+L\+N\+X\)           TOTAL ENERGY =\s+(?P<energy_total__hartree>{}) A\.U\.".format(self.regexs.float)),
                         SM( " \(E1=A-S\+R\)     ELECTROSTATIC ENERGY =\s+(?P<energy_electrostatic__hartree>{}) A\.U\.".format(self.regexs.float)),
-                        SM( " \(X\)     EXCHANGE-CORRELATION ENERGY =\s+(?P<energy_XC_potential__hartree>{}) A\.U\.".format(self.regexs.float)),
+                        SM( " \(X\)     EXCHANGE-CORRELATION ENERGY =\s+(?P<energy_xc_potential__hartree>{}) A\.U\.".format(self.regexs.float)),
                     ]
                 ),
                 self.cm.footer(),
@@ -124,7 +124,9 @@ class CPMDSinglePointParser(MainHierarchicalParser):
 
             # If anything found, push the results to the correct section
             if len(forces) != 0:
+                fId = parser.backend.openSection('section_atom_forces')
                 parser.backend.addArrayValues("atom_forces", forces, unit="hartree/bohr")
+                parser.backend.closeSection('section_atom_forces', fId)
 
         return wrapper
 
