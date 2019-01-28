@@ -25,6 +25,7 @@ def main():
         license="GPL3",
         package_dir={'': './'},
         packages=find_packages(),
+        include_package_data=True,
         install_requires=[
             'nomadcore',
         ],
