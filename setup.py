@@ -17,14 +17,14 @@ from setuptools import setup, find_packages
 
 def main():
     setup(
-        name="cpmdparser",
-        version="0.1",
-        description="NOMAD parser implementation for CPMD.",
-        author="Lauri Himanen",
-        author_email="lauri.himanen@aalto.fi",
-        license="GPL3",
+        name='cpmdparser',
+        version='0.1',
+        description='NOMAD parser implementation for CPMD.',
+        author='Lauri Himanen',
+        author_email='lauri.himanen@aalto.fi',
+        license='GPL3',
         package_dir={'': './'},
-        packages=find_packages(),
+        packages=['cpmdparser'],
         include_package_data=True,
         install_requires=[
             'nomadcore',
@@ -32,5 +32,5 @@ def main():
     )
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

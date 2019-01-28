@@ -1,1 +1,1 @@
-include cpmdparser/versions/cpmd41/input_data/cpmd_input_tree.pickle
+include ./cpmdparser/versions/cpmd41/input_data/cpmd_input_tree.pickle
