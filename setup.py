@@ -12,7 +12,7 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
 def main():
@@ -24,7 +24,7 @@ def main():
         author_email='lauri.himanen@aalto.fi',
         license='GPL3',
         package_dir={'': './'},
-        packages=['cpmdparser'],
+        packages=find_packages(),
         include_package_data=True,
         install_requires=[
             'nomadcore',
