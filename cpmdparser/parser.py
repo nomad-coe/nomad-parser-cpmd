@@ -19,6 +19,7 @@ import re
 import logging
 import importlib
 from nomadcore.baseclasses import ParserInterface
+logger = logging.getLogger("nomad")
 
 
 class CPMDRunType(object):
@@ -35,21 +36,8 @@ class CPMDParser(ParserInterface):
     After the implementation has been setup, you can parse the files with
     parse().
     """
-    def __init__(
-        self, metainfo_to_keep=None, backend=None, default_units=None,
-        metainfo_units=None, debug=True, logger=None,
-        log_level=logging.ERROR, store=True
-    ):
-        super(CPMDParser, self).__init__(
-            metainfo_to_keep, backend, default_units, metainfo_units,
-            debug, log_level, store
-        )
-
-        if logger is not None:
-            self.logger = logger
-            self.logger.debug('received logger')
-        else:
-            self.logger = logging.getLogger(__name__)
+    def __init__(self, metainfo_to_keep=None, backend=None, default_units=None, metainfo_units=None, debug=True, log_level=logging.ERROR, store=True):
+        super(CPMDParser, self).__init__(metainfo_to_keep, backend, default_units, metainfo_units, debug, log_level, store)
 
     def setup_version(self):
         """Setups the version by looking at the output file and the version
@@ -58,7 +46,7 @@ class CPMDParser(ParserInterface):
         # Search for the CPMD version specification and the run type for the
         # calculation. The correct and optimized parser is initialized based on
         # this information.
-        regex_version = re.compile(r"\s+VERSION ([\d\.]+)")
+        regex_version = re.compile("\s+VERSION ([\d\.]+)")
         regex_single_point = re.compile(r" SINGLE POINT DENSITY OPTIMIZATION")
         regex_geo_opt = re.compile(r" OPTIMIZATION OF IONIC POSITIONS")
         regex_md = re.compile(r"( CAR-PARRINELLO MOLECULAR DYNAMICS)|( BORN-OPPENHEIMER MOLECULAR DYNAMICS)")
@@ -106,12 +94,12 @@ class CPMDParser(ParserInterface):
 
         if version_id is None:
             msg = "Could not find a version specification from the given main file."
-            self.logger.exception(msg)
+            logger.exception(msg)
             raise RuntimeError(msg)
 
         if run_type is None:
             msg = "Could not find a run type specification from the given main file at: {}".format(self.parser_context.main_file)
-            self.logger.exception(msg)
+            logger.exception(msg)
             raise RuntimeError(msg)
 
         # Setup the root folder to the fileservice that is used to access files
@@ -139,16 +127,17 @@ class CPMDParser(ParserInterface):
         try:
             parser_module = importlib.import_module(base)
         except ImportError:
-            self.logger.warning("Could not find a parser for version '{}'. Trying to default to the base implementation for CPMD 4.1".format(version_id))
+            logger.warning("Could not find a parser for version '{}'. Trying to default to the base implementation for CPMD 4.1".format(version_id))
             base = "cpmdparser.versions.cpmd41.{}".format(run_type.module_name)
             try:
                 parser_module = importlib.import_module(base)
             except ImportError:
-                self.logger.exception("Tried to default to the CPMD 4.1 implementation but could not find the correct module.")
+                logger.exception("Tried to default to the CPMD 4.1 implementation but could not find the correct module.")
                 raise
         try:
             parser_class = getattr(parser_module, "{}".format(run_type.class_name))
         except AttributeError:
-            self.logger.exception("A parser class '{}' could not be found in the module '[]'.".format(run_type.class_name, parser_module))
+            logger.exception("A parser class '{}' could not be found in the module '[]'.".format(run_type.class_name, parser_module))
             raise
         self.main_parser = parser_class(self.parser_context)
+
