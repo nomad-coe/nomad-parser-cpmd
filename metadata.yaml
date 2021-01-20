@@ -1,7 +1,9 @@
 codeLabel: CPMD
 codeLabelStyle: all in capitals
+codeName: cpmd
 codeUrl: https://www.cpmd.org/
 parserDirName: dependencies/parsers/cpmd/
-parserGitUrl: https://gitlab.mpcdf.mpg.de/nomad-lab/parser-cpmd
+parserGitUrl: https://github.com/nomad-coe/nomad-parser-cpmd.git
 parserSpecific: ''
+preamble: ''
 tableOfFiles: ''
