@@ -17,4 +17,4 @@
 # limitations under the License.
 #
 
-from cpmdparser.parser import CPMDParser
+from .cpmd_parser import CPMDParser
