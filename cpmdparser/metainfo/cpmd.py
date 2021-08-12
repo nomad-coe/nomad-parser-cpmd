@@ -22,14 +22,7 @@ from nomad.metainfo import (  # pylint: disable=unused-import
     MSection, MCategory, Category, Package, Quantity, Section, SubSection, SectionProxy,
     Reference
 )
-from nomad.metainfo.legacy import LegacyDefinition
-
-from nomad.datamodel.metainfo import public
-
-m_package = Package(
-    name='cpmd_nomadmetainfo_json',
-    description='None',
-    a_legacy=LegacyDefinition(name='cpmd.nomadmetainfo.json'))
+from nomad.datamodel.metainfo import run
 
 
 class x_cpmd_section_input_ATOMS_ATOMIC_CHARGES(MSection):
@@ -38,23 +31,21 @@ class x_cpmd_section_input_ATOMS_ATOMIC_CHARGES(MSection):
     from the next line. One value per atomic species has to be given.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_ATOMS.ATOMIC_CHARGES'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_ATOMS_ATOMIC_CHARGES_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword ATOMIC_CHARGES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_ATOMS.ATOMIC_CHARGES_options'))
+        ''')
 
     x_cpmd_input_ATOMS_ATOMIC_CHARGES_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword ATOMIC_CHARGES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_ATOMS.ATOMIC_CHARGES_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_ATOMS_CHANGE_BONDS(MSection):
@@ -68,23 +59,21 @@ class x_cpmd_section_input_ATOMS_CHANGE_BONDS(MSection):
     2 &   &          1 & 2 & +1       6 & 8 & -1 \\end{tabular} }
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_ATOMS.CHANGE_BONDS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_ATOMS_CHANGE_BONDS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword CHANGE_BONDS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_ATOMS.CHANGE_BONDS_options'))
+        ''')
 
     x_cpmd_input_ATOMS_CHANGE_BONDS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword CHANGE_BONDS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_ATOMS.CHANGE_BONDS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_ATOMS_CONFINEMENT_POTENTIAL(MSection):
@@ -99,23 +88,21 @@ class x_cpmd_section_input_ATOMS_CONFINEMENT_POTENTIAL(MSection):
     $G=|{\\bf G}|$.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_ATOMS.CONFINEMENT_POTENTIAL'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_ATOMS_CONFINEMENT_POTENTIAL_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword CONFINEMENT_POTENTIAL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_ATOMS.CONFINEMENT_POTENTIAL_options'))
+        ''')
 
     x_cpmd_input_ATOMS_CONFINEMENT_POTENTIAL_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword CONFINEMENT_POTENTIAL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_ATOMS.CONFINEMENT_POTENTIAL_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_ATOMS_DUMMY_ATOMS(MSection):
@@ -142,23 +129,21 @@ class x_cpmd_section_input_ATOMS_DUMMY_ATOMS(MSection):
     for capping, it is total-number-of-atoms plus number-of-dummy-hydrogens plus 1
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_ATOMS.DUMMY_ATOMS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_ATOMS_DUMMY_ATOMS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword DUMMY_ATOMS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_ATOMS.DUMMY_ATOMS_options'))
+        ''')
 
     x_cpmd_input_ATOMS_DUMMY_ATOMS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword DUMMY_ATOMS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_ATOMS.DUMMY_ATOMS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_ATOMS_GENERATE_COORDINATES(MSection):
@@ -169,23 +154,21 @@ class x_cpmd_section_input_ATOMS_GENERATE_COORDINATES(MSection):
     overwritten. Also the total number of atoms per species has to be correct.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_ATOMS.GENERATE_COORDINATES'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_ATOMS_GENERATE_COORDINATES_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword GENERATE_COORDINATES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_ATOMS.GENERATE_COORDINATES_options'))
+        ''')
 
     x_cpmd_input_ATOMS_GENERATE_COORDINATES_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword GENERATE_COORDINATES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_ATOMS.GENERATE_COORDINATES_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_ATOMS_ISOTOPE(MSection):
@@ -197,23 +180,21 @@ class x_cpmd_section_input_ATOMS_ISOTOPE(MSection):
     of their definition).
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_ATOMS.ISOTOPE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_ATOMS_ISOTOPE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword ISOTOPE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_ATOMS.ISOTOPE_options'))
+        ''')
 
     x_cpmd_input_ATOMS_ISOTOPE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword ISOTOPE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_ATOMS.ISOTOPE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_ATOMS_MOVIE_TYPE(MSection):
@@ -222,23 +203,21 @@ class x_cpmd_section_input_ATOMS_MOVIE_TYPE(MSection):
     Values from 0 to 5 were allowed in the original MOVIE format.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_ATOMS.MOVIE_TYPE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_ATOMS_MOVIE_TYPE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword MOVIE_TYPE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_ATOMS.MOVIE_TYPE_options'))
+        ''')
 
     x_cpmd_input_ATOMS_MOVIE_TYPE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword MOVIE_TYPE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_ATOMS.MOVIE_TYPE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_ATOMS(MSection):
@@ -246,50 +225,42 @@ class x_cpmd_section_input_ATOMS(MSection):
     Atoms and pseudopotentials and related parameters (\\textbf{required}).
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_ATOMS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_ATOMS_default_keyword = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters that are present in the section ATOMS even without a keyword.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_ATOMS_default_keyword'))
+        ''')
 
     x_cpmd_section_input_ATOMS_ATOMIC_CHARGES = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_ATOMS_ATOMIC_CHARGES'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_ATOMS.ATOMIC_CHARGES'))
+        repeats=True)
 
     x_cpmd_section_input_ATOMS_CHANGE_BONDS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_ATOMS_CHANGE_BONDS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_ATOMS.CHANGE_BONDS'))
+        repeats=True)
 
     x_cpmd_section_input_ATOMS_CONFINEMENT_POTENTIAL = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_ATOMS_CONFINEMENT_POTENTIAL'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_ATOMS.CONFINEMENT_POTENTIAL'))
+        repeats=True)
 
     x_cpmd_section_input_ATOMS_DUMMY_ATOMS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_ATOMS_DUMMY_ATOMS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_ATOMS.DUMMY_ATOMS'))
+        repeats=True)
 
     x_cpmd_section_input_ATOMS_GENERATE_COORDINATES = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_ATOMS_GENERATE_COORDINATES'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_ATOMS.GENERATE_COORDINATES'))
+        repeats=True)
 
     x_cpmd_section_input_ATOMS_ISOTOPE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_ATOMS_ISOTOPE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_ATOMS.ISOTOPE'))
+        repeats=True)
 
     x_cpmd_section_input_ATOMS_MOVIE_TYPE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_ATOMS_MOVIE_TYPE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_ATOMS.MOVIE_TYPE'))
+        repeats=True)
 
 
 class x_cpmd_section_input_BASIS(MSection):
@@ -297,15 +268,14 @@ class x_cpmd_section_input_BASIS(MSection):
     Atomic basis sets for properties or initial guess
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_BASIS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_BASIS_default_keyword = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters that are present in the section BASIS even without a keyword.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_BASIS_default_keyword'))
+        ''')
 
 
 class x_cpmd_section_input_CLASSIC_FREEZE_QUANTUM(MSection):
@@ -314,23 +284,21 @@ class x_cpmd_section_input_CLASSIC_FREEZE_QUANTUM(MSection):
     !).
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CLASSIC.FREEZE_QUANTUM'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CLASSIC_FREEZE_QUANTUM_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword FREEZE_QUANTUM.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CLASSIC.FREEZE_QUANTUM_options'))
+        ''')
 
     x_cpmd_input_CLASSIC_FREEZE_QUANTUM_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword FREEZE_QUANTUM.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CLASSIC.FREEZE_QUANTUM_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CLASSIC_FULL_TRAJECTORY(MSection):
@@ -338,23 +306,21 @@ class x_cpmd_section_input_CLASSIC_FULL_TRAJECTORY(MSection):
     Not documented
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CLASSIC.FULL_TRAJECTORY'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CLASSIC_FULL_TRAJECTORY_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword FULL_TRAJECTORY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CLASSIC.FULL_TRAJECTORY_options'))
+        ''')
 
     x_cpmd_input_CLASSIC_FULL_TRAJECTORY_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword FULL_TRAJECTORY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CLASSIC.FULL_TRAJECTORY_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CLASSIC_PRINT_COORDINATES(MSection):
@@ -362,23 +328,21 @@ class x_cpmd_section_input_CLASSIC_PRINT_COORDINATES(MSection):
     Not documented
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CLASSIC.PRINT_COORDINATES'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CLASSIC_PRINT_COORDINATES_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword PRINT_COORDINATES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CLASSIC.PRINT_COORDINATES_options'))
+        ''')
 
     x_cpmd_input_CLASSIC_PRINT_COORDINATES_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword PRINT_COORDINATES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CLASSIC.PRINT_COORDINATES_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CLASSIC_PRINT_FF(MSection):
@@ -386,23 +350,21 @@ class x_cpmd_section_input_CLASSIC_PRINT_FF(MSection):
     Not documented
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CLASSIC.PRINT_FF'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CLASSIC_PRINT_FF_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword PRINT_FF.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CLASSIC.PRINT_FF_options'))
+        ''')
 
     x_cpmd_input_CLASSIC_PRINT_FF_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword PRINT_FF.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CLASSIC.PRINT_FF_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CLASSIC(MSection):
@@ -410,35 +372,30 @@ class x_cpmd_section_input_CLASSIC(MSection):
     Simple classical code interface
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CLASSIC'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CLASSIC_default_keyword = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters that are present in the section CLASSIC even without a keyword.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CLASSIC_default_keyword'))
+        ''')
 
     x_cpmd_section_input_CLASSIC_FREEZE_QUANTUM = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CLASSIC_FREEZE_QUANTUM'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CLASSIC.FREEZE_QUANTUM'))
+        repeats=True)
 
     x_cpmd_section_input_CLASSIC_FULL_TRAJECTORY = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CLASSIC_FULL_TRAJECTORY'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CLASSIC.FULL_TRAJECTORY'))
+        repeats=True)
 
     x_cpmd_section_input_CLASSIC_PRINT_COORDINATES = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CLASSIC_PRINT_COORDINATES'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CLASSIC.PRINT_COORDINATES'))
+        repeats=True)
 
     x_cpmd_section_input_CLASSIC_PRINT_FF = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CLASSIC_PRINT_FF'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CLASSIC.PRINT_FF'))
+        repeats=True)
 
 
 class x_cpmd_section_input_CPMD_ALEXANDER_MIXING(MSection):
@@ -449,23 +406,21 @@ class x_cpmd_section_input_CPMD_ALEXANDER_MIXING(MSection):
     \\textbf{Default} value is \\defaultvalue{0.9}
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.ALEXANDER_MIXING'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_ALEXANDER_MIXING_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword ALEXANDER_MIXING.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.ALEXANDER_MIXING_options'))
+        ''')
 
     x_cpmd_input_CPMD_ALEXANDER_MIXING_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword ALEXANDER_MIXING.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.ALEXANDER_MIXING_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_ALLTOALL(MSection):
@@ -474,23 +429,21 @@ class x_cpmd_section_input_CPMD_ALLTOALL(MSection):
     single/double precision numbers. Default is to use double precision numbers.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.ALLTOALL'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_ALLTOALL_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword ALLTOALL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.ALLTOALL_options'))
+        ''')
 
     x_cpmd_input_CPMD_ALLTOALL_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword ALLTOALL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.ALLTOALL_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_ANDERSON_MIXING(MSection):
@@ -505,23 +458,21 @@ class x_cpmd_section_input_CPMD_ANDERSON_MIXING(MSection):
     each with a threshold density and an Anderson mixing parameter.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.ANDERSON_MIXING'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_ANDERSON_MIXING_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword ANDERSON_MIXING.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.ANDERSON_MIXING_options'))
+        ''')
 
     x_cpmd_input_CPMD_ANDERSON_MIXING_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword ANDERSON_MIXING.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.ANDERSON_MIXING_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_ANNEALING(MSection):
@@ -530,23 +481,21 @@ class x_cpmd_section_input_CPMD_ANNEALING(MSection):
     read from the next line.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.ANNEALING'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_ANNEALING_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword ANNEALING.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.ANNEALING_options'))
+        ''')
 
     x_cpmd_input_CPMD_ANNEALING_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword ANNEALING.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.ANNEALING_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_BENCHMARK(MSection):
@@ -555,23 +504,21 @@ class x_cpmd_section_input_CPMD_BENCHMARK(MSection):
     want to know more, have a look in the source code.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.BENCHMARK'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_BENCHMARK_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword BENCHMARK.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.BENCHMARK_options'))
+        ''')
 
     x_cpmd_input_CPMD_BENCHMARK_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword BENCHMARK.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.BENCHMARK_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_BERENDSEN(MSection):
@@ -585,23 +532,21 @@ class x_cpmd_section_input_CPMD_BERENDSEN(MSection):
     defined statistical mechanical ensemble.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.BERENDSEN'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_BERENDSEN_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword BERENDSEN.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.BERENDSEN_options'))
+        ''')
 
     x_cpmd_input_CPMD_BERENDSEN_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword BERENDSEN.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.BERENDSEN_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_BFGS(MSection):
@@ -611,23 +556,21 @@ class x_cpmd_section_input_CPMD_BFGS(MSection):
     procedure~\\cite{Fletcher80}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.BFGS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_BFGS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword BFGS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.BFGS_options'))
+        ''')
 
     x_cpmd_input_CPMD_BFGS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword BFGS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.BFGS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_BLOCKSIZE_STATES(MSection):
@@ -637,23 +580,21 @@ class x_cpmd_section_input_CPMD_BLOCKSIZE_STATES(MSection):
     equally distribute states over all processors.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.BLOCKSIZE_STATES'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_BLOCKSIZE_STATES_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword BLOCKSIZE_STATES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.BLOCKSIZE_STATES_options'))
+        ''')
 
     x_cpmd_input_CPMD_BLOCKSIZE_STATES_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword BLOCKSIZE_STATES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.BLOCKSIZE_STATES_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_BOGOLIUBOV_CORRECTION(MSection):
@@ -665,23 +606,21 @@ class x_cpmd_section_input_CPMD_BOGOLIUBOV_CORRECTION(MSection):
     The keyword has to appear after \\refkeyword{FREE ENERGY FUNCTIONAL}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.BOGOLIUBOV_CORRECTION'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_BOGOLIUBOV_CORRECTION_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword BOGOLIUBOV_CORRECTION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.BOGOLIUBOV_CORRECTION_options'))
+        ''')
 
     x_cpmd_input_CPMD_BOGOLIUBOV_CORRECTION_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword BOGOLIUBOV_CORRECTION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.BOGOLIUBOV_CORRECTION_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_BOX_WALLS(MSection):
@@ -697,23 +636,21 @@ class x_cpmd_section_input_CPMD_BOX_WALLS(MSection):
     momentum conservation.  This feature is {\\bf disabled by default}
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.BOX_WALLS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_BOX_WALLS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword BOX_WALLS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.BOX_WALLS_options'))
+        ''')
 
     x_cpmd_input_CPMD_BOX_WALLS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword BOX_WALLS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.BOX_WALLS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_BROYDEN_MIXING(MSection):
@@ -740,23 +677,21 @@ class x_cpmd_section_input_CPMD_BROYDEN_MIXING(MSection):
     DEFAULT} to use the default values.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.BROYDEN_MIXING'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_BROYDEN_MIXING_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword BROYDEN_MIXING.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.BROYDEN_MIXING_options'))
+        ''')
 
     x_cpmd_input_CPMD_BROYDEN_MIXING_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword BROYDEN_MIXING.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.BROYDEN_MIXING_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_CAYLEY(MSection):
@@ -765,23 +700,21 @@ class x_cpmd_section_input_CPMD_CAYLEY(MSection):
     \\refkeyword{PROPAGATION SPECTRA}. At present is the only propagation scheme availabe.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.CAYLEY'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_CAYLEY_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword CAYLEY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.CAYLEY_options'))
+        ''')
 
     x_cpmd_input_CPMD_CAYLEY_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword CAYLEY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.CAYLEY_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_CDFT(MSection):
@@ -820,23 +753,21 @@ class x_cpmd_section_input_CPMD_CDFT(MSection):
     CDFT\\_RESTART everytime the RESTART file is written.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.CDFT'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_CDFT_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword CDFT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.CDFT_options'))
+        ''')
 
     x_cpmd_input_CPMD_CDFT_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword CDFT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.CDFT_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_CENTER_MOLECULE(MSection):
@@ -846,23 +777,21 @@ class x_cpmd_section_input_CPMD_CENTER_MOLECULE(MSection):
     from the input file.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.CENTER_MOLECULE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_CENTER_MOLECULE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword CENTER_MOLECULE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.CENTER_MOLECULE_options'))
+        ''')
 
     x_cpmd_input_CPMD_CENTER_MOLECULE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword CENTER_MOLECULE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.CENTER_MOLECULE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_CHECK_MEMORY(MSection):
@@ -871,23 +800,21 @@ class x_cpmd_section_input_CPMD_CHECK_MEMORY(MSection):
     is done. By default memory is checked only at break points.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.CHECK_MEMORY'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_CHECK_MEMORY_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword CHECK_MEMORY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.CHECK_MEMORY_options'))
+        ''')
 
     x_cpmd_input_CPMD_CHECK_MEMORY_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword CHECK_MEMORY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.CHECK_MEMORY_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_CLASSTRESS(MSection):
@@ -895,23 +822,21 @@ class x_cpmd_section_input_CPMD_CLASSTRESS(MSection):
     Not documented.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.CLASSTRESS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_CLASSTRESS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword CLASSTRESS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.CLASSTRESS_options'))
+        ''')
 
     x_cpmd_input_CPMD_CLASSTRESS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword CLASSTRESS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.CLASSTRESS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_CMASS(MSection):
@@ -920,23 +845,21 @@ class x_cpmd_section_input_CPMD_CMASS(MSection):
     \\textbf{Default} value is \\defaultvalue{200}
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.CMASS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_CMASS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword CMASS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.CMASS_options'))
+        ''')
 
     x_cpmd_input_CPMD_CMASS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword CMASS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.CMASS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_COMBINE_SYSTEMS(MSection):
@@ -956,23 +879,21 @@ class x_cpmd_section_input_CPMD_COMBINE_SYSTEMS(MSection):
     WAVEFUNCTION} have to be activated.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.COMBINE_SYSTEMS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_COMBINE_SYSTEMS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword COMBINE_SYSTEMS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.COMBINE_SYSTEMS_options'))
+        ''')
 
     x_cpmd_input_CPMD_COMBINE_SYSTEMS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword COMBINE_SYSTEMS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.COMBINE_SYSTEMS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_COMPRESS(MSection):
@@ -986,23 +907,21 @@ class x_cpmd_section_input_CPMD_COMPRESS(MSection):
     section~\\ref{input:basis} for more details.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.COMPRESS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_COMPRESS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword COMPRESS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.COMPRESS_options'))
+        ''')
 
     x_cpmd_input_CPMD_COMPRESS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword COMPRESS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.COMPRESS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_CONJUGATE_GRADIENTS(MSection):
@@ -1012,23 +931,21 @@ class x_cpmd_section_input_CPMD_CONJUGATE_GRADIENTS(MSection):
     conjugate gradients scheme is used to relax the atomic positions.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.CONJUGATE_GRADIENTS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_CONJUGATE_GRADIENTS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword CONJUGATE_GRADIENTS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.CONJUGATE_GRADIENTS_options'))
+        ''')
 
     x_cpmd_input_CPMD_CONJUGATE_GRADIENTS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword CONJUGATE_GRADIENTS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.CONJUGATE_GRADIENTS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_CONVERGENCE(MSection):
@@ -1071,23 +988,21 @@ class x_cpmd_section_input_CPMD_CONVERGENCE(MSection):
     to the full convergence criterion.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.CONVERGENCE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_CONVERGENCE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword CONVERGENCE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.CONVERGENCE_options'))
+        ''')
 
     x_cpmd_input_CPMD_CONVERGENCE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword CONVERGENCE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.CONVERGENCE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_CZONES(MSection):
@@ -1101,23 +1016,21 @@ class x_cpmd_section_input_CPMD_CZONES(MSection):
     \\mathbb{R}_+$ define the boundaries between zone 1-2 and 2-3, respectively.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.CZONES'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_CZONES_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword CZONES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.CZONES_options'))
+        ''')
 
     x_cpmd_input_CPMD_CZONES_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword CZONES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.CZONES_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_DAMPING(MSection):
@@ -1132,23 +1045,21 @@ class x_cpmd_section_input_CPMD_DAMPING(MSection):
     converge to the wrong state.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.DAMPING'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_DAMPING_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword DAMPING.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.DAMPING_options'))
+        ''')
 
     x_cpmd_input_CPMD_DAMPING_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword DAMPING.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.DAMPING_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_DAVIDSON_DIAGONALIZATION(MSection):
@@ -1156,23 +1067,21 @@ class x_cpmd_section_input_CPMD_DAVIDSON_DIAGONALIZATION(MSection):
     Use Davidson diagonalization scheme.\\cite{davidson75}
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.DAVIDSON_DIAGONALIZATION'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_DAVIDSON_DIAGONALIZATION_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword DAVIDSON_DIAGONALIZATION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.DAVIDSON_DIAGONALIZATION_options'))
+        ''')
 
     x_cpmd_input_CPMD_DAVIDSON_DIAGONALIZATION_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword DAVIDSON_DIAGONALIZATION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.DAVIDSON_DIAGONALIZATION_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_DAVIDSON_PARAMETER(MSection):
@@ -1189,23 +1098,21 @@ class x_cpmd_section_input_CPMD_DAVIDSON_PARAMETER(MSection):
     be saved but convergence might be somewhat slower.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.DAVIDSON_PARAMETER'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_DAVIDSON_PARAMETER_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword DAVIDSON_PARAMETER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.DAVIDSON_PARAMETER_options'))
+        ''')
 
     x_cpmd_input_CPMD_DAVIDSON_PARAMETER_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword DAVIDSON_PARAMETER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.DAVIDSON_PARAMETER_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_DEBUG_CODE(MSection):
@@ -1213,23 +1120,21 @@ class x_cpmd_section_input_CPMD_DEBUG_CODE(MSection):
     Very verbose output concerning subroutine calls for debugging purpose.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.DEBUG_CODE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_DEBUG_CODE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword DEBUG_CODE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.DEBUG_CODE_options'))
+        ''')
 
     x_cpmd_input_CPMD_DEBUG_CODE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword DEBUG_CODE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.DEBUG_CODE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_DEBUG_FILEOPEN(MSection):
@@ -1237,23 +1142,21 @@ class x_cpmd_section_input_CPMD_DEBUG_FILEOPEN(MSection):
     Very verbose output concerning opening files for debugging purpose.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.DEBUG_FILEOPEN'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_DEBUG_FILEOPEN_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword DEBUG_FILEOPEN.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.DEBUG_FILEOPEN_options'))
+        ''')
 
     x_cpmd_input_CPMD_DEBUG_FILEOPEN_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword DEBUG_FILEOPEN.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.DEBUG_FILEOPEN_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_DEBUG_FORCES(MSection):
@@ -1262,23 +1165,21 @@ class x_cpmd_section_input_CPMD_DEBUG_FORCES(MSection):
     debugging purpose.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.DEBUG_FORCES'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_DEBUG_FORCES_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword DEBUG_FORCES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.DEBUG_FORCES_options'))
+        ''')
 
     x_cpmd_input_CPMD_DEBUG_FORCES_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword DEBUG_FORCES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.DEBUG_FORCES_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_DEBUG_MEMORY(MSection):
@@ -1286,23 +1187,21 @@ class x_cpmd_section_input_CPMD_DEBUG_MEMORY(MSection):
     Very verbose output concerning memory for debugging purpose.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.DEBUG_MEMORY'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_DEBUG_MEMORY_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword DEBUG_MEMORY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.DEBUG_MEMORY_options'))
+        ''')
 
     x_cpmd_input_CPMD_DEBUG_MEMORY_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword DEBUG_MEMORY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.DEBUG_MEMORY_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_DEBUG_NOACC(MSection):
@@ -1312,23 +1211,21 @@ class x_cpmd_section_input_CPMD_DEBUG_NOACC(MSection):
     otherwise identical runs.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.DEBUG_NOACC'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_DEBUG_NOACC_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword DEBUG_NOACC.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.DEBUG_NOACC_options'))
+        ''')
 
     x_cpmd_input_CPMD_DEBUG_NOACC_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword DEBUG_NOACC.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.DEBUG_NOACC_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_DIIS_MIXING(MSection):
@@ -1339,23 +1236,21 @@ class x_cpmd_section_input_CPMD_DIIS_MIXING(MSection):
     (however not useful).
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.DIIS_MIXING'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_DIIS_MIXING_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword DIIS_MIXING.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.DIIS_MIXING_options'))
+        ''')
 
     x_cpmd_input_CPMD_DIIS_MIXING_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword DIIS_MIXING.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.DIIS_MIXING_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_DIPOLE_DYNAMICS(MSection):
@@ -1373,23 +1268,21 @@ class x_cpmd_section_input_CPMD_DIPOLE_DYNAMICS(MSection):
     controlled by the following keywords.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.DIPOLE_DYNAMICS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_DIPOLE_DYNAMICS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword DIPOLE_DYNAMICS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.DIPOLE_DYNAMICS_options'))
+        ''')
 
     x_cpmd_input_CPMD_DIPOLE_DYNAMICS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword DIPOLE_DYNAMICS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.DIPOLE_DYNAMICS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_DISTRIBUTE_FNL(MSection):
@@ -1397,23 +1290,21 @@ class x_cpmd_section_input_CPMD_DISTRIBUTE_FNL(MSection):
     The array \\texttt{FNL} is distributed in parallel runs.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.DISTRIBUTE_FNL'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_DISTRIBUTE_FNL_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword DISTRIBUTE_FNL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.DISTRIBUTE_FNL_options'))
+        ''')
 
     x_cpmd_input_CPMD_DISTRIBUTE_FNL_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword DISTRIBUTE_FNL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.DISTRIBUTE_FNL_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_DISTRIBUTED_LINALG(MSection):
@@ -1428,23 +1319,21 @@ class x_cpmd_section_input_CPMD_DISTRIBUTED_LINALG(MSection):
     divisor} of the number of  \\refkeyword{STATES}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.DISTRIBUTED_LINALG'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_DISTRIBUTED_LINALG_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword DISTRIBUTED_LINALG.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.DISTRIBUTED_LINALG_options'))
+        ''')
 
     x_cpmd_input_CPMD_DISTRIBUTED_LINALG_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword DISTRIBUTED_LINALG.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.DISTRIBUTED_LINALG_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_ELECTRONIC_SPECTRA(MSection):
@@ -1455,23 +1344,21 @@ class x_cpmd_section_input_CPMD_ELECTRONIC_SPECTRA(MSection):
     \\referto{inputkw:tddft}{\\&TDDFT} for further options.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.ELECTRONIC_SPECTRA'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_ELECTRONIC_SPECTRA_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword ELECTRONIC_SPECTRA.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.ELECTRONIC_SPECTRA_options'))
+        ''')
 
     x_cpmd_input_CPMD_ELECTRONIC_SPECTRA_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword ELECTRONIC_SPECTRA.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.ELECTRONIC_SPECTRA_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_ELECTROSTATIC_POTENTIAL(MSection):
@@ -1484,23 +1371,21 @@ class x_cpmd_section_input_CPMD_ELECTROSTATIC_POTENTIAL(MSection):
     time step number will be appended to the filename.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.ELECTROSTATIC_POTENTIAL'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_ELECTROSTATIC_POTENTIAL_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword ELECTROSTATIC_POTENTIAL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.ELECTROSTATIC_POTENTIAL_options'))
+        ''')
 
     x_cpmd_input_CPMD_ELECTROSTATIC_POTENTIAL_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword ELECTROSTATIC_POTENTIAL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.ELECTROSTATIC_POTENTIAL_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_ELF(MSection):
@@ -1520,23 +1405,21 @@ class x_cpmd_section_input_CPMD_ELF(MSection):
     sense when using Vanderbilt's ultra-soft pseudopotentials!
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.ELF'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_ELF_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword ELF.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.ELF_options'))
+        ''')
 
     x_cpmd_input_CPMD_ELF_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword ELF.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.ELF_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_EMASS(MSection):
@@ -1545,23 +1428,21 @@ class x_cpmd_section_input_CPMD_EMASS(MSection):
     Default} is {\\bf 400 a.u.}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.EMASS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_EMASS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword EMASS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.EMASS_options'))
+        ''')
 
     x_cpmd_input_CPMD_EMASS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword EMASS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.EMASS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_ENERGYBANDS(MSection):
@@ -1569,23 +1450,21 @@ class x_cpmd_section_input_CPMD_ENERGYBANDS(MSection):
     Write the band energies (eigenvalues) for k points in the file ENERGYBANDS.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.ENERGYBANDS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_ENERGYBANDS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword ENERGYBANDS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.ENERGYBANDS_options'))
+        ''')
 
     x_cpmd_input_CPMD_ENERGYBANDS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword ENERGYBANDS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.ENERGYBANDS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_EXTERNAL_POTENTIAL(MSection):
@@ -1594,23 +1473,21 @@ class x_cpmd_section_input_CPMD_EXTERNAL_POTENTIAL(MSection):
     forces acting on the ions.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.EXTERNAL_POTENTIAL'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_EXTERNAL_POTENTIAL_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword EXTERNAL_POTENTIAL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.EXTERNAL_POTENTIAL_options'))
+        ''')
 
     x_cpmd_input_CPMD_EXTERNAL_POTENTIAL_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword EXTERNAL_POTENTIAL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.EXTERNAL_POTENTIAL_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_EXTRAPOLATE_CONSTRAINT(MSection):
@@ -1622,23 +1499,21 @@ class x_cpmd_section_input_CPMD_EXTRAPOLATE_CONSTRAINT(MSection):
     $k_\\text{opt}$.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.EXTRAPOLATE_CONSTRAINT'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_EXTRAPOLATE_CONSTRAINT_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword EXTRAPOLATE_CONSTRAINT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.EXTRAPOLATE_CONSTRAINT_options'))
+        ''')
 
     x_cpmd_input_CPMD_EXTRAPOLATE_CONSTRAINT_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword EXTRAPOLATE_CONSTRAINT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.EXTRAPOLATE_CONSTRAINT_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_EXTRAPOLATE_WFN(MSection):
@@ -1653,23 +1528,21 @@ class x_cpmd_section_input_CPMD_EXTRAPOLATE_WFN(MSection):
     is also written to restart files. See \\refkeyword{RESTART} for how to read it back.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.EXTRAPOLATE_WFN'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_EXTRAPOLATE_WFN_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword EXTRAPOLATE_WFN.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.EXTRAPOLATE_WFN_options'))
+        ''')
 
     x_cpmd_input_CPMD_EXTRAPOLATE_WFN_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword EXTRAPOLATE_WFN.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.EXTRAPOLATE_WFN_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_FFTW_WISDOM(MSection):
@@ -1684,23 +1557,21 @@ class x_cpmd_section_input_CPMD_FFTW_WISDOM(MSection):
     default settings unless you know what you are doing.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.FFTW_WISDOM'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_FFTW_WISDOM_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword FFTW_WISDOM.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.FFTW_WISDOM_options'))
+        ''')
 
     x_cpmd_input_CPMD_FFTW_WISDOM_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword FFTW_WISDOM.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.FFTW_WISDOM_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_FILE_FUSION(MSection):
@@ -1710,23 +1581,21 @@ class x_cpmd_section_input_CPMD_FILE_FUSION(MSection):
     to start \\refkeyword{SURFACE HOPPING} calculations.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.FILE_FUSION'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_FILE_FUSION_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword FILE_FUSION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.FILE_FUSION_options'))
+        ''')
 
     x_cpmd_input_CPMD_FILE_FUSION_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword FILE_FUSION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.FILE_FUSION_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_FILEPATH(MSection):
@@ -1736,23 +1605,21 @@ class x_cpmd_section_input_CPMD_FILEPATH(MSection):
     {\\bf CPMD\\_FILEPATH}. {\\bf Default} is the {\\bf current directory}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.FILEPATH'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_FILEPATH_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword FILEPATH.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.FILEPATH_options'))
+        ''')
 
     x_cpmd_input_CPMD_FILEPATH_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword FILEPATH.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.FILEPATH_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_FINITE_DIFFERENCES(MSection):
@@ -1768,23 +1635,21 @@ class x_cpmd_section_input_CPMD_FINITE_DIFFERENCES(MSection):
     Bohr, depending on whether the \\refkeyword{ANGSTROM} keyword is specified or not.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.FINITE_DIFFERENCES'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_FINITE_DIFFERENCES_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword FINITE_DIFFERENCES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.FINITE_DIFFERENCES_options'))
+        ''')
 
     x_cpmd_input_CPMD_FINITE_DIFFERENCES_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword FINITE_DIFFERENCES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.FINITE_DIFFERENCES_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_FIXRHO_UPWFN(MSection):
@@ -1810,23 +1675,21 @@ class x_cpmd_section_input_CPMD_FIXRHO_UPWFN(MSection):
     its final value. \\end{minipage}\\hfill
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.FIXRHO_UPWFN'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_FIXRHO_UPWFN_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword FIXRHO_UPWFN.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.FIXRHO_UPWFN_options'))
+        ''')
 
     x_cpmd_input_CPMD_FIXRHO_UPWFN_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword FIXRHO_UPWFN.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.FIXRHO_UPWFN_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_FORCEMATCH(MSection):
@@ -1837,23 +1700,21 @@ class x_cpmd_section_input_CPMD_FORCEMATCH(MSection):
     details.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.FORCEMATCH'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_FORCEMATCH_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword FORCEMATCH.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.FORCEMATCH_options'))
+        ''')
 
     x_cpmd_input_CPMD_FORCEMATCH_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword FORCEMATCH.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.FORCEMATCH_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_FREE_ENERGY_FUNCTIONAL(MSection):
@@ -1865,23 +1726,21 @@ class x_cpmd_section_input_CPMD_FREE_ENERGY_FUNCTIONAL(MSection):
     the number of states is not specified, use $N_{electrons}/2+4$.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.FREE_ENERGY_FUNCTIONAL'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_FREE_ENERGY_FUNCTIONAL_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword FREE_ENERGY_FUNCTIONAL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.FREE_ENERGY_FUNCTIONAL_options'))
+        ''')
 
     x_cpmd_input_CPMD_FREE_ENERGY_FUNCTIONAL_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword FREE_ENERGY_FUNCTIONAL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.FREE_ENERGY_FUNCTIONAL_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_GDIIS(MSection):
@@ -1893,23 +1752,21 @@ class x_cpmd_section_input_CPMD_GDIIS(MSection):
     runs.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.GDIIS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_GDIIS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword GDIIS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.GDIIS_options'))
+        ''')
 
     x_cpmd_input_CPMD_GDIIS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword GDIIS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.GDIIS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_GSHELL(MSection):
@@ -1918,23 +1775,21 @@ class x_cpmd_section_input_CPMD_GSHELL(MSection):
     S(q) calculations.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.GSHELL'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_GSHELL_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword GSHELL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.GSHELL_options'))
+        ''')
 
     x_cpmd_input_CPMD_GSHELL_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword GSHELL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.GSHELL_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_HAMILTONIAN_CUTOFF(MSection):
@@ -1945,23 +1800,21 @@ class x_cpmd_section_input_CPMD_HAMILTONIAN_CUTOFF(MSection):
     reference cell is used.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.HAMILTONIAN_CUTOFF'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_HAMILTONIAN_CUTOFF_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword HAMILTONIAN_CUTOFF.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.HAMILTONIAN_CUTOFF_options'))
+        ''')
 
     x_cpmd_input_CPMD_HAMILTONIAN_CUTOFF_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword HAMILTONIAN_CUTOFF.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.HAMILTONIAN_CUTOFF_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_HARMONIC_REFERENCE_SYSTEM(MSection):
@@ -1971,23 +1824,21 @@ class x_cpmd_section_input_CPMD_HARMONIC_REFERENCE_SYSTEM(MSection):
     \\refkeyword{HAMILTONIAN CUTOFF}.  By {\\bf default} this option is switched {\\bf off}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.HARMONIC_REFERENCE_SYSTEM'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_HARMONIC_REFERENCE_SYSTEM_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword HARMONIC_REFERENCE_SYSTEM.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.HARMONIC_REFERENCE_SYSTEM_options'))
+        ''')
 
     x_cpmd_input_CPMD_HARMONIC_REFERENCE_SYSTEM_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword HARMONIC_REFERENCE_SYSTEM.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.HARMONIC_REFERENCE_SYSTEM_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_HESSCORE(MSection):
@@ -1996,23 +1847,21 @@ class x_cpmd_section_input_CPMD_HESSCORE(MSection):
     NSMAXP=0} ({\\bf PRFO NSMAXP}).
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.HESSCORE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_HESSCORE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword HESSCORE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.HESSCORE_options'))
+        ''')
 
     x_cpmd_input_CPMD_HESSCORE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword HESSCORE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.HESSCORE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_HESSIAN(MSection):
@@ -2026,23 +1875,21 @@ class x_cpmd_section_input_CPMD_HESSIAN(MSection):
     copied.  The keywords \\refkeyword{RESTART} PHESS are required.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.HESSIAN'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_HESSIAN_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword HESSIAN.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.HESSIAN_options'))
+        ''')
 
     x_cpmd_input_CPMD_HESSIAN_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword HESSIAN.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.HESSIAN_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_INITIALIZE_WAVEFUNCTION(MSection):
@@ -2059,23 +1906,21 @@ class x_cpmd_section_input_CPMD_INITIALIZE_WAVEFUNCTION(MSection):
     {\\bf Default} is to use the {\\bf atomic pseudo-wavefunctions}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.INITIALIZE_WAVEFUNCTION'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_INITIALIZE_WAVEFUNCTION_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword INITIALIZE_WAVEFUNCTION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.INITIALIZE_WAVEFUNCTION_options'))
+        ''')
 
     x_cpmd_input_CPMD_INITIALIZE_WAVEFUNCTION_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword INITIALIZE_WAVEFUNCTION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.INITIALIZE_WAVEFUNCTION_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_INTERFACE(MSection):
@@ -2089,23 +1934,21 @@ class x_cpmd_section_input_CPMD_INTERFACE(MSection):
     optimization and then switch back to DIIS.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.INTERFACE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_INTERFACE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword INTERFACE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.INTERFACE_options'))
+        ''')
 
     x_cpmd_input_CPMD_INTERFACE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword INTERFACE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.INTERFACE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_INTFILE(MSection):
@@ -2115,23 +1958,21 @@ class x_cpmd_section_input_CPMD_INTFILE(MSection):
     the next line.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.INTFILE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_INTFILE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword INTFILE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.INTFILE_options'))
+        ''')
 
     x_cpmd_input_CPMD_INTFILE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword INTFILE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.INTFILE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_ISOLATED_MOLECULE(MSection):
@@ -2152,23 +1993,21 @@ class x_cpmd_section_input_CPMD_ISOLATED_MOLECULE(MSection):
     conditions.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.ISOLATED_MOLECULE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_ISOLATED_MOLECULE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword ISOLATED_MOLECULE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.ISOLATED_MOLECULE_options'))
+        ''')
 
     x_cpmd_input_CPMD_ISOLATED_MOLECULE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword ISOLATED_MOLECULE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.ISOLATED_MOLECULE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_KSHAM(MSection):
@@ -2183,23 +2022,21 @@ class x_cpmd_section_input_CPMD_KSHAM(MSection):
     LOWDIN\\_A to transform the KS-Hamiltonian to the non-orthogonal orbital basis
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.KSHAM'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_KSHAM_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword KSHAM.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.KSHAM_options'))
+        ''')
 
     x_cpmd_input_CPMD_KSHAM_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword KSHAM.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.KSHAM_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_LANCZOS_DIAGONALIZATION(MSection):
@@ -2208,23 +2045,21 @@ class x_cpmd_section_input_CPMD_LANCZOS_DIAGONALIZATION(MSection):
     functional}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.LANCZOS_DIAGONALIZATION'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_LANCZOS_DIAGONALIZATION_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword LANCZOS_DIAGONALIZATION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.LANCZOS_DIAGONALIZATION_options'))
+        ''')
 
     x_cpmd_input_CPMD_LANCZOS_DIAGONALIZATION_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword LANCZOS_DIAGONALIZATION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.LANCZOS_DIAGONALIZATION_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_LANCZOS_PARAMETER(MSection):
@@ -2240,23 +2075,21 @@ class x_cpmd_section_input_CPMD_LANCZOS_PARAMETER(MSection):
     \\ref{hints:lanczos} for more information.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.LANCZOS_PARAMETER'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_LANCZOS_PARAMETER_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword LANCZOS_PARAMETER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.LANCZOS_PARAMETER_options'))
+        ''')
 
     x_cpmd_input_CPMD_LANCZOS_PARAMETER_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword LANCZOS_PARAMETER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.LANCZOS_PARAMETER_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_LANGEVIN(MSection):
@@ -2297,23 +2130,21 @@ class x_cpmd_section_input_CPMD_LANGEVIN(MSection):
     Oppenheimer dynamics. \\end{minipage}
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.LANGEVIN'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_LANGEVIN_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword LANGEVIN.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.LANGEVIN_options'))
+        ''')
 
     x_cpmd_input_CPMD_LANGEVIN_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword LANGEVIN.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.LANGEVIN_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_LBFGS(MSection):
@@ -2339,23 +2170,21 @@ class x_cpmd_section_input_CPMD_LBFGS(MSection):
     ON and others.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.LBFGS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_LBFGS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword LBFGS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.LBFGS_options'))
+        ''')
 
     x_cpmd_input_CPMD_LBFGS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword LBFGS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.LBFGS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_LINEAR_RESPONSE(MSection):
@@ -2366,23 +2195,21 @@ class x_cpmd_section_input_CPMD_LINEAR_RESPONSE(MSection):
     chosen, accompanied by further options.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.LINEAR_RESPONSE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_LINEAR_RESPONSE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword LINEAR_RESPONSE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.LINEAR_RESPONSE_options'))
+        ''')
 
     x_cpmd_input_CPMD_LINEAR_RESPONSE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword LINEAR_RESPONSE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.LINEAR_RESPONSE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_LOCAL_SPIN_DENSITY(MSection):
@@ -2391,23 +2218,21 @@ class x_cpmd_section_input_CPMD_LOCAL_SPIN_DENSITY(MSection):
     implemented for this option.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.LOCAL_SPIN_DENSITY'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_LOCAL_SPIN_DENSITY_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword LOCAL_SPIN_DENSITY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.LOCAL_SPIN_DENSITY_options'))
+        ''')
 
     x_cpmd_input_CPMD_LOCAL_SPIN_DENSITY_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword LOCAL_SPIN_DENSITY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.LOCAL_SPIN_DENSITY_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_LSD(MSection):
@@ -2416,23 +2241,21 @@ class x_cpmd_section_input_CPMD_LSD(MSection):
     implemented for this option.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.LSD'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_LSD_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword LSD.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.LSD_options'))
+        ''')
 
     x_cpmd_input_CPMD_LSD_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword LSD.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.LSD_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_MAXITER(MSection):
@@ -2442,23 +2265,21 @@ class x_cpmd_section_input_CPMD_MAXITER(MSection):
     The value is read from the next line.  {\\bf Default} is {\\bf 10000} steps.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.MAXITER'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_MAXITER_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword MAXITER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.MAXITER_options'))
+        ''')
 
     x_cpmd_input_CPMD_MAXITER_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword MAXITER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.MAXITER_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_MAXRUNTIME(MSection):
@@ -2467,23 +2288,21 @@ class x_cpmd_section_input_CPMD_MAXRUNTIME(MSection):
     The calculation will stop after the given amount of time. {\\bf Default} is no limit.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.MAXRUNTIME'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_MAXRUNTIME_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword MAXRUNTIME.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.MAXRUNTIME_options'))
+        ''')
 
     x_cpmd_input_CPMD_MAXRUNTIME_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword MAXRUNTIME.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.MAXRUNTIME_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_MAXSTEP(MSection):
@@ -2494,23 +2313,21 @@ class x_cpmd_section_input_CPMD_MAXSTEP(MSection):
     is {\\bf 10000} steps.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.MAXSTEP'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_MAXSTEP_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword MAXSTEP.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.MAXSTEP_options'))
+        ''')
 
     x_cpmd_input_CPMD_MAXSTEP_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword MAXSTEP.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.MAXSTEP_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_MEMORY(MSection):
@@ -2521,23 +2338,21 @@ class x_cpmd_section_input_CPMD_MEMORY(MSection):
     them whenever needed.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.MEMORY'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_MEMORY_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword MEMORY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.MEMORY_options'))
+        ''')
 
     x_cpmd_input_CPMD_MEMORY_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword MEMORY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.MEMORY_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_MIRROR(MSection):
@@ -2545,23 +2360,21 @@ class x_cpmd_section_input_CPMD_MIRROR(MSection):
     Write the input file to the output.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.MIRROR'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_MIRROR_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword MIRROR.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.MIRROR_options'))
+        ''')
 
     x_cpmd_input_CPMD_MIRROR_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword MIRROR.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.MIRROR_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_MIXDIIS(MSection):
@@ -2569,23 +2382,21 @@ class x_cpmd_section_input_CPMD_MIXDIIS(MSection):
     Not documented
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.MIXDIIS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_MIXDIIS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword MIXDIIS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.MIXDIIS_options'))
+        ''')
 
     x_cpmd_input_CPMD_MIXDIIS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword MIXDIIS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.MIXDIIS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_MIXSD(MSection):
@@ -2593,23 +2404,21 @@ class x_cpmd_section_input_CPMD_MIXSD(MSection):
     Not documented
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.MIXSD'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_MIXSD_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword MIXSD.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.MIXSD_options'))
+        ''')
 
     x_cpmd_input_CPMD_MIXSD_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword MIXSD.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.MIXSD_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_MODIFIED_GOEDECKER(MSection):
@@ -2625,23 +2434,21 @@ class x_cpmd_section_input_CPMD_MODIFIED_GOEDECKER(MSection):
     also \\ref{hints:roks}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.MODIFIED_GOEDECKER'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_MODIFIED_GOEDECKER_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword MODIFIED_GOEDECKER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.MODIFIED_GOEDECKER_options'))
+        ''')
 
     x_cpmd_input_CPMD_MODIFIED_GOEDECKER_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword MODIFIED_GOEDECKER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.MODIFIED_GOEDECKER_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_MOLECULAR_DYNAMICS(MSection):
@@ -2673,23 +2480,21 @@ class x_cpmd_section_input_CPMD_MOLECULAR_DYNAMICS(MSection):
     ISTEP is NSKIP+ISTEP*NSAMPLE.  {\\bf Default} is {\\bf CP}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.MOLECULAR_DYNAMICS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_MOLECULAR_DYNAMICS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword MOLECULAR_DYNAMICS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.MOLECULAR_DYNAMICS_options'))
+        ''')
 
     x_cpmd_input_CPMD_MOLECULAR_DYNAMICS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword MOLECULAR_DYNAMICS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.MOLECULAR_DYNAMICS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_MOVERHO(MSection):
@@ -2699,23 +2504,21 @@ class x_cpmd_section_input_CPMD_MOVERHO(MSection):
     movement of atoms. Read in the next line the parameter (typically 0.2).
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.MOVERHO'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_MOVERHO_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword MOVERHO.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.MOVERHO_options'))
+        ''')
 
     x_cpmd_input_CPMD_MOVERHO_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword MOVERHO.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.MOVERHO_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_MOVIE(MSection):
@@ -2725,23 +2528,21 @@ class x_cpmd_section_input_CPMD_MOVIE(MSection):
     the next line.  {\\bf Default} is {\\bf not} to write a movie file.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.MOVIE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_MOVIE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword MOVIE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.MOVIE_options'))
+        ''')
 
     x_cpmd_input_CPMD_MOVIE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword MOVIE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.MOVIE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_NOGEOCHECK(MSection):
@@ -2750,23 +2551,21 @@ class x_cpmd_section_input_CPMD_NOGEOCHECK(MSection):
     disctance is below 0.5 Bohr. This keyword requests not to perform the check.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.NOGEOCHECK'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_NOGEOCHECK_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword NOGEOCHECK.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.NOGEOCHECK_options'))
+        ''')
 
     x_cpmd_input_CPMD_NOGEOCHECK_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword NOGEOCHECK.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.NOGEOCHECK_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_NONORTHOGONAL_ORBITALS(MSection):
@@ -2777,23 +2576,21 @@ class x_cpmd_section_input_CPMD_NONORTHOGONAL_ORBITALS(MSection):
     this option during a MD run needs special care.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.NONORTHOGONAL_ORBITALS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_NONORTHOGONAL_ORBITALS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword NONORTHOGONAL_ORBITALS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.NONORTHOGONAL_ORBITALS_options'))
+        ''')
 
     x_cpmd_input_CPMD_NONORTHOGONAL_ORBITALS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword NONORTHOGONAL_ORBITALS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.NONORTHOGONAL_ORBITALS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_NOSE_PARAMETERS(MSection):
@@ -2813,23 +2610,21 @@ class x_cpmd_section_input_CPMD_NOSE_PARAMETERS(MSection):
     used.  {\\bf If the keyword is used \\underline{all} parameters have to be specified.}
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.NOSE_PARAMETERS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_NOSE_PARAMETERS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword NOSE_PARAMETERS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.NOSE_PARAMETERS_options'))
+        ''')
 
     x_cpmd_input_CPMD_NOSE_PARAMETERS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword NOSE_PARAMETERS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.NOSE_PARAMETERS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_NOSE(MSection):
@@ -2878,23 +2673,21 @@ class x_cpmd_section_input_CPMD_NOSE(MSection):
     This is not implemented for the CAFES thermostat.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.NOSE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_NOSE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword NOSE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.NOSE_options'))
+        ''')
 
     x_cpmd_input_CPMD_NOSE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword NOSE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.NOSE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_ODIIS(MSection):
@@ -2909,23 +2702,21 @@ class x_cpmd_section_input_CPMD_ODIIS(MSection):
     can be changed, or DIIS resets can be {\\bf disabled} altogether with a value of -1.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.ODIIS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_ODIIS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword ODIIS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.ODIIS_options'))
+        ''')
 
     x_cpmd_input_CPMD_ODIIS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword ODIIS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.ODIIS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_OPTIMIZE_GEOMETRY(MSection):
@@ -2942,23 +2733,21 @@ class x_cpmd_section_input_CPMD_OPTIMIZE_GEOMETRY(MSection):
     details on the corresponding options for wavefunction optimizations.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.OPTIMIZE_GEOMETRY'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_OPTIMIZE_GEOMETRY_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword OPTIMIZE_GEOMETRY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.OPTIMIZE_GEOMETRY_options'))
+        ''')
 
     x_cpmd_input_CPMD_OPTIMIZE_GEOMETRY_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword OPTIMIZE_GEOMETRY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.OPTIMIZE_GEOMETRY_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_OPTIMIZE_WAVEFUNCTION(MSection):
@@ -2974,23 +2763,21 @@ class x_cpmd_section_input_CPMD_OPTIMIZE_WAVEFUNCTION(MSection):
     \\refkeyword{STEEPEST DESCENT} ELECTRONS.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.OPTIMIZE_WAVEFUNCTION'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_OPTIMIZE_WAVEFUNCTION_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword OPTIMIZE_WAVEFUNCTION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.OPTIMIZE_WAVEFUNCTION_options'))
+        ''')
 
     x_cpmd_input_CPMD_OPTIMIZE_WAVEFUNCTION_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword OPTIMIZE_WAVEFUNCTION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.OPTIMIZE_WAVEFUNCTION_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_ORBITAL_HARDNESS(MSection):
@@ -2999,23 +2786,21 @@ class x_cpmd_section_input_CPMD_ORBITAL_HARDNESS(MSection):
     options.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.ORBITAL_HARDNESS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_ORBITAL_HARDNESS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword ORBITAL_HARDNESS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.ORBITAL_HARDNESS_options'))
+        ''')
 
     x_cpmd_input_CPMD_ORBITAL_HARDNESS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword ORBITAL_HARDNESS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.ORBITAL_HARDNESS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_ORTHOGONALIZATION(MSection):
@@ -3027,23 +2812,21 @@ class x_cpmd_section_input_CPMD_ORTHOGONALIZATION(MSection):
     file named LOWDIN\\_A.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.ORTHOGONALIZATION'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_ORTHOGONALIZATION_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword ORTHOGONALIZATION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.ORTHOGONALIZATION_options'))
+        ''')
 
     x_cpmd_input_CPMD_ORTHOGONALIZATION_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword ORTHOGONALIZATION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.ORTHOGONALIZATION_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_PATH_INTEGRAL(MSection):
@@ -3052,23 +2835,21 @@ class x_cpmd_section_input_CPMD_PATH_INTEGRAL(MSection):
     This keyword requires further input in the section \\&PIMD ... \\&END.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.PATH_INTEGRAL'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_PATH_INTEGRAL_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword PATH_INTEGRAL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.PATH_INTEGRAL_options'))
+        ''')
 
     x_cpmd_input_CPMD_PATH_INTEGRAL_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword PATH_INTEGRAL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.PATH_INTEGRAL_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_PATH_MINIMIZATION(MSection):
@@ -3077,23 +2858,21 @@ class x_cpmd_section_input_CPMD_PATH_MINIMIZATION(MSection):
     further input in the section \\&PATH ... \\&END.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.PATH_MINIMIZATION'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_PATH_MINIMIZATION_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword PATH_MINIMIZATION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.PATH_MINIMIZATION_options'))
+        ''')
 
     x_cpmd_input_CPMD_PATH_MINIMIZATION_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword PATH_MINIMIZATION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.PATH_MINIMIZATION_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_PATH_SAMPLING(MSection):
@@ -3104,23 +2883,21 @@ class x_cpmd_section_input_CPMD_PATH_SAMPLING(MSection):
     \\&END.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.PATH_SAMPLING'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_PATH_SAMPLING_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword PATH_SAMPLING.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.PATH_SAMPLING_options'))
+        ''')
 
     x_cpmd_input_CPMD_PATH_SAMPLING_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword PATH_SAMPLING.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.PATH_SAMPLING_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_PCG(MSection):
@@ -3133,23 +2910,21 @@ class x_cpmd_section_input_CPMD_PCG(MSection):
     \\refkeyword{HAMILTONIAN CUTOFF}. Optionally preconditioning can be disabled.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.PCG'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_PCG_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword PCG.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.PCG_options'))
+        ''')
 
     x_cpmd_input_CPMD_PCG_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword PCG.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.PCG_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_PRFO_NSVIB(MSection):
@@ -3159,23 +2934,21 @@ class x_cpmd_section_input_CPMD_PRFO_NSVIB(MSection):
     algorithms. In case of microiterative TS search, only the reaction core is analyzed.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.PRFO_NSVIB'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_PRFO_NSVIB_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword PRFO_NSVIB.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.PRFO_NSVIB_options'))
+        ''')
 
     x_cpmd_input_CPMD_PRFO_NSVIB_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword PRFO_NSVIB.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.PRFO_NSVIB_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_PRFO(MSection):
@@ -3209,23 +2982,21 @@ class x_cpmd_section_input_CPMD_PRFO(MSection):
     PHESS, \\refkeyword{PRFO} NSVIB, \\refkeyword{PRINT} LSCAL ON and others.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.PRFO'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_PRFO_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword PRFO.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.PRFO_options'))
+        ''')
 
     x_cpmd_input_CPMD_PRFO_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword PRFO.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.PRFO_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_PRINT(MSection):
@@ -3237,23 +3008,21 @@ class x_cpmd_section_input_CPMD_PRINT(MSection):
     step and at the end of the run. OFF switches the output off.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.PRINT'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_PRINT_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword PRINT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.PRINT_options'))
+        ''')
 
     x_cpmd_input_CPMD_PRINT_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword PRINT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.PRINT_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_PRNGSEED(MSection):
@@ -3262,23 +3031,21 @@ class x_cpmd_section_input_CPMD_PRNGSEED(MSection):
     line.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.PRNGSEED'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_PRNGSEED_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword PRNGSEED.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.PRNGSEED_options'))
+        ''')
 
     x_cpmd_input_CPMD_PRNGSEED_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword PRNGSEED.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.PRNGSEED_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_PROJECT(MSection):
@@ -3287,23 +3054,21 @@ class x_cpmd_section_input_CPMD_PROJECT(MSection):
     runs.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.PROJECT'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_PROJECT_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword PROJECT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.PROJECT_options'))
+        ''')
 
     x_cpmd_input_CPMD_PROJECT_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword PROJECT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.PROJECT_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_PROPAGATION_SPECTRA(MSection):
@@ -3320,23 +3085,21 @@ class x_cpmd_section_input_CPMD_PROPAGATION_SPECTRA(MSection):
     total number of iteration is controlled by \\refkeyword{N-CYCLES}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.PROPAGATION_SPECTRA'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_PROPAGATION_SPECTRA_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword PROPAGATION_SPECTRA.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.PROPAGATION_SPECTRA_options'))
+        ''')
 
     x_cpmd_input_CPMD_PROPAGATION_SPECTRA_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword PROPAGATION_SPECTRA.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.PROPAGATION_SPECTRA_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_PROPERTIES(MSection):
@@ -3345,23 +3108,21 @@ class x_cpmd_section_input_CPMD_PROPERTIES(MSection):
     \\dots \\&END.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.PROPERTIES'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_PROPERTIES_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword PROPERTIES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.PROPERTIES_options'))
+        ''')
 
     x_cpmd_input_CPMD_PROPERTIES_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword PROPERTIES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.PROPERTIES_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_QMMM(MSection):
@@ -3376,23 +3137,21 @@ class x_cpmd_section_input_CPMD_QMMM(MSection):
     information on the available options and the input format).
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.QMMM'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_QMMM_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword QMMM.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.QMMM_options'))
+        ''')
 
     x_cpmd_input_CPMD_QMMM_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword QMMM.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.QMMM_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_QUENCH(MSection):
@@ -3402,23 +3161,21 @@ class x_cpmd_section_input_CPMD_QUENCH(MSection):
     converged at the beginning of the MD run.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.QUENCH'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_QUENCH_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword QUENCH.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.QUENCH_options'))
+        ''')
 
     x_cpmd_input_CPMD_QUENCH_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword QUENCH.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.QUENCH_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_RANDOMIZE(MSection):
@@ -3428,23 +3185,21 @@ class x_cpmd_section_input_CPMD_RANDOMIZE(MSection):
     displacement is read from the next line.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.RANDOMIZE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_RANDOMIZE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword RANDOMIZE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.RANDOMIZE_options'))
+        ''')
 
     x_cpmd_input_CPMD_RANDOMIZE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword RANDOMIZE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.RANDOMIZE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_RATTLE(MSection):
@@ -3454,23 +3209,21 @@ class x_cpmd_section_input_CPMD_RATTLE(MSection):
     {\\bf Defaults} are 30 and $10^{-6}$.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.RATTLE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_RATTLE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword RATTLE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.RATTLE_options'))
+        ''')
 
     x_cpmd_input_CPMD_RATTLE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword RATTLE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.RATTLE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_REAL_SPACE_WFN_KEEP(MSection):
@@ -3482,23 +3235,21 @@ class x_cpmd_section_input_CPMD_REAL_SPACE_WFN_KEEP(MSection):
     many wavefunctions as possible within the given memory allocation.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.REAL_SPACE_WFN_KEEP'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_REAL_SPACE_WFN_KEEP_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword REAL_SPACE_WFN_KEEP.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.REAL_SPACE_WFN_KEEP_options'))
+        ''')
 
     x_cpmd_input_CPMD_REAL_SPACE_WFN_KEEP_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword REAL_SPACE_WFN_KEEP.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.REAL_SPACE_WFN_KEEP_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_RESCALE_OLD_VELOCITIES(MSection):
@@ -3510,23 +3261,21 @@ class x_cpmd_section_input_CPMD_RESCALE_OLD_VELOCITIES(MSection):
     scaling is only applied to the first (centroid) replica.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.RESCALE_OLD_VELOCITIES'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_RESCALE_OLD_VELOCITIES_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword RESCALE_OLD_VELOCITIES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.RESCALE_OLD_VELOCITIES_options'))
+        ''')
 
     x_cpmd_input_CPMD_RESCALE_OLD_VELOCITIES_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword RESCALE_OLD_VELOCITIES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.RESCALE_OLD_VELOCITIES_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_RESTART(MSection):
@@ -3537,23 +3286,21 @@ class x_cpmd_section_input_CPMD_RESTART(MSection):
     options:
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.RESTART'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_RESTART_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword RESTART.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.RESTART_options'))
+        ''')
 
     x_cpmd_input_CPMD_RESTART_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword RESTART.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.RESTART_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_RESTFILE(MSection):
@@ -3563,23 +3310,21 @@ class x_cpmd_section_input_CPMD_RESTFILE(MSection):
     specify e.g.~3, then the files RESTART.1, RESTART.2, RESTART.3 are used in rotation.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.RESTFILE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_RESTFILE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword RESTFILE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.RESTFILE_options'))
+        ''')
 
     x_cpmd_input_CPMD_RESTFILE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword RESTFILE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.RESTFILE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_REVERSE_VELOCITIES(MSection):
@@ -3589,23 +3334,21 @@ class x_cpmd_section_input_CPMD_REVERSE_VELOCITIES(MSection):
     to improve sampling of a given MD ``path''.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.REVERSE_VELOCITIES'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_REVERSE_VELOCITIES_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword REVERSE_VELOCITIES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.REVERSE_VELOCITIES_options'))
+        ''')
 
     x_cpmd_input_CPMD_REVERSE_VELOCITIES_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword REVERSE_VELOCITIES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.REVERSE_VELOCITIES_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_RHOOUT(MSection):
@@ -3620,23 +3363,21 @@ class x_cpmd_section_input_CPMD_RHOOUT(MSection):
     number 5, 7, and 8 as wavefunctions:
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.RHOOUT'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_RHOOUT_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword RHOOUT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.RHOOUT_options'))
+        ''')
 
     x_cpmd_input_CPMD_RHOOUT_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword RHOOUT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.RHOOUT_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_ROKS(MSection):
@@ -3650,23 +3391,21 @@ class x_cpmd_section_input_CPMD_ROKS(MSection):
     information.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.ROKS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_ROKS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword ROKS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.ROKS_options'))
+        ''')
 
     x_cpmd_input_CPMD_ROKS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword ROKS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.ROKS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_SCALED_MASSES(MSection):
@@ -3676,23 +3415,21 @@ class x_cpmd_section_input_CPMD_SCALED_MASSES(MSection):
     By {\\bf default} this option is switched {\\bf off}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.SCALED_MASSES'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_SCALED_MASSES_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword SCALED_MASSES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.SCALED_MASSES_options'))
+        ''')
 
     x_cpmd_input_CPMD_SCALED_MASSES_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword SCALED_MASSES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.SCALED_MASSES_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_SHIFT_POTENTIAL(MSection):
@@ -3705,23 +3442,21 @@ class x_cpmd_section_input_CPMD_SHIFT_POTENTIAL(MSection):
     that remains basically unaffected once that the calculation is completed.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.SHIFT_POTENTIAL'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_SHIFT_POTENTIAL_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword SHIFT_POTENTIAL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.SHIFT_POTENTIAL_options'))
+        ''')
 
     x_cpmd_input_CPMD_SHIFT_POTENTIAL_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword SHIFT_POTENTIAL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.SHIFT_POTENTIAL_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_SPLINE(MSection):
@@ -3740,23 +3475,21 @@ class x_cpmd_section_input_CPMD_SPLINE(MSection):
     simple cubic and fcc.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.SPLINE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_SPLINE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword SPLINE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.SPLINE_options'))
+        ''')
 
     x_cpmd_input_CPMD_SPLINE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword SPLINE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.SPLINE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_SSIC(MSection):
@@ -3776,23 +3509,21 @@ class x_cpmd_section_input_CPMD_SSIC(MSection):
     $LSD$ (set by default).
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.SSIC'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_SSIC_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword SSIC.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.SSIC_options'))
+        ''')
 
     x_cpmd_input_CPMD_SSIC_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword SSIC.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.SSIC_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_STEEPEST_DESCENT(MSection):
@@ -3807,23 +3538,21 @@ class x_cpmd_section_input_CPMD_STEEPEST_DESCENT(MSection):
     EMASS}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.STEEPEST_DESCENT'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_STEEPEST_DESCENT_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword STEEPEST_DESCENT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.STEEPEST_DESCENT_options'))
+        ''')
 
     x_cpmd_input_CPMD_STEEPEST_DESCENT_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword STEEPEST_DESCENT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.STEEPEST_DESCENT_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_STRUCTURE(MSection):
@@ -3835,23 +3564,21 @@ class x_cpmd_section_input_CPMD_STRUCTURE(MSection):
     to be given on the next lines.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.STRUCTURE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_STRUCTURE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword STRUCTURE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.STRUCTURE_options'))
+        ''')
 
     x_cpmd_input_CPMD_STRUCTURE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword STRUCTURE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.STRUCTURE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_SUBTRACT(MSection):
@@ -3874,23 +3601,21 @@ class x_cpmd_section_input_CPMD_SUBTRACT(MSection):
     velocities, these options is not fully compatible with \\refkeyword{NOSE} thermostats.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.SUBTRACT'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_SUBTRACT_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword SUBTRACT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.SUBTRACT_options'))
+        ''')
 
     x_cpmd_input_CPMD_SUBTRACT_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword SUBTRACT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.SUBTRACT_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_SURFACE_HOPPING(MSection):
@@ -3901,23 +3626,21 @@ class x_cpmd_section_input_CPMD_SURFACE_HOPPING(MSection):
     \\refkeyword{T-SHTDDFT}).
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.SURFACE_HOPPING'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_SURFACE_HOPPING_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword SURFACE_HOPPING.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.SURFACE_HOPPING_options'))
+        ''')
 
     x_cpmd_input_CPMD_SURFACE_HOPPING_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword SURFACE_HOPPING.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.SURFACE_HOPPING_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_TDDFT(MSection):
@@ -3928,23 +3651,21 @@ class x_cpmd_section_input_CPMD_TDDFT(MSection):
     \\refkeyword{RESTART} LINRES.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.TDDFT'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_TDDFT_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword TDDFT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.TDDFT_options'))
+        ''')
 
     x_cpmd_input_CPMD_TDDFT_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword TDDFT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.TDDFT_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_TEMPCONTROL(MSection):
@@ -3957,23 +3678,21 @@ class x_cpmd_section_input_CPMD_TEMPCONTROL(MSection):
     may want to try the \\refkeyword{BERENDSEN} scheme instead.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.TEMPCONTROL'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_TEMPCONTROL_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword TEMPCONTROL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.TEMPCONTROL_options'))
+        ''')
 
     x_cpmd_input_CPMD_TEMPCONTROL_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword TEMPCONTROL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.TEMPCONTROL_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_TEMPERATURE_ELECTRON(MSection):
@@ -3981,23 +3700,21 @@ class x_cpmd_section_input_CPMD_TEMPERATURE_ELECTRON(MSection):
     The {\\bf electronic temperature} is read from the next line. {\\bf Default} is $1000$K.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.TEMPERATURE_ELECTRON'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_TEMPERATURE_ELECTRON_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword TEMPERATURE_ELECTRON.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.TEMPERATURE_ELECTRON_options'))
+        ''')
 
     x_cpmd_input_CPMD_TEMPERATURE_ELECTRON_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword TEMPERATURE_ELECTRON.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.TEMPERATURE_ELECTRON_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_TEMPERATURE(MSection):
@@ -4011,23 +3728,21 @@ class x_cpmd_section_input_CPMD_TEMPERATURE(MSection):
     \\refkeyword{BERENDSEN} and the global \\refkeyword{NOSE} thermostats.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.TEMPERATURE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_TEMPERATURE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword TEMPERATURE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.TEMPERATURE_options'))
+        ''')
 
     x_cpmd_input_CPMD_TEMPERATURE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword TEMPERATURE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.TEMPERATURE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_TIMESTEP_ELECTRONS(MSection):
@@ -4038,23 +3753,21 @@ class x_cpmd_section_input_CPMD_TIMESTEP_ELECTRONS(MSection):
     \\refkeyword{PCG}
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.TIMESTEP_ELECTRONS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_TIMESTEP_ELECTRONS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword TIMESTEP_ELECTRONS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.TIMESTEP_ELECTRONS_options'))
+        ''')
 
     x_cpmd_input_CPMD_TIMESTEP_ELECTRONS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword TIMESTEP_ELECTRONS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.TIMESTEP_ELECTRONS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_TIMESTEP_IONS(MSection):
@@ -4062,23 +3775,21 @@ class x_cpmd_section_input_CPMD_TIMESTEP_IONS(MSection):
     The time step in atomic units is read from the next line.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.TIMESTEP_IONS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_TIMESTEP_IONS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword TIMESTEP_IONS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.TIMESTEP_IONS_options'))
+        ''')
 
     x_cpmd_input_CPMD_TIMESTEP_IONS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword TIMESTEP_IONS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.TIMESTEP_IONS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_TIMESTEP(MSection):
@@ -4087,23 +3798,21 @@ class x_cpmd_section_input_CPMD_TIMESTEP(MSection):
     step of {\\bf 5 a.u.} ($1\\, a.u. = 0.0241888428$ fs).
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.TIMESTEP'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_TIMESTEP_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword TIMESTEP.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.TIMESTEP_options'))
+        ''')
 
     x_cpmd_input_CPMD_TIMESTEP_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword TIMESTEP.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.TIMESTEP_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_TRACE(MSection):
@@ -4112,23 +3821,21 @@ class x_cpmd_section_input_CPMD_TRACE(MSection):
     traced. {\\sl ALL} specifies that only the master is traced.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.TRACE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_TRACE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword TRACE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.TRACE_options'))
+        ''')
 
     x_cpmd_input_CPMD_TRACE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword TRACE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.TRACE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_TRAJECTORY(MSection):
@@ -4151,23 +3858,21 @@ class x_cpmd_section_input_CPMD_TRAJECTORY(MSection):
     SAMPLE parameter.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.TRAJECTORY'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_TRAJECTORY_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword TRAJECTORY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.TRAJECTORY_options'))
+        ''')
 
     x_cpmd_input_CPMD_TRAJECTORY_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword TRAJECTORY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.TRAJECTORY_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_TROTTER_FACTORIZATION_OFF(MSection):
@@ -4178,23 +3883,21 @@ class x_cpmd_section_input_CPMD_TROTTER_FACTORIZATION_OFF(MSection):
     INTEGRAL and as specified in the section \\&PIMD ... \\&END.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.TROTTER_FACTORIZATION_OFF'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_TROTTER_FACTORIZATION_OFF_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword TROTTER_FACTORIZATION_OFF.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.TROTTER_FACTORIZATION_OFF_options'))
+        ''')
 
     x_cpmd_input_CPMD_TROTTER_FACTORIZATION_OFF_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword TROTTER_FACTORIZATION_OFF.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.TROTTER_FACTORIZATION_OFF_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_TROTTER_FACTOR(MSection):
@@ -4204,23 +3907,21 @@ class x_cpmd_section_input_CPMD_TROTTER_FACTOR(MSection):
     Trotter factor is read from the next line (typically 0.001 is very accurate).
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.TROTTER_FACTOR'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_TROTTER_FACTOR_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword TROTTER_FACTOR.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.TROTTER_FACTOR_options'))
+        ''')
 
     x_cpmd_input_CPMD_TROTTER_FACTOR_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword TROTTER_FACTOR.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.TROTTER_FACTOR_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_VDW_CORRECTION(MSection):
@@ -4233,23 +3934,21 @@ class x_cpmd_section_input_CPMD_VDW_CORRECTION(MSection):
     CORRECTION are mutually exclusive. See \\refkeyword{VDW PARAMETERS} for more details.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.VDW_CORRECTION'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_VDW_CORRECTION_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword VDW_CORRECTION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.VDW_CORRECTION_options'))
+        ''')
 
     x_cpmd_input_CPMD_VDW_CORRECTION_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword VDW_CORRECTION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.VDW_CORRECTION_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_VDW_WANNIER(MSection):
@@ -4261,23 +3960,21 @@ class x_cpmd_section_input_CPMD_VDW_WANNIER(MSection):
     corresponding parameters from the \\&VDW ... \\&END section.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.VDW_WANNIER'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_VDW_WANNIER_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword VDW_WANNIER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.VDW_WANNIER_options'))
+        ''')
 
     x_cpmd_input_CPMD_VDW_WANNIER_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword VDW_WANNIER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.VDW_WANNIER_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_VGFACTOR(MSection):
@@ -4287,23 +3984,21 @@ class x_cpmd_section_input_CPMD_VGFACTOR(MSection):
     in most situations.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.VGFACTOR'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_VGFACTOR_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword VGFACTOR.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.VGFACTOR_options'))
+        ''')
 
     x_cpmd_input_CPMD_VGFACTOR_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword VGFACTOR.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.VGFACTOR_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_VIBRATIONAL_ANALYSIS(MSection):
@@ -4326,23 +4021,21 @@ class x_cpmd_section_input_CPMD_VIBRATIONAL_ANALYSIS(MSection):
     \\refkeyword{HESSIAN} \\{DISCO,SCHLEGEL,UNIT\\} PARTIAL.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.VIBRATIONAL_ANALYSIS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_VIBRATIONAL_ANALYSIS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword VIBRATIONAL_ANALYSIS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.VIBRATIONAL_ANALYSIS_options'))
+        ''')
 
     x_cpmd_input_CPMD_VIBRATIONAL_ANALYSIS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword VIBRATIONAL_ANALYSIS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.VIBRATIONAL_ANALYSIS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_VMIRROR(MSection):
@@ -4351,23 +4044,21 @@ class x_cpmd_section_input_CPMD_VMIRROR(MSection):
     final $V$ value of the first state. Useful in symmetric systems.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.VMIRROR'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_VMIRROR_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword VMIRROR.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.VMIRROR_options'))
+        ''')
 
     x_cpmd_input_CPMD_VMIRROR_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword VMIRROR.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.VMIRROR_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_WANNIER_DOS(MSection):
@@ -4378,23 +4069,21 @@ class x_cpmd_section_input_CPMD_WANNIER_DOS(MSection):
     solely written at the last step.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.WANNIER_DOS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_WANNIER_DOS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword WANNIER_DOS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.WANNIER_DOS_options'))
+        ''')
 
     x_cpmd_input_CPMD_WANNIER_DOS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword WANNIER_DOS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.WANNIER_DOS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_WANNIER_MOLECULAR(MSection):
@@ -4404,23 +4093,21 @@ class x_cpmd_section_input_CPMD_WANNIER_MOLECULAR(MSection):
     KS Hamiltonian.  Does not work with \\refkeyword{MOLECULAR DYNAMICS} CP.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.WANNIER_MOLECULAR'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_WANNIER_MOLECULAR_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword WANNIER_MOLECULAR.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.WANNIER_MOLECULAR_options'))
+        ''')
 
     x_cpmd_input_CPMD_WANNIER_MOLECULAR_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword WANNIER_MOLECULAR.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.WANNIER_MOLECULAR_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_WANNIER_NPROC(MSection):
@@ -4430,23 +4117,21 @@ class x_cpmd_section_input_CPMD_WANNIER_NPROC(MSection):
     of the number of tasks in a parallel run.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.WANNIER_NPROC'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_WANNIER_NPROC_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword WANNIER_NPROC.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.WANNIER_NPROC_options'))
+        ''')
 
     x_cpmd_input_CPMD_WANNIER_NPROC_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword WANNIER_NPROC.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.WANNIER_NPROC_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_WANNIER_OPTIMIZATION(MSection):
@@ -4455,23 +4140,21 @@ class x_cpmd_section_input_CPMD_WANNIER_OPTIMIZATION(MSection):
     are Jacobi rotations.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.WANNIER_OPTIMIZATION'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_WANNIER_OPTIMIZATION_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword WANNIER_OPTIMIZATION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.WANNIER_OPTIMIZATION_options'))
+        ''')
 
     x_cpmd_input_CPMD_WANNIER_OPTIMIZATION_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword WANNIER_OPTIMIZATION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.WANNIER_OPTIMIZATION_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_WANNIER_PARAMETER(MSection):
@@ -4484,23 +4167,21 @@ class x_cpmd_section_input_CPMD_WANNIER_PARAMETER(MSection):
     optimization (default value 200).
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.WANNIER_PARAMETER'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_WANNIER_PARAMETER_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword WANNIER_PARAMETER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.WANNIER_PARAMETER_options'))
+        ''')
 
     x_cpmd_input_CPMD_WANNIER_PARAMETER_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword WANNIER_PARAMETER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.WANNIER_PARAMETER_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_WANNIER_REFERENCE(MSection):
@@ -4515,23 +4196,21 @@ class x_cpmd_section_input_CPMD_WANNIER_REFERENCE(MSection):
     set explicitly.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.WANNIER_REFERENCE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_WANNIER_REFERENCE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword WANNIER_REFERENCE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.WANNIER_REFERENCE_options'))
+        ''')
 
     x_cpmd_input_CPMD_WANNIER_REFERENCE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword WANNIER_REFERENCE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.WANNIER_REFERENCE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_WANNIER_SERIAL(MSection):
@@ -4540,23 +4219,21 @@ class x_cpmd_section_input_CPMD_WANNIER_SERIAL(MSection):
     even in parallel runs.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.WANNIER_SERIAL'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_WANNIER_SERIAL_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword WANNIER_SERIAL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.WANNIER_SERIAL_options'))
+        ''')
 
     x_cpmd_input_CPMD_WANNIER_SERIAL_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword WANNIER_SERIAL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.WANNIER_SERIAL_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_WANNIER_TYPE(MSection):
@@ -4564,23 +4241,21 @@ class x_cpmd_section_input_CPMD_WANNIER_TYPE(MSection):
     Indicates the type of Wannier functions. Vanderbilt type is the default.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.WANNIER_TYPE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_WANNIER_TYPE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword WANNIER_TYPE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.WANNIER_TYPE_options'))
+        ''')
 
     x_cpmd_input_CPMD_WANNIER_TYPE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword WANNIER_TYPE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.WANNIER_TYPE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_WANNIER_WFNOUT(MSection):
@@ -4592,23 +4267,21 @@ class x_cpmd_section_input_CPMD_WANNIER_WFNOUT(MSection):
     \\refkeyword{RHOOUT} {\\em BANDS}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.WANNIER_WFNOUT'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_WANNIER_WFNOUT_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword WANNIER_WFNOUT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.WANNIER_WFNOUT_options'))
+        ''')
 
     x_cpmd_input_CPMD_WANNIER_WFNOUT_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword WANNIER_WFNOUT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.WANNIER_WFNOUT_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD_WOUT(MSection):
@@ -4625,23 +4298,21 @@ class x_cpmd_section_input_CPMD_WOUT(MSection):
     WSTEP \\defaultvalue{1} is the grid point step size for the output.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.WOUT'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_WOUT_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword WOUT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.WOUT_options'))
+        ''')
 
     x_cpmd_input_CPMD_WOUT_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword WOUT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD.WOUT_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_CPMD(MSection):
@@ -4649,730 +4320,586 @@ class x_cpmd_section_input_CPMD(MSection):
     General control parameters for calculation (\\textbf{required}).
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_CPMD_default_keyword = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters that are present in the section CPMD even without a keyword.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_CPMD_default_keyword'))
+        ''')
 
     x_cpmd_section_input_CPMD_ALEXANDER_MIXING = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_ALEXANDER_MIXING'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.ALEXANDER_MIXING'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_ALLTOALL = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_ALLTOALL'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.ALLTOALL'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_ANDERSON_MIXING = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_ANDERSON_MIXING'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.ANDERSON_MIXING'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_ANNEALING = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_ANNEALING'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.ANNEALING'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_BENCHMARK = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_BENCHMARK'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.BENCHMARK'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_BERENDSEN = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_BERENDSEN'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.BERENDSEN'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_BFGS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_BFGS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.BFGS'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_BLOCKSIZE_STATES = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_BLOCKSIZE_STATES'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.BLOCKSIZE_STATES'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_BOGOLIUBOV_CORRECTION = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_BOGOLIUBOV_CORRECTION'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.BOGOLIUBOV_CORRECTION'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_BOX_WALLS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_BOX_WALLS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.BOX_WALLS'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_BROYDEN_MIXING = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_BROYDEN_MIXING'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.BROYDEN_MIXING'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_CAYLEY = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_CAYLEY'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.CAYLEY'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_CDFT = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_CDFT'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.CDFT'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_CENTER_MOLECULE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_CENTER_MOLECULE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.CENTER_MOLECULE'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_CHECK_MEMORY = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_CHECK_MEMORY'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.CHECK_MEMORY'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_CLASSTRESS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_CLASSTRESS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.CLASSTRESS'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_CMASS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_CMASS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.CMASS'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_COMBINE_SYSTEMS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_COMBINE_SYSTEMS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.COMBINE_SYSTEMS'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_COMPRESS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_COMPRESS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.COMPRESS'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_CONJUGATE_GRADIENTS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_CONJUGATE_GRADIENTS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.CONJUGATE_GRADIENTS'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_CONVERGENCE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_CONVERGENCE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.CONVERGENCE'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_CZONES = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_CZONES'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.CZONES'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_DAMPING = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_DAMPING'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.DAMPING'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_DAVIDSON_DIAGONALIZATION = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_DAVIDSON_DIAGONALIZATION'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.DAVIDSON_DIAGONALIZATION'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_DAVIDSON_PARAMETER = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_DAVIDSON_PARAMETER'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.DAVIDSON_PARAMETER'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_DEBUG_CODE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_DEBUG_CODE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.DEBUG_CODE'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_DEBUG_FILEOPEN = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_DEBUG_FILEOPEN'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.DEBUG_FILEOPEN'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_DEBUG_FORCES = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_DEBUG_FORCES'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.DEBUG_FORCES'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_DEBUG_MEMORY = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_DEBUG_MEMORY'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.DEBUG_MEMORY'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_DEBUG_NOACC = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_DEBUG_NOACC'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.DEBUG_NOACC'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_DIIS_MIXING = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_DIIS_MIXING'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.DIIS_MIXING'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_DIPOLE_DYNAMICS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_DIPOLE_DYNAMICS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.DIPOLE_DYNAMICS'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_DISTRIBUTE_FNL = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_DISTRIBUTE_FNL'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.DISTRIBUTE_FNL'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_DISTRIBUTED_LINALG = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_DISTRIBUTED_LINALG'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.DISTRIBUTED_LINALG'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_ELECTRONIC_SPECTRA = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_ELECTRONIC_SPECTRA'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.ELECTRONIC_SPECTRA'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_ELECTROSTATIC_POTENTIAL = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_ELECTROSTATIC_POTENTIAL'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.ELECTROSTATIC_POTENTIAL'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_ELF = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_ELF'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.ELF'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_EMASS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_EMASS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.EMASS'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_ENERGYBANDS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_ENERGYBANDS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.ENERGYBANDS'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_EXTERNAL_POTENTIAL = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_EXTERNAL_POTENTIAL'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.EXTERNAL_POTENTIAL'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_EXTRAPOLATE_CONSTRAINT = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_EXTRAPOLATE_CONSTRAINT'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.EXTRAPOLATE_CONSTRAINT'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_EXTRAPOLATE_WFN = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_EXTRAPOLATE_WFN'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.EXTRAPOLATE_WFN'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_FFTW_WISDOM = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_FFTW_WISDOM'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.FFTW_WISDOM'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_FILE_FUSION = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_FILE_FUSION'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.FILE_FUSION'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_FILEPATH = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_FILEPATH'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.FILEPATH'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_FINITE_DIFFERENCES = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_FINITE_DIFFERENCES'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.FINITE_DIFFERENCES'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_FIXRHO_UPWFN = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_FIXRHO_UPWFN'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.FIXRHO_UPWFN'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_FORCEMATCH = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_FORCEMATCH'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.FORCEMATCH'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_FREE_ENERGY_FUNCTIONAL = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_FREE_ENERGY_FUNCTIONAL'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.FREE_ENERGY_FUNCTIONAL'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_GDIIS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_GDIIS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.GDIIS'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_GSHELL = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_GSHELL'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.GSHELL'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_HAMILTONIAN_CUTOFF = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_HAMILTONIAN_CUTOFF'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.HAMILTONIAN_CUTOFF'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_HARMONIC_REFERENCE_SYSTEM = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_HARMONIC_REFERENCE_SYSTEM'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.HARMONIC_REFERENCE_SYSTEM'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_HESSCORE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_HESSCORE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.HESSCORE'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_HESSIAN = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_HESSIAN'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.HESSIAN'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_INITIALIZE_WAVEFUNCTION = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_INITIALIZE_WAVEFUNCTION'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.INITIALIZE_WAVEFUNCTION'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_INTERFACE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_INTERFACE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.INTERFACE'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_INTFILE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_INTFILE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.INTFILE'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_ISOLATED_MOLECULE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_ISOLATED_MOLECULE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.ISOLATED_MOLECULE'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_KSHAM = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_KSHAM'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.KSHAM'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_LANCZOS_DIAGONALIZATION = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_LANCZOS_DIAGONALIZATION'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.LANCZOS_DIAGONALIZATION'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_LANCZOS_PARAMETER = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_LANCZOS_PARAMETER'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.LANCZOS_PARAMETER'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_LANGEVIN = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_LANGEVIN'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.LANGEVIN'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_LBFGS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_LBFGS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.LBFGS'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_LINEAR_RESPONSE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_LINEAR_RESPONSE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.LINEAR_RESPONSE'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_LOCAL_SPIN_DENSITY = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_LOCAL_SPIN_DENSITY'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.LOCAL_SPIN_DENSITY'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_LSD = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_LSD'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.LSD'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_MAXITER = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_MAXITER'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.MAXITER'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_MAXRUNTIME = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_MAXRUNTIME'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.MAXRUNTIME'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_MAXSTEP = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_MAXSTEP'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.MAXSTEP'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_MEMORY = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_MEMORY'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.MEMORY'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_MIRROR = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_MIRROR'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.MIRROR'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_MIXDIIS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_MIXDIIS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.MIXDIIS'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_MIXSD = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_MIXSD'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.MIXSD'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_MODIFIED_GOEDECKER = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_MODIFIED_GOEDECKER'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.MODIFIED_GOEDECKER'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_MOLECULAR_DYNAMICS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_MOLECULAR_DYNAMICS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.MOLECULAR_DYNAMICS'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_MOVERHO = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_MOVERHO'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.MOVERHO'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_MOVIE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_MOVIE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.MOVIE'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_NOGEOCHECK = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_NOGEOCHECK'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.NOGEOCHECK'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_NONORTHOGONAL_ORBITALS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_NONORTHOGONAL_ORBITALS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.NONORTHOGONAL_ORBITALS'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_NOSE_PARAMETERS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_NOSE_PARAMETERS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.NOSE_PARAMETERS'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_NOSE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_NOSE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.NOSE'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_ODIIS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_ODIIS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.ODIIS'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_OPTIMIZE_GEOMETRY = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_OPTIMIZE_GEOMETRY'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.OPTIMIZE_GEOMETRY'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_OPTIMIZE_WAVEFUNCTION = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_OPTIMIZE_WAVEFUNCTION'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.OPTIMIZE_WAVEFUNCTION'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_ORBITAL_HARDNESS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_ORBITAL_HARDNESS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.ORBITAL_HARDNESS'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_ORTHOGONALIZATION = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_ORTHOGONALIZATION'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.ORTHOGONALIZATION'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_PATH_INTEGRAL = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_PATH_INTEGRAL'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.PATH_INTEGRAL'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_PATH_MINIMIZATION = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_PATH_MINIMIZATION'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.PATH_MINIMIZATION'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_PATH_SAMPLING = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_PATH_SAMPLING'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.PATH_SAMPLING'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_PCG = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_PCG'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.PCG'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_PRFO_NSVIB = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_PRFO_NSVIB'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.PRFO_NSVIB'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_PRFO = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_PRFO'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.PRFO'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_PRINT = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_PRINT'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.PRINT'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_PRNGSEED = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_PRNGSEED'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.PRNGSEED'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_PROJECT = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_PROJECT'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.PROJECT'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_PROPAGATION_SPECTRA = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_PROPAGATION_SPECTRA'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.PROPAGATION_SPECTRA'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_PROPERTIES = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_PROPERTIES'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.PROPERTIES'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_QMMM = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_QMMM'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.QMMM'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_QUENCH = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_QUENCH'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.QUENCH'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_RANDOMIZE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_RANDOMIZE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.RANDOMIZE'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_RATTLE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_RATTLE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.RATTLE'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_REAL_SPACE_WFN_KEEP = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_REAL_SPACE_WFN_KEEP'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.REAL_SPACE_WFN_KEEP'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_RESCALE_OLD_VELOCITIES = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_RESCALE_OLD_VELOCITIES'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.RESCALE_OLD_VELOCITIES'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_RESTART = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_RESTART'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.RESTART'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_RESTFILE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_RESTFILE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.RESTFILE'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_REVERSE_VELOCITIES = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_REVERSE_VELOCITIES'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.REVERSE_VELOCITIES'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_RHOOUT = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_RHOOUT'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.RHOOUT'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_ROKS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_ROKS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.ROKS'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_SCALED_MASSES = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_SCALED_MASSES'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.SCALED_MASSES'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_SHIFT_POTENTIAL = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_SHIFT_POTENTIAL'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.SHIFT_POTENTIAL'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_SPLINE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_SPLINE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.SPLINE'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_SSIC = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_SSIC'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.SSIC'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_STEEPEST_DESCENT = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_STEEPEST_DESCENT'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.STEEPEST_DESCENT'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_STRUCTURE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_STRUCTURE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.STRUCTURE'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_SUBTRACT = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_SUBTRACT'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.SUBTRACT'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_SURFACE_HOPPING = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_SURFACE_HOPPING'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.SURFACE_HOPPING'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_TDDFT = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_TDDFT'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.TDDFT'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_TEMPCONTROL = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_TEMPCONTROL'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.TEMPCONTROL'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_TEMPERATURE_ELECTRON = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_TEMPERATURE_ELECTRON'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.TEMPERATURE_ELECTRON'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_TEMPERATURE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_TEMPERATURE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.TEMPERATURE'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_TIMESTEP_ELECTRONS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_TIMESTEP_ELECTRONS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.TIMESTEP_ELECTRONS'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_TIMESTEP_IONS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_TIMESTEP_IONS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.TIMESTEP_IONS'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_TIMESTEP = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_TIMESTEP'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.TIMESTEP'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_TRACE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_TRACE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.TRACE'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_TRAJECTORY = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_TRAJECTORY'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.TRAJECTORY'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_TROTTER_FACTORIZATION_OFF = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_TROTTER_FACTORIZATION_OFF'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.TROTTER_FACTORIZATION_OFF'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_TROTTER_FACTOR = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_TROTTER_FACTOR'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.TROTTER_FACTOR'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_VDW_CORRECTION = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_VDW_CORRECTION'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.VDW_CORRECTION'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_VDW_WANNIER = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_VDW_WANNIER'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.VDW_WANNIER'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_VGFACTOR = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_VGFACTOR'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.VGFACTOR'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_VIBRATIONAL_ANALYSIS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_VIBRATIONAL_ANALYSIS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.VIBRATIONAL_ANALYSIS'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_VMIRROR = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_VMIRROR'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.VMIRROR'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_WANNIER_DOS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_WANNIER_DOS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.WANNIER_DOS'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_WANNIER_MOLECULAR = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_WANNIER_MOLECULAR'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.WANNIER_MOLECULAR'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_WANNIER_NPROC = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_WANNIER_NPROC'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.WANNIER_NPROC'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_WANNIER_OPTIMIZATION = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_WANNIER_OPTIMIZATION'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.WANNIER_OPTIMIZATION'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_WANNIER_PARAMETER = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_WANNIER_PARAMETER'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.WANNIER_PARAMETER'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_WANNIER_REFERENCE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_WANNIER_REFERENCE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.WANNIER_REFERENCE'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_WANNIER_SERIAL = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_WANNIER_SERIAL'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.WANNIER_SERIAL'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_WANNIER_TYPE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_WANNIER_TYPE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.WANNIER_TYPE'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_WANNIER_WFNOUT = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_WANNIER_WFNOUT'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.WANNIER_WFNOUT'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD_WOUT = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD_WOUT'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD.WOUT'))
+        repeats=True)
 
 
 class x_cpmd_section_input_DFT_ACM0(MSection):
@@ -5382,23 +4909,21 @@ class x_cpmd_section_input_DFT_ACM0(MSection):
     should only be used if an excessive amount of CPU time is available.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT.ACM0'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_DFT_ACM0_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword ACM0.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_DFT.ACM0_options'))
+        ''')
 
     x_cpmd_input_DFT_ACM0_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword ACM0.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_DFT.ACM0_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_DFT_ACM1(MSection):
@@ -5409,23 +4934,21 @@ class x_cpmd_section_input_DFT_ACM1(MSection):
     CPU time is available.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT.ACM1'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_DFT_ACM1_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword ACM1.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_DFT.ACM1_options'))
+        ''')
 
     x_cpmd_input_DFT_ACM1_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword ACM1.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_DFT.ACM1_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_DFT_ACM3(MSection):
@@ -5436,23 +4959,21 @@ class x_cpmd_section_input_DFT_ACM3(MSection):
     excessive amount of CPU time is available.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT.ACM3'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_DFT_ACM3_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword ACM3.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_DFT.ACM3_options'))
+        ''')
 
     x_cpmd_input_DFT_ACM3_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword ACM3.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_DFT.ACM3_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_DFT_BECKE_BETA(MSection):
@@ -5461,23 +4982,21 @@ class x_cpmd_section_input_DFT_BECKE_BETA(MSection):
     value given on the next line.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT.BECKE_BETA'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_DFT_BECKE_BETA_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword BECKE_BETA.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_DFT.BECKE_BETA_options'))
+        ''')
 
     x_cpmd_input_DFT_BECKE_BETA_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword BECKE_BETA.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_DFT.BECKE_BETA_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_DFT_EXCHANGE_CORRELATION_TABLE(MSection):
@@ -5489,23 +5008,21 @@ class x_cpmd_section_input_DFT_EXCHANGE_CORRELATION_TABLE(MSection):
     default values were 30000 and 2.0.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT.EXCHANGE_CORRELATION_TABLE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_DFT_EXCHANGE_CORRELATION_TABLE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword EXCHANGE_CORRELATION_TABLE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_DFT.EXCHANGE_CORRELATION_TABLE_options'))
+        ''')
 
     x_cpmd_input_DFT_EXCHANGE_CORRELATION_TABLE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword EXCHANGE_CORRELATION_TABLE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_DFT.EXCHANGE_CORRELATION_TABLE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_DFT_FUNCTIONAL(MSection):
@@ -5515,23 +5032,21 @@ class x_cpmd_section_input_DFT_FUNCTIONAL(MSection):
     \\goodbreak HCTH, OPTX, OLYP, TPSS, PBE0, B1LYP, B3LYP, X3LYP,PBES, \\goodbreak HSE06
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT.FUNCTIONAL'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_DFT_FUNCTIONAL_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword FUNCTIONAL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_DFT.FUNCTIONAL_options'))
+        ''')
 
     x_cpmd_input_DFT_FUNCTIONAL_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword FUNCTIONAL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_DFT.FUNCTIONAL_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_DFT_GRADIENT_CORRECTION(MSection):
@@ -5550,23 +5065,21 @@ class x_cpmd_section_input_DFT_GRADIENT_CORRECTION(MSection):
     functionals for exchange and correlation are used.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT.GRADIENT_CORRECTION'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_DFT_GRADIENT_CORRECTION_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword GRADIENT_CORRECTION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_DFT.GRADIENT_CORRECTION_options'))
+        ''')
 
     x_cpmd_input_DFT_GRADIENT_CORRECTION_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword GRADIENT_CORRECTION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_DFT.GRADIENT_CORRECTION_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_DFT_HARTREE(MSection):
@@ -5574,23 +5087,21 @@ class x_cpmd_section_input_DFT_HARTREE(MSection):
     Do a Hartree calculation. Only of use for testing purposes.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT.HARTREE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_DFT_HARTREE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword HARTREE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_DFT.HARTREE_options'))
+        ''')
 
     x_cpmd_input_DFT_HARTREE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword HARTREE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_DFT.HARTREE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_DFT_HFX_SCREENING(MSection):
@@ -5602,23 +5113,21 @@ class x_cpmd_section_input_DFT_HFX_SCREENING(MSection):
     how often the integral list is recomputed.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT.HFX_SCREENING'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_DFT_HFX_SCREENING_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword HFX_SCREENING.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_DFT.HFX_SCREENING_options'))
+        ''')
 
     x_cpmd_input_DFT_HFX_SCREENING_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword HFX_SCREENING.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_DFT.HFX_SCREENING_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_DFT_LDA_CORRELATION(MSection):
@@ -5630,23 +5139,21 @@ class x_cpmd_section_input_DFT_LDA_CORRELATION(MSection):
     Alder~\\cite{Ceperley80}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT.LDA_CORRELATION'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_DFT_LDA_CORRELATION_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword LDA_CORRELATION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_DFT.LDA_CORRELATION_options'))
+        ''')
 
     x_cpmd_input_DFT_LDA_CORRELATION_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword LDA_CORRELATION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_DFT.LDA_CORRELATION_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_DFT_LR_KERNEL(MSection):
@@ -5654,23 +5161,21 @@ class x_cpmd_section_input_DFT_LR_KERNEL(MSection):
     Use another functional for the linear response kernel.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT.LR_KERNEL'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_DFT_LR_KERNEL_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword LR_KERNEL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_DFT.LR_KERNEL_options'))
+        ''')
 
     x_cpmd_input_DFT_LR_KERNEL_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword LR_KERNEL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_DFT.LR_KERNEL_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_DFT_NEWCODE(MSection):
@@ -5683,23 +5188,21 @@ class x_cpmd_section_input_DFT_NEWCODE(MSection):
     OLDCODE.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT.NEWCODE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_DFT_NEWCODE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword NEWCODE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_DFT.NEWCODE_options'))
+        ''')
 
     x_cpmd_input_DFT_NEWCODE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword NEWCODE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_DFT.NEWCODE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_DFT_OLDCODE(MSection):
@@ -5707,23 +5210,21 @@ class x_cpmd_section_input_DFT_OLDCODE(MSection):
     see \\refkeyword{NEWCODE}
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT.OLDCODE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_DFT_OLDCODE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword OLDCODE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_DFT.OLDCODE_options'))
+        ''')
 
     x_cpmd_input_DFT_OLDCODE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword OLDCODE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_DFT.OLDCODE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_DFT_REFUNCT(MSection):
@@ -5731,23 +5232,21 @@ class x_cpmd_section_input_DFT_REFUNCT(MSection):
     Use a special reference functional in a calculation. This option is not active.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT.REFUNCT'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_DFT_REFUNCT_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword REFUNCT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_DFT.REFUNCT_options'))
+        ''')
 
     x_cpmd_input_DFT_REFUNCT_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword REFUNCT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_DFT.REFUNCT_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_DFT_SLATER(MSection):
@@ -5757,23 +5256,21 @@ class x_cpmd_section_input_DFT_SLATER(MSection):
     This option together with no correlation functional, allows for $X\\alpha$ theory.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT.SLATER'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_DFT_SLATER_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword SLATER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_DFT.SLATER_options'))
+        ''')
 
     x_cpmd_input_DFT_SLATER_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword SLATER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_DFT.SLATER_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_DFT_SMOOTH(MSection):
@@ -5785,23 +5282,21 @@ class x_cpmd_section_input_DFT_SMOOTH(MSection):
     to be given on the next line.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT.SMOOTH'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_DFT_SMOOTH_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword SMOOTH.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_DFT.SMOOTH_options'))
+        ''')
 
     x_cpmd_input_DFT_SMOOTH_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword SMOOTH.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_DFT.SMOOTH_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_DFT(MSection):
@@ -5809,95 +5304,78 @@ class x_cpmd_section_input_DFT(MSection):
     Exchange and correlation functional and related parameters.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_DFT_default_keyword = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters that are present in the section DFT even without a keyword.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_DFT_default_keyword'))
+        ''')
 
     x_cpmd_section_input_DFT_ACM0 = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_DFT_ACM0'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT.ACM0'))
+        repeats=True)
 
     x_cpmd_section_input_DFT_ACM1 = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_DFT_ACM1'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT.ACM1'))
+        repeats=True)
 
     x_cpmd_section_input_DFT_ACM3 = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_DFT_ACM3'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT.ACM3'))
+        repeats=True)
 
     x_cpmd_section_input_DFT_BECKE_BETA = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_DFT_BECKE_BETA'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT.BECKE_BETA'))
+        repeats=True)
 
     x_cpmd_section_input_DFT_EXCHANGE_CORRELATION_TABLE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_DFT_EXCHANGE_CORRELATION_TABLE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT.EXCHANGE_CORRELATION_TABLE'))
+        repeats=True)
 
     x_cpmd_section_input_DFT_FUNCTIONAL = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_DFT_FUNCTIONAL'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT.FUNCTIONAL'))
+        repeats=True)
 
     x_cpmd_section_input_DFT_GRADIENT_CORRECTION = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_DFT_GRADIENT_CORRECTION'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT.GRADIENT_CORRECTION'))
+        repeats=True)
 
     x_cpmd_section_input_DFT_HARTREE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_DFT_HARTREE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT.HARTREE'))
+        repeats=True)
 
     x_cpmd_section_input_DFT_HFX_SCREENING = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_DFT_HFX_SCREENING'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT.HFX_SCREENING'))
+        repeats=True)
 
     x_cpmd_section_input_DFT_LDA_CORRELATION = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_DFT_LDA_CORRELATION'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT.LDA_CORRELATION'))
+        repeats=True)
 
     x_cpmd_section_input_DFT_LR_KERNEL = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_DFT_LR_KERNEL'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT.LR_KERNEL'))
+        repeats=True)
 
     x_cpmd_section_input_DFT_NEWCODE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_DFT_NEWCODE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT.NEWCODE'))
+        repeats=True)
 
     x_cpmd_section_input_DFT_OLDCODE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_DFT_OLDCODE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT.OLDCODE'))
+        repeats=True)
 
     x_cpmd_section_input_DFT_REFUNCT = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_DFT_REFUNCT'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT.REFUNCT'))
+        repeats=True)
 
     x_cpmd_section_input_DFT_SLATER = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_DFT_SLATER'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT.SLATER'))
+        repeats=True)
 
     x_cpmd_section_input_DFT_SMOOTH = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_DFT_SMOOTH'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT.SMOOTH'))
+        repeats=True)
 
 
 class x_cpmd_section_input_EXTE(MSection):
@@ -5905,15 +5383,14 @@ class x_cpmd_section_input_EXTE(MSection):
     External field definition for EGO QM/MM interface
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_EXTE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_EXTE_default_keyword = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters that are present in the section EXTE even without a keyword.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_EXTE_default_keyword'))
+        ''')
 
 
 class x_cpmd_section_input_HARDNESS_DIAGONAL(MSection):
@@ -5921,23 +5398,21 @@ class x_cpmd_section_input_HARDNESS_DIAGONAL(MSection):
     Not documented
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_HARDNESS.DIAGONAL'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_HARDNESS_DIAGONAL_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword DIAGONAL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_HARDNESS.DIAGONAL_options'))
+        ''')
 
     x_cpmd_input_HARDNESS_DIAGONAL_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword DIAGONAL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_HARDNESS.DIAGONAL_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_HARDNESS_ORBITALS(MSection):
@@ -5945,23 +5420,21 @@ class x_cpmd_section_input_HARDNESS_ORBITALS(MSection):
     Specify the number of orbitals to be used in a hardness calculation on the next line.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_HARDNESS.ORBITALS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_HARDNESS_ORBITALS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword ORBITALS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_HARDNESS.ORBITALS_options'))
+        ''')
 
     x_cpmd_input_HARDNESS_ORBITALS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword ORBITALS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_HARDNESS.ORBITALS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_HARDNESS_REFATOM(MSection):
@@ -5971,23 +5444,21 @@ class x_cpmd_section_input_HARDNESS_REFATOM(MSection):
     \\refkeyword{LOCALIZE}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_HARDNESS.REFATOM'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_HARDNESS_REFATOM_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword REFATOM.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_HARDNESS.REFATOM_options'))
+        ''')
 
     x_cpmd_input_HARDNESS_REFATOM_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword REFATOM.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_HARDNESS.REFATOM_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_HARDNESS(MSection):
@@ -5995,30 +5466,26 @@ class x_cpmd_section_input_HARDNESS(MSection):
     Input for HARDNESS calculations
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_HARDNESS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_HARDNESS_default_keyword = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters that are present in the section HARDNESS even without a keyword.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_HARDNESS_default_keyword'))
+        ''')
 
     x_cpmd_section_input_HARDNESS_DIAGONAL = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_HARDNESS_DIAGONAL'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_HARDNESS.DIAGONAL'))
+        repeats=True)
 
     x_cpmd_section_input_HARDNESS_ORBITALS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_HARDNESS_ORBITALS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_HARDNESS.ORBITALS'))
+        repeats=True)
 
     x_cpmd_section_input_HARDNESS_REFATOM = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_HARDNESS_REFATOM'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_HARDNESS.REFATOM'))
+        repeats=True)
 
 
 class x_cpmd_section_input_INFO(MSection):
@@ -6026,15 +5493,14 @@ class x_cpmd_section_input_INFO(MSection):
     A place to put comments about the job.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_INFO'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_INFO_default_keyword = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters that are present in the section INFO even without a keyword.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_INFO_default_keyword'))
+        ''')
 
 
 class x_cpmd_section_input_LINRES_DIFF_FORMULA(MSection):
@@ -6043,23 +5509,21 @@ class x_cpmd_section_input_LINRES_DIFF_FORMULA(MSection):
     --correlation functionals. Default is two point central differences.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_LINRES.DIFF_FORMULA'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_LINRES_DIFF_FORMULA_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword DIFF_FORMULA.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_LINRES.DIFF_FORMULA_options'))
+        ''')
 
     x_cpmd_input_LINRES_DIFF_FORMULA_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword DIFF_FORMULA.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_LINRES.DIFF_FORMULA_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_LINRES_GAUGE(MSection):
@@ -6070,23 +5534,21 @@ class x_cpmd_section_input_LINRES_GAUGE(MSection):
     rotation gauge can be enforced for all states by selecting ALL. See \\cite{lsets}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_LINRES.GAUGE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_LINRES_GAUGE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword GAUGE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_LINRES.GAUGE_options'))
+        ''')
 
     x_cpmd_input_LINRES_GAUGE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword GAUGE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_LINRES.GAUGE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_LINRES_HTHRS(MSection):
@@ -6095,23 +5557,21 @@ class x_cpmd_section_input_LINRES_HTHRS(MSection):
     0.5.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_LINRES.HTHRS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_LINRES_HTHRS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword HTHRS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_LINRES.HTHRS_options'))
+        ''')
 
     x_cpmd_input_LINRES_HTHRS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword HTHRS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_LINRES.HTHRS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_LINRES_OPTIMIZER(MSection):
@@ -6122,23 +5582,21 @@ class x_cpmd_section_input_LINRES_OPTIMIZER(MSection):
     to do the switch.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_LINRES.OPTIMIZER'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_LINRES_OPTIMIZER_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword OPTIMIZER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_LINRES.OPTIMIZER_options'))
+        ''')
 
     x_cpmd_input_LINRES_OPTIMIZER_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword OPTIMIZER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_LINRES.OPTIMIZER_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_LINRES_STEPLENGTH(MSection):
@@ -6147,23 +5605,21 @@ class x_cpmd_section_input_LINRES_STEPLENGTH(MSection):
     linear response calculations. Default is 0.1.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_LINRES.STEPLENGTH'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_LINRES_STEPLENGTH_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword STEPLENGTH.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_LINRES.STEPLENGTH_options'))
+        ''')
 
     x_cpmd_input_LINRES_STEPLENGTH_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword STEPLENGTH.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_LINRES.STEPLENGTH_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_LINRES_THAUTO(MSection):
@@ -6177,23 +5633,21 @@ class x_cpmd_section_input_LINRES_THAUTO(MSection):
     preconditioner. See also \\refkeyword{ZDIIS} for specification of the subspace size.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_LINRES.THAUTO'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_LINRES_THAUTO_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword THAUTO.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_LINRES.THAUTO_options'))
+        ''')
 
     x_cpmd_input_LINRES_THAUTO_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword THAUTO.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_LINRES.THAUTO_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_LINRES_ZDIIS(MSection):
@@ -6201,23 +5655,21 @@ class x_cpmd_section_input_LINRES_ZDIIS(MSection):
     The subspace size for the optimizer is read from the next line.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_LINRES.ZDIIS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_LINRES_ZDIIS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword ZDIIS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_LINRES.ZDIIS_options'))
+        ''')
 
     x_cpmd_input_LINRES_ZDIIS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword ZDIIS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_LINRES.ZDIIS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_LINRES(MSection):
@@ -6225,50 +5677,42 @@ class x_cpmd_section_input_LINRES(MSection):
     General input for HARDNESS and TDDFT calculations
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_LINRES'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_LINRES_default_keyword = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters that are present in the section LINRES even without a keyword.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_LINRES_default_keyword'))
+        ''')
 
     x_cpmd_section_input_LINRES_DIFF_FORMULA = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_LINRES_DIFF_FORMULA'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_LINRES.DIFF_FORMULA'))
+        repeats=True)
 
     x_cpmd_section_input_LINRES_GAUGE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_LINRES_GAUGE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_LINRES.GAUGE'))
+        repeats=True)
 
     x_cpmd_section_input_LINRES_HTHRS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_LINRES_HTHRS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_LINRES.HTHRS'))
+        repeats=True)
 
     x_cpmd_section_input_LINRES_OPTIMIZER = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_LINRES_OPTIMIZER'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_LINRES.OPTIMIZER'))
+        repeats=True)
 
     x_cpmd_section_input_LINRES_STEPLENGTH = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_LINRES_STEPLENGTH'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_LINRES.STEPLENGTH'))
+        repeats=True)
 
     x_cpmd_section_input_LINRES_THAUTO = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_LINRES_THAUTO'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_LINRES.THAUTO'))
+        repeats=True)
 
     x_cpmd_section_input_LINRES_ZDIIS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_LINRES_ZDIIS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_LINRES.ZDIIS'))
+        repeats=True)
 
 
 class x_cpmd_section_input_PATH_ALPHA(MSection):
@@ -6277,23 +5721,21 @@ class x_cpmd_section_input_PATH_ALPHA(MSection):
     value is \\defaultvalue{0.2}
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PATH.ALPHA'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PATH_ALPHA_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword ALPHA.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PATH.ALPHA_options'))
+        ''')
 
     x_cpmd_input_PATH_ALPHA_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword ALPHA.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PATH.ALPHA_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PATH_FACTOR(MSection):
@@ -6302,23 +5744,21 @@ class x_cpmd_section_input_PATH_FACTOR(MSection):
     \\defaultvalue{1.0}
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PATH.FACTOR'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PATH_FACTOR_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword FACTOR.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PATH.FACTOR_options'))
+        ''')
 
     x_cpmd_input_PATH_FACTOR_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword FACTOR.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PATH.FACTOR_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PATH_NEQUI(MSection):
@@ -6326,23 +5766,21 @@ class x_cpmd_section_input_PATH_NEQUI(MSection):
     Number of equilibration steps discarded to calculate the mean force.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PATH.NEQUI'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PATH_NEQUI_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword NEQUI.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PATH.NEQUI_options'))
+        ''')
 
     x_cpmd_input_PATH_NEQUI_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword NEQUI.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PATH.NEQUI_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PATH_NLOOP(MSection):
@@ -6350,23 +5788,21 @@ class x_cpmd_section_input_PATH_NLOOP(MSection):
     Maximum number of string searches for Mean Free Energy Path searches.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PATH.NLOOP'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PATH_NLOOP_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword NLOOP.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PATH.NLOOP_options'))
+        ''')
 
     x_cpmd_input_PATH_NLOOP_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword NLOOP.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PATH.NLOOP_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PATH_NPREVIOUS(MSection):
@@ -6375,23 +5811,21 @@ class x_cpmd_section_input_PATH_NPREVIOUS(MSection):
     path in collective variables for the search is always {\\em string.inp}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PATH.NPREVIOUS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PATH_NPREVIOUS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword NPREVIOUS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PATH.NPREVIOUS_options'))
+        ''')
 
     x_cpmd_input_PATH_NPREVIOUS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword NPREVIOUS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PATH.NPREVIOUS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PATH_REPLICA_NUMBER(MSection):
@@ -6399,23 +5833,21 @@ class x_cpmd_section_input_PATH_REPLICA_NUMBER(MSection):
     Number of replicas along the string.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PATH.REPLICA_NUMBER'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PATH_REPLICA_NUMBER_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword REPLICA_NUMBER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PATH.REPLICA_NUMBER_options'))
+        ''')
 
     x_cpmd_input_PATH_REPLICA_NUMBER_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword REPLICA_NUMBER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PATH.REPLICA_NUMBER_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PATH(MSection):
@@ -6423,45 +5855,38 @@ class x_cpmd_section_input_PATH(MSection):
     Mean free energy path calculation (MFEP)
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PATH'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PATH_default_keyword = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters that are present in the section PATH even without a keyword.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PATH_default_keyword'))
+        ''')
 
     x_cpmd_section_input_PATH_ALPHA = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PATH_ALPHA'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PATH.ALPHA'))
+        repeats=True)
 
     x_cpmd_section_input_PATH_FACTOR = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PATH_FACTOR'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PATH.FACTOR'))
+        repeats=True)
 
     x_cpmd_section_input_PATH_NEQUI = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PATH_NEQUI'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PATH.NEQUI'))
+        repeats=True)
 
     x_cpmd_section_input_PATH_NLOOP = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PATH_NLOOP'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PATH.NLOOP'))
+        repeats=True)
 
     x_cpmd_section_input_PATH_NPREVIOUS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PATH_NPREVIOUS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PATH.NPREVIOUS'))
+        repeats=True)
 
     x_cpmd_section_input_PATH_REPLICA_NUMBER = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PATH_REPLICA_NUMBER'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PATH.REPLICA_NUMBER'))
+        repeats=True)
 
 
 class x_cpmd_section_input_PIMD_CENTROID_DYNAMICS(MSection):
@@ -6477,23 +5902,21 @@ class x_cpmd_section_input_PIMD_CENTROID_DYNAMICS(MSection):
     in eq.~(2.51).
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PIMD.CENTROID_DYNAMICS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PIMD_CENTROID_DYNAMICS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword CENTROID_DYNAMICS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PIMD.CENTROID_DYNAMICS_options'))
+        ''')
 
     x_cpmd_input_PIMD_CENTROID_DYNAMICS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword CENTROID_DYNAMICS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PIMD.CENTROID_DYNAMICS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PIMD_CLASSICAL_TEST(MSection):
@@ -6504,23 +5927,21 @@ class x_cpmd_section_input_PIMD_CLASSICAL_TEST(MSection):
     NORMAL MODES, STAGING and/or \\refkeyword{DEBROGLIE} CENTROID.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PIMD.CLASSICAL_TEST'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PIMD_CLASSICAL_TEST_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword CLASSICAL_TEST.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PIMD.CLASSICAL_TEST_options'))
+        ''')
 
     x_cpmd_input_PIMD_CLASSICAL_TEST_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword CLASSICAL_TEST.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PIMD.CLASSICAL_TEST_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PIMD_DEBROGLIE(MSection):
@@ -6544,23 +5965,21 @@ class x_cpmd_section_input_PIMD_DEBROGLIE(MSection):
     Default is DEBROGLIE CENTROID and 500~Kelvin.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PIMD.DEBROGLIE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PIMD_DEBROGLIE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword DEBROGLIE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PIMD.DEBROGLIE_options'))
+        ''')
 
     x_cpmd_input_PIMD_DEBROGLIE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword DEBROGLIE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PIMD.DEBROGLIE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PIMD_FACMASS(MSection):
@@ -6574,23 +5993,21 @@ class x_cpmd_section_input_PIMD_FACMASS(MSection):
     nomenclature.  \\textbf{Default} value of WMASS is \\defaultvalue{1.0}
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PIMD.FACMASS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PIMD_FACMASS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword FACMASS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PIMD.FACMASS_options'))
+        ''')
 
     x_cpmd_input_PIMD_FACMASS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword FACMASS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PIMD.FACMASS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PIMD_GENERATE_REPLICAS(MSection):
@@ -6601,23 +6018,21 @@ class x_cpmd_section_input_PIMD_GENERATE_REPLICAS(MSection):
     This is the default if \\refkeyword{INITIALIZATION} is active.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PIMD.GENERATE_REPLICAS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PIMD_GENERATE_REPLICAS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword GENERATE_REPLICAS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PIMD.GENERATE_REPLICAS_options'))
+        ''')
 
     x_cpmd_input_PIMD_GENERATE_REPLICAS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword GENERATE_REPLICAS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PIMD.GENERATE_REPLICAS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PIMD_INITIALIZATION(MSection):
@@ -6632,23 +6047,21 @@ class x_cpmd_section_input_PIMD_INITIALIZATION(MSection):
     a temperature of 500~Kelvin.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PIMD.INITIALIZATION'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PIMD_INITIALIZATION_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword INITIALIZATION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PIMD.INITIALIZATION_options'))
+        ''')
 
     x_cpmd_input_PIMD_INITIALIZATION_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword INITIALIZATION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PIMD.INITIALIZATION_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PIMD_NORMAL_MODES(MSection):
@@ -6663,23 +6076,21 @@ class x_cpmd_section_input_PIMD_NORMAL_MODES(MSection):
     with CENTROID DYNAMICS where WMASS=1.0 has to be used as well.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PIMD.NORMAL_MODES'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PIMD_NORMAL_MODES_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword NORMAL_MODES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PIMD.NORMAL_MODES_options'))
+        ''')
 
     x_cpmd_input_PIMD_NORMAL_MODES_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword NORMAL_MODES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PIMD.NORMAL_MODES_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PIMD_OUTPUT(MSection):
@@ -6691,23 +6102,21 @@ class x_cpmd_section_input_PIMD_OUTPUT(MSection):
     OUTPUT\\_$n$ where $n$ is the group and bead number, respectively.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PIMD.OUTPUT'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PIMD_OUTPUT_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword OUTPUT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PIMD.OUTPUT_options'))
+        ''')
 
     x_cpmd_input_PIMD_OUTPUT_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword OUTPUT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PIMD.OUTPUT_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PIMD_PRINT_LEVEL(MSection):
@@ -6717,23 +6126,21 @@ class x_cpmd_section_input_PIMD_PRINT_LEVEL(MSection):
     Currently there is only minimal output for $<5$ and maximal output for $\\geq 5$.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PIMD.PRINT_LEVEL'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PIMD_PRINT_LEVEL_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword PRINT_LEVEL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PIMD.PRINT_LEVEL_options'))
+        ''')
 
     x_cpmd_input_PIMD_PRINT_LEVEL_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword PRINT_LEVEL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PIMD.PRINT_LEVEL_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PIMD_PROCESSOR_GROUPS(MSection):
@@ -6756,23 +6163,21 @@ class x_cpmd_section_input_PIMD_PROCESSOR_GROUPS(MSection):
     This keyword is only active in parallel mode.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PIMD.PROCESSOR_GROUPS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PIMD_PROCESSOR_GROUPS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword PROCESSOR_GROUPS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PIMD.PROCESSOR_GROUPS_options'))
+        ''')
 
     x_cpmd_input_PIMD_PROCESSOR_GROUPS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword PROCESSOR_GROUPS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PIMD.PROCESSOR_GROUPS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PIMD_READ_REPLICAS(MSection):
@@ -6781,23 +6186,21 @@ class x_cpmd_section_input_PIMD_READ_REPLICAS(MSection):
     for the input format see subroutine rreadf.F.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PIMD.READ_REPLICAS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PIMD_READ_REPLICAS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword READ_REPLICAS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PIMD.READ_REPLICAS_options'))
+        ''')
 
     x_cpmd_input_PIMD_READ_REPLICAS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword READ_REPLICAS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PIMD.READ_REPLICAS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PIMD_STAGING(MSection):
@@ -6812,23 +6215,21 @@ class x_cpmd_section_input_PIMD_STAGING(MSection):
     within the STAGING scheme, but see its use within CENTROID DYNAMICS and NORMAL MODES.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PIMD.STAGING'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PIMD_STAGING_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword STAGING.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PIMD.STAGING_options'))
+        ''')
 
     x_cpmd_input_PIMD_STAGING_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword STAGING.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PIMD.STAGING_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PIMD_TROTTER_DIMENSION(MSection):
@@ -6841,23 +6242,21 @@ class x_cpmd_section_input_PIMD_TROTTER_DIMENSION(MSection):
     on estimating $P$ in advance is given in Ref.~\\cite{knoll-marx-00}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PIMD.TROTTER_DIMENSION'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PIMD_TROTTER_DIMENSION_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword TROTTER_DIMENSION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PIMD.TROTTER_DIMENSION_options'))
+        ''')
 
     x_cpmd_input_PIMD_TROTTER_DIMENSION_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword TROTTER_DIMENSION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PIMD.TROTTER_DIMENSION_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PIMD(MSection):
@@ -6865,80 +6264,66 @@ class x_cpmd_section_input_PIMD(MSection):
     Path integral molecular dynamics (PIMD)
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PIMD'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PIMD_default_keyword = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters that are present in the section PIMD even without a keyword.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PIMD_default_keyword'))
+        ''')
 
     x_cpmd_section_input_PIMD_CENTROID_DYNAMICS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PIMD_CENTROID_DYNAMICS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PIMD.CENTROID_DYNAMICS'))
+        repeats=True)
 
     x_cpmd_section_input_PIMD_CLASSICAL_TEST = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PIMD_CLASSICAL_TEST'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PIMD.CLASSICAL_TEST'))
+        repeats=True)
 
     x_cpmd_section_input_PIMD_DEBROGLIE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PIMD_DEBROGLIE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PIMD.DEBROGLIE'))
+        repeats=True)
 
     x_cpmd_section_input_PIMD_FACMASS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PIMD_FACMASS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PIMD.FACMASS'))
+        repeats=True)
 
     x_cpmd_section_input_PIMD_GENERATE_REPLICAS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PIMD_GENERATE_REPLICAS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PIMD.GENERATE_REPLICAS'))
+        repeats=True)
 
     x_cpmd_section_input_PIMD_INITIALIZATION = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PIMD_INITIALIZATION'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PIMD.INITIALIZATION'))
+        repeats=True)
 
     x_cpmd_section_input_PIMD_NORMAL_MODES = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PIMD_NORMAL_MODES'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PIMD.NORMAL_MODES'))
+        repeats=True)
 
     x_cpmd_section_input_PIMD_OUTPUT = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PIMD_OUTPUT'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PIMD.OUTPUT'))
+        repeats=True)
 
     x_cpmd_section_input_PIMD_PRINT_LEVEL = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PIMD_PRINT_LEVEL'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PIMD.PRINT_LEVEL'))
+        repeats=True)
 
     x_cpmd_section_input_PIMD_PROCESSOR_GROUPS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PIMD_PROCESSOR_GROUPS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PIMD.PROCESSOR_GROUPS'))
+        repeats=True)
 
     x_cpmd_section_input_PIMD_READ_REPLICAS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PIMD_READ_REPLICAS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PIMD.READ_REPLICAS'))
+        repeats=True)
 
     x_cpmd_section_input_PIMD_STAGING = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PIMD_STAGING'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PIMD.STAGING'))
+        repeats=True)
 
     x_cpmd_section_input_PIMD_TROTTER_DIMENSION = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PIMD_TROTTER_DIMENSION'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PIMD.TROTTER_DIMENSION'))
+        repeats=True)
 
 
 class x_cpmd_section_input_PROP_AVERAGED_POTENTIAL(MSection):
@@ -6947,23 +6332,21 @@ class x_cpmd_section_input_PROP_AVERAGED_POTENTIAL(MSection):
     positions.   Parameter Rcut is read in from next line.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.AVERAGED_POTENTIAL'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PROP_AVERAGED_POTENTIAL_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword AVERAGED_POTENTIAL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.AVERAGED_POTENTIAL_options'))
+        ''')
 
     x_cpmd_input_PROP_AVERAGED_POTENTIAL_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword AVERAGED_POTENTIAL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.AVERAGED_POTENTIAL_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PROP_CHARGES(MSection):
@@ -6973,23 +6356,21 @@ class x_cpmd_section_input_PROP_CHARGES(MSection):
     potential~\\cite{Cox84}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.CHARGES'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PROP_CHARGES_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword CHARGES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.CHARGES_options'))
+        ''')
 
     x_cpmd_input_PROP_CHARGES_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword CHARGES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.CHARGES_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PROP_CONDUCTIVITY(MSection):
@@ -7013,23 +6394,21 @@ class x_cpmd_section_input_PROP_CONDUCTIVITY(MSection):
     MATRIX.DAT). An example of application is given in Refs.~\\cite{solve,solve2}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.CONDUCTIVITY'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PROP_CONDUCTIVITY_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword CONDUCTIVITY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.CONDUCTIVITY_options'))
+        ''')
 
     x_cpmd_input_PROP_CONDUCTIVITY_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword CONDUCTIVITY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.CONDUCTIVITY_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PROP_CORE_SPECTRA(MSection):
@@ -7056,23 +6435,21 @@ class x_cpmd_section_input_PROP_CORE_SPECTRA(MSection):
     CPMD and are named as *\\_HOLE.psp
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.CORE_SPECTRA'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PROP_CORE_SPECTRA_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword CORE_SPECTRA.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.CORE_SPECTRA_options'))
+        ''')
 
     x_cpmd_input_PROP_CORE_SPECTRA_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword CORE_SPECTRA.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.CORE_SPECTRA_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PROP_CUBECENTER(MSection):
@@ -7083,23 +6460,21 @@ class x_cpmd_section_input_PROP_CUBECENTER(MSection):
     center of the system.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.CUBECENTER'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PROP_CUBECENTER_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword CUBECENTER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.CUBECENTER_options'))
+        ''')
 
     x_cpmd_input_PROP_CUBECENTER_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword CUBECENTER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.CUBECENTER_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PROP_CUBEFILE(MSection):
@@ -7110,23 +6485,21 @@ class x_cpmd_section_input_PROP_CUBEFILE(MSection):
     size by a factor of 8.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.CUBEFILE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PROP_CUBEFILE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword CUBEFILE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.CUBEFILE_options'))
+        ''')
 
     x_cpmd_input_PROP_CUBEFILE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword CUBEFILE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.CUBEFILE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PROP_DIPOLE_MOMENT(MSection):
@@ -7141,23 +6514,21 @@ class x_cpmd_section_input_PROP_DIPOLE_MOMENT(MSection):
     {\\bf Default} is to use the real-space algorithm.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.DIPOLE_MOMENT'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PROP_DIPOLE_MOMENT_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword DIPOLE_MOMENT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.DIPOLE_MOMENT_options'))
+        ''')
 
     x_cpmd_input_PROP_DIPOLE_MOMENT_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword DIPOLE_MOMENT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.DIPOLE_MOMENT_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PROP_EXCITED_DIPOLE(MSection):
@@ -7171,23 +6542,21 @@ class x_cpmd_section_input_PROP_EXCITED_DIPOLE(MSection):
     specified the dipole moment differences are calculated within the same boxes.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.EXCITED_DIPOLE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PROP_EXCITED_DIPOLE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword EXCITED_DIPOLE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.EXCITED_DIPOLE_options'))
+        ''')
 
     x_cpmd_input_PROP_EXCITED_DIPOLE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword EXCITED_DIPOLE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.EXCITED_DIPOLE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PROP_LDOS(MSection):
@@ -7201,23 +6570,21 @@ class x_cpmd_section_input_PROP_LDOS(MSection):
     \\refkeyword{POINT GROUP}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.LDOS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PROP_LDOS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword LDOS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.LDOS_options'))
+        ''')
 
     x_cpmd_input_PROP_LDOS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword LDOS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.LDOS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PROP_LOCAL_DIPOLE(MSection):
@@ -7226,23 +6593,21 @@ class x_cpmd_section_input_PROP_LOCAL_DIPOLE(MSection):
     by two numloc lines with the format: \\\\  $xmin$ $ymin$ $zmin$ \\\\  $xmax$ $ymax$ $zmax$
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.LOCAL_DIPOLE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PROP_LOCAL_DIPOLE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword LOCAL_DIPOLE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.LOCAL_DIPOLE_options'))
+        ''')
 
     x_cpmd_input_PROP_LOCAL_DIPOLE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword LOCAL_DIPOLE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.LOCAL_DIPOLE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PROP_LOCALIZE(MSection):
@@ -7253,23 +6618,21 @@ class x_cpmd_section_input_PROP_LOCALIZE(MSection):
     RHOOUT} specified in the section \\&CPMD section.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.LOCALIZE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PROP_LOCALIZE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword LOCALIZE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.LOCALIZE_options'))
+        ''')
 
     x_cpmd_input_PROP_LOCALIZE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword LOCALIZE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.LOCALIZE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PROP_NOPRINT_ORBITALS(MSection):
@@ -7277,23 +6640,21 @@ class x_cpmd_section_input_PROP_NOPRINT_ORBITALS(MSection):
     Do not print the wavefunctions in the atomic basis set.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.NOPRINT_ORBITALS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PROP_NOPRINT_ORBITALS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword NOPRINT_ORBITALS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.NOPRINT_ORBITALS_options'))
+        ''')
 
     x_cpmd_input_PROP_NOPRINT_ORBITALS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword NOPRINT_ORBITALS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.NOPRINT_ORBITALS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PROP_OPTIMIZE_SLATER_EXPONENTS(MSection):
@@ -7301,23 +6662,21 @@ class x_cpmd_section_input_PROP_OPTIMIZE_SLATER_EXPONENTS(MSection):
     Not documented
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.OPTIMIZE_SLATER_EXPONENTS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PROP_OPTIMIZE_SLATER_EXPONENTS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword OPTIMIZE_SLATER_EXPONENTS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.OPTIMIZE_SLATER_EXPONENTS_options'))
+        ''')
 
     x_cpmd_input_PROP_OPTIMIZE_SLATER_EXPONENTS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword OPTIMIZE_SLATER_EXPONENTS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.OPTIMIZE_SLATER_EXPONENTS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PROP_POLARISABILITY(MSection):
@@ -7325,23 +6684,21 @@ class x_cpmd_section_input_PROP_POLARISABILITY(MSection):
     Computes the polarisability of a system, intended as dipole moment per unit volume.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.POLARISABILITY'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PROP_POLARISABILITY_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword POLARISABILITY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.POLARISABILITY_options'))
+        ''')
 
     x_cpmd_input_PROP_POLARISABILITY_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword POLARISABILITY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.POLARISABILITY_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PROP_POPULATION_ANALYSIS(MSection):
@@ -7355,23 +6712,21 @@ class x_cpmd_section_input_PROP_POPULATION_ANALYSIS(MSection):
     a water molecule is given in the hints section \\ref{hints:pop}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.POPULATION_ANALYSIS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PROP_POPULATION_ANALYSIS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword POPULATION_ANALYSIS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.POPULATION_ANALYSIS_options'))
+        ''')
 
     x_cpmd_input_PROP_POPULATION_ANALYSIS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword POPULATION_ANALYSIS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.POPULATION_ANALYSIS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PROP_PROJECT_WAVEFUNCTION(MSection):
@@ -7382,23 +6737,21 @@ class x_cpmd_section_input_PROP_PROJECT_WAVEFUNCTION(MSection):
     input a minimal Slater basis is used. See section~\\ref{input:basis} for more details.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.PROJECT_WAVEFUNCTION'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PROP_PROJECT_WAVEFUNCTION_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword PROJECT_WAVEFUNCTION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.PROJECT_WAVEFUNCTION_options'))
+        ''')
 
     x_cpmd_input_PROP_PROJECT_WAVEFUNCTION_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword PROJECT_WAVEFUNCTION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.PROJECT_WAVEFUNCTION_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PROP_TRANSITION_MOMENT(MSection):
@@ -7413,23 +6766,21 @@ class x_cpmd_section_input_PROP_TRANSITION_MOMENT(MSection):
     between 6 and 8.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.TRANSITION_MOMENT'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PROP_TRANSITION_MOMENT_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword TRANSITION_MOMENT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.TRANSITION_MOMENT_options'))
+        ''')
 
     x_cpmd_input_PROP_TRANSITION_MOMENT_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword TRANSITION_MOMENT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP.TRANSITION_MOMENT_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PROP(MSection):
@@ -7437,100 +6788,82 @@ class x_cpmd_section_input_PROP(MSection):
     Calculation of properties
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PROP_default_keyword = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters that are present in the section PROP even without a keyword.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PROP_default_keyword'))
+        ''')
 
     x_cpmd_section_input_PROP_AVERAGED_POTENTIAL = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PROP_AVERAGED_POTENTIAL'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.AVERAGED_POTENTIAL'))
+        repeats=True)
 
     x_cpmd_section_input_PROP_CHARGES = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PROP_CHARGES'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.CHARGES'))
+        repeats=True)
 
     x_cpmd_section_input_PROP_CONDUCTIVITY = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PROP_CONDUCTIVITY'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.CONDUCTIVITY'))
+        repeats=True)
 
     x_cpmd_section_input_PROP_CORE_SPECTRA = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PROP_CORE_SPECTRA'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.CORE_SPECTRA'))
+        repeats=True)
 
     x_cpmd_section_input_PROP_CUBECENTER = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PROP_CUBECENTER'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.CUBECENTER'))
+        repeats=True)
 
     x_cpmd_section_input_PROP_CUBEFILE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PROP_CUBEFILE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.CUBEFILE'))
+        repeats=True)
 
     x_cpmd_section_input_PROP_DIPOLE_MOMENT = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PROP_DIPOLE_MOMENT'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.DIPOLE_MOMENT'))
+        repeats=True)
 
     x_cpmd_section_input_PROP_EXCITED_DIPOLE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PROP_EXCITED_DIPOLE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.EXCITED_DIPOLE'))
+        repeats=True)
 
     x_cpmd_section_input_PROP_LDOS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PROP_LDOS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.LDOS'))
+        repeats=True)
 
     x_cpmd_section_input_PROP_LOCAL_DIPOLE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PROP_LOCAL_DIPOLE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.LOCAL_DIPOLE'))
+        repeats=True)
 
     x_cpmd_section_input_PROP_LOCALIZE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PROP_LOCALIZE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.LOCALIZE'))
+        repeats=True)
 
     x_cpmd_section_input_PROP_NOPRINT_ORBITALS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PROP_NOPRINT_ORBITALS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.NOPRINT_ORBITALS'))
+        repeats=True)
 
     x_cpmd_section_input_PROP_OPTIMIZE_SLATER_EXPONENTS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PROP_OPTIMIZE_SLATER_EXPONENTS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.OPTIMIZE_SLATER_EXPONENTS'))
+        repeats=True)
 
     x_cpmd_section_input_PROP_POLARISABILITY = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PROP_POLARISABILITY'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.POLARISABILITY'))
+        repeats=True)
 
     x_cpmd_section_input_PROP_POPULATION_ANALYSIS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PROP_POPULATION_ANALYSIS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.POPULATION_ANALYSIS'))
+        repeats=True)
 
     x_cpmd_section_input_PROP_PROJECT_WAVEFUNCTION = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PROP_PROJECT_WAVEFUNCTION'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.PROJECT_WAVEFUNCTION'))
+        repeats=True)
 
     x_cpmd_section_input_PROP_TRANSITION_MOMENT = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PROP_TRANSITION_MOMENT'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP.TRANSITION_MOMENT'))
+        repeats=True)
 
 
 class x_cpmd_section_input_PTDDFT_ACCURACY(MSection):
@@ -7539,23 +6872,21 @@ class x_cpmd_section_input_PTDDFT_ACCURACY(MSection):
     Ehrenfest type of dynamics and spectra calculation.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PTDDFT.ACCURACY'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PTDDFT_ACCURACY_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword ACCURACY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PTDDFT.ACCURACY_options'))
+        ''')
 
     x_cpmd_input_PTDDFT_ACCURACY_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword ACCURACY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PTDDFT.ACCURACY_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PTDDFT_PIPULSE(MSection):
@@ -7565,23 +6896,21 @@ class x_cpmd_section_input_PTDDFT_PIPULSE(MSection):
     subroutine gaugepot\\_laser in td\\_util.F for further details).
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PTDDFT.PIPULSE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PTDDFT_PIPULSE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword PIPULSE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PTDDFT.PIPULSE_options'))
+        ''')
 
     x_cpmd_input_PTDDFT_PIPULSE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword PIPULSE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PTDDFT.PIPULSE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PTDDFT_RESTFILE(MSection):
@@ -7597,23 +6926,21 @@ class x_cpmd_section_input_PTDDFT_RESTFILE(MSection):
     from a optimization run with tight convergence (at least 1.D-7)).
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PTDDFT.RESTFILE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PTDDFT_RESTFILE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword RESTFILE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PTDDFT.RESTFILE_options'))
+        ''')
 
     x_cpmd_input_PTDDFT_RESTFILE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword RESTFILE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PTDDFT.RESTFILE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_PTDDFT(MSection):
@@ -7621,30 +6948,26 @@ class x_cpmd_section_input_PTDDFT(MSection):
     Propagation TDDFT for Ehrenfest dynamics and spectra calculation
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_PTDDFT'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_PTDDFT_default_keyword = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters that are present in the section PTDDFT even without a keyword.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_PTDDFT_default_keyword'))
+        ''')
 
     x_cpmd_section_input_PTDDFT_ACCURACY = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PTDDFT_ACCURACY'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PTDDFT.ACCURACY'))
+        repeats=True)
 
     x_cpmd_section_input_PTDDFT_PIPULSE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PTDDFT_PIPULSE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PTDDFT.PIPULSE'))
+        repeats=True)
 
     x_cpmd_section_input_PTDDFT_RESTFILE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PTDDFT_RESTFILE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PTDDFT.RESTFILE'))
+        repeats=True)
 
 
 class x_cpmd_section_input_QMMM_AMBER(MSection):
@@ -7656,23 +6979,21 @@ class x_cpmd_section_input_QMMM_AMBER(MSection):
     \\refkeyword{GROMOS} keyword (which is used by default).
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.AMBER'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_QMMM_AMBER_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword AMBER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.AMBER_options'))
+        ''')
 
     x_cpmd_input_QMMM_AMBER_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword AMBER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.AMBER_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_QMMM_BOX_TOLERANCE(MSection):
@@ -7686,23 +7007,21 @@ class x_cpmd_section_input_QMMM_BOX_TOLERANCE(MSection):
     \\ref{hints:symm0}). {\\bf Default} value is 8~a.u.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.BOX_TOLERANCE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_QMMM_BOX_TOLERANCE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword BOX_TOLERANCE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.BOX_TOLERANCE_options'))
+        ''')
 
     x_cpmd_input_QMMM_BOX_TOLERANCE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword BOX_TOLERANCE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.BOX_TOLERANCE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_QMMM_BOX_WALLS(MSection):
@@ -7723,23 +7042,21 @@ class x_cpmd_section_input_QMMM_BOX_WALLS(MSection):
     This feature is {\\bf disabled by default}
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.BOX_WALLS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_QMMM_BOX_WALLS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword BOX_WALLS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.BOX_WALLS_options'))
+        ''')
 
     x_cpmd_input_QMMM_BOX_WALLS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword BOX_WALLS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.BOX_WALLS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_QMMM_CAPPING(MSection):
@@ -7749,23 +7066,21 @@ class x_cpmd_section_input_QMMM_CAPPING(MSection):
     section (see section \\ref{sec:qmmm-cut-bonds} for more details).
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.CAPPING'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_QMMM_CAPPING_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword CAPPING.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.CAPPING_options'))
+        ''')
 
     x_cpmd_input_QMMM_CAPPING_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword CAPPING.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.CAPPING_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_QMMM_COORDINATES(MSection):
@@ -7776,23 +7091,21 @@ class x_cpmd_section_input_QMMM_COORDINATES(MSection):
     dummy hydrogen atoms.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.COORDINATES'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_QMMM_COORDINATES_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword COORDINATES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.COORDINATES_options'))
+        ''')
 
     x_cpmd_input_QMMM_COORDINATES_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword COORDINATES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.COORDINATES_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_QMMM_ELECTROSTATIC_COUPLING(MSection):
@@ -7823,23 +7136,21 @@ class x_cpmd_section_input_QMMM_ELECTROSTATIC_COUPLING(MSection):
     $r_{nn} \\leq r_{mix} \\leq r_{esp}$.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.ELECTROSTATIC_COUPLING'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_QMMM_ELECTROSTATIC_COUPLING_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword ELECTROSTATIC_COUPLING.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.ELECTROSTATIC_COUPLING_options'))
+        ''')
 
     x_cpmd_input_QMMM_ELECTROSTATIC_COUPLING_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword ELECTROSTATIC_COUPLING.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.ELECTROSTATIC_COUPLING_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_QMMM_ESPWEIGHT(MSection):
@@ -7848,23 +7159,21 @@ class x_cpmd_section_input_QMMM_ESPWEIGHT(MSection):
     is $0.1 e_0$.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.ESPWEIGHT'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_QMMM_ESPWEIGHT_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword ESPWEIGHT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.ESPWEIGHT_options'))
+        ''')
 
     x_cpmd_input_QMMM_ESPWEIGHT_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword ESPWEIGHT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.ESPWEIGHT_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_QMMM_EXCLUSION(MSection):
@@ -7878,23 +7187,21 @@ class x_cpmd_section_input_QMMM_EXCLUSION(MSection):
     instead of the D-RESP charges (default).
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.EXCLUSION'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_QMMM_EXCLUSION_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword EXCLUSION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.EXCLUSION_options'))
+        ''')
 
     x_cpmd_input_QMMM_EXCLUSION_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword EXCLUSION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.EXCLUSION_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_QMMM_FLEXIBLE_WATER(MSection):
@@ -7914,23 +7221,21 @@ class x_cpmd_section_input_QMMM_FLEXIBLE_WATER(MSection):
     SUBMOLECULES section the new solute atoms have to be added accordingly.\\\\ Example:
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.FLEXIBLE_WATER'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_QMMM_FLEXIBLE_WATER_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword FLEXIBLE_WATER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.FLEXIBLE_WATER_options'))
+        ''')
 
     x_cpmd_input_QMMM_FLEXIBLE_WATER_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword FLEXIBLE_WATER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.FLEXIBLE_WATER_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_QMMM_GROMOS(MSection):
@@ -7939,23 +7244,21 @@ class x_cpmd_section_input_QMMM_GROMOS(MSection):
     This keyword is mutually exclusive with the \\refkeyword{AMBER} keyword.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.GROMOS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_QMMM_GROMOS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword GROMOS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.GROMOS_options'))
+        ''')
 
     x_cpmd_input_QMMM_GROMOS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword GROMOS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.GROMOS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_QMMM_HIRSHFELD(MSection):
@@ -7964,23 +7267,21 @@ class x_cpmd_section_input_QMMM_HIRSHFELD(MSection):
     or off {\\bf Default} value is ON.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.HIRSHFELD'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_QMMM_HIRSHFELD_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword HIRSHFELD.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.HIRSHFELD_options'))
+        ''')
 
     x_cpmd_input_QMMM_HIRSHFELD_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword HIRSHFELD.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.HIRSHFELD_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_QMMM_INPUT(MSection):
@@ -7991,23 +7292,21 @@ class x_cpmd_section_input_QMMM_INPUT(MSection):
     for QM/MM runs.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.INPUT'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_QMMM_INPUT_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword INPUT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.INPUT_options'))
+        ''')
 
     x_cpmd_input_QMMM_INPUT_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword INPUT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.INPUT_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_QMMM_MAXNN(MSection):
@@ -8019,23 +7318,21 @@ class x_cpmd_section_input_QMMM_MAXNN(MSection):
     block.) {\\bf Default} value is 5000.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.MAXNN'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_QMMM_MAXNN_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword MAXNN.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.MAXNN_options'))
+        ''')
 
     x_cpmd_input_QMMM_MAXNN_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword MAXNN.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.MAXNN_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_QMMM_NOSPLIT(MSection):
@@ -8047,23 +7344,21 @@ class x_cpmd_section_input_QMMM_NOSPLIT(MSection):
     default. See also under \\refkeyword{SPLIT}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.NOSPLIT'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_QMMM_NOSPLIT_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword NOSPLIT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.NOSPLIT_options'))
+        ''')
 
     x_cpmd_input_QMMM_NOSPLIT_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword NOSPLIT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.NOSPLIT_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_QMMM_RESTART_TRAJECTORY(MSection):
@@ -8076,23 +7371,21 @@ class x_cpmd_section_input_QMMM_RESTART_TRAJECTORY(MSection):
     trajecory.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.RESTART_TRAJECTORY'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_QMMM_RESTART_TRAJECTORY_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword RESTART_TRAJECTORY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.RESTART_TRAJECTORY_options'))
+        ''')
 
     x_cpmd_input_QMMM_RESTART_TRAJECTORY_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword RESTART_TRAJECTORY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.RESTART_TRAJECTORY_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_QMMM_SAMPLE_INTERACTING(MSection):
@@ -8107,23 +7400,21 @@ class x_cpmd_section_input_QMMM_SAMPLE_INTERACTING(MSection):
     written.  {\\bf Default} value is 5 for MD calculations and OFF for others.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.SAMPLE_INTERACTING'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_QMMM_SAMPLE_INTERACTING_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword SAMPLE_INTERACTING.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.SAMPLE_INTERACTING_options'))
+        ''')
 
     x_cpmd_input_QMMM_SAMPLE_INTERACTING_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword SAMPLE_INTERACTING.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.SAMPLE_INTERACTING_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_QMMM_SPLIT(MSection):
@@ -8135,23 +7426,21 @@ class x_cpmd_section_input_QMMM_SPLIT(MSection):
     part. {\\bf Default} is \\refkeyword{NOSPLIT}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.SPLIT'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_QMMM_SPLIT_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword SPLIT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.SPLIT_options'))
+        ''')
 
     x_cpmd_input_QMMM_SPLIT_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword SPLIT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.SPLIT_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_QMMM_TIMINGS(MSection):
@@ -8161,23 +7450,21 @@ class x_cpmd_section_input_QMMM_TIMINGS(MSection):
     option is off by {\\bf default}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.TIMINGS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_QMMM_TIMINGS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword TIMINGS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.TIMINGS_options'))
+        ''')
 
     x_cpmd_input_QMMM_TIMINGS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword TIMINGS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.TIMINGS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_QMMM_TOPOLOGY(MSection):
@@ -8189,23 +7476,21 @@ class x_cpmd_section_input_QMMM_TOPOLOGY(MSection):
     topology file syntax and some keywords are in section \\ref{sec:qmmm-gromos-inp}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.TOPOLOGY'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_QMMM_TOPOLOGY_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword TOPOLOGY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.TOPOLOGY_options'))
+        ''')
 
     x_cpmd_input_QMMM_TOPOLOGY_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword TOPOLOGY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.TOPOLOGY_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_QMMM_UPDATE_LIST(MSection):
@@ -8215,23 +7500,21 @@ class x_cpmd_section_input_QMMM_UPDATE_LIST(MSection):
     INTERACTING\\_NEW.pdb is created (and overwritten).  {\\bf Default} value is 100.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.UPDATE_LIST'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_QMMM_UPDATE_LIST_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword UPDATE_LIST.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.UPDATE_LIST_options'))
+        ''')
 
     x_cpmd_input_QMMM_UPDATE_LIST_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword UPDATE_LIST.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.UPDATE_LIST_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_QMMM_VERBOSE(MSection):
@@ -8240,23 +7523,21 @@ class x_cpmd_section_input_QMMM_VERBOSE(MSection):
     option is off by {\\bf default}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.VERBOSE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_QMMM_VERBOSE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword VERBOSE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.VERBOSE_options'))
+        ''')
 
     x_cpmd_input_QMMM_VERBOSE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword VERBOSE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.VERBOSE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_QMMM_WRITE_LOCALTEMP(MSection):
@@ -8269,23 +7550,21 @@ class x_cpmd_section_input_QMMM_WRITE_LOCALTEMP(MSection):
     an integer, this is done only every \\texttt{nfi\\_lt} timesteps.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.WRITE_LOCALTEMP'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_QMMM_WRITE_LOCALTEMP_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword WRITE_LOCALTEMP.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.WRITE_LOCALTEMP_options'))
+        ''')
 
     x_cpmd_input_QMMM_WRITE_LOCALTEMP_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword WRITE_LOCALTEMP.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM.WRITE_LOCALTEMP_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_QMMM(MSection):
@@ -8293,125 +7572,102 @@ class x_cpmd_section_input_QMMM(MSection):
     Input for Gromos QM/MM interface (see section \\ref{sec:qmmm}).
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_QMMM_default_keyword = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters that are present in the section QMMM even without a keyword.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_QMMM_default_keyword'))
+        ''')
 
     x_cpmd_section_input_QMMM_AMBER = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_QMMM_AMBER'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.AMBER'))
+        repeats=True)
 
     x_cpmd_section_input_QMMM_BOX_TOLERANCE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_QMMM_BOX_TOLERANCE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.BOX_TOLERANCE'))
+        repeats=True)
 
     x_cpmd_section_input_QMMM_BOX_WALLS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_QMMM_BOX_WALLS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.BOX_WALLS'))
+        repeats=True)
 
     x_cpmd_section_input_QMMM_CAPPING = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_QMMM_CAPPING'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.CAPPING'))
+        repeats=True)
 
     x_cpmd_section_input_QMMM_COORDINATES = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_QMMM_COORDINATES'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.COORDINATES'))
+        repeats=True)
 
     x_cpmd_section_input_QMMM_ELECTROSTATIC_COUPLING = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_QMMM_ELECTROSTATIC_COUPLING'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.ELECTROSTATIC_COUPLING'))
+        repeats=True)
 
     x_cpmd_section_input_QMMM_ESPWEIGHT = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_QMMM_ESPWEIGHT'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.ESPWEIGHT'))
+        repeats=True)
 
     x_cpmd_section_input_QMMM_EXCLUSION = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_QMMM_EXCLUSION'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.EXCLUSION'))
+        repeats=True)
 
     x_cpmd_section_input_QMMM_FLEXIBLE_WATER = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_QMMM_FLEXIBLE_WATER'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.FLEXIBLE_WATER'))
+        repeats=True)
 
     x_cpmd_section_input_QMMM_GROMOS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_QMMM_GROMOS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.GROMOS'))
+        repeats=True)
 
     x_cpmd_section_input_QMMM_HIRSHFELD = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_QMMM_HIRSHFELD'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.HIRSHFELD'))
+        repeats=True)
 
     x_cpmd_section_input_QMMM_INPUT = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_QMMM_INPUT'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.INPUT'))
+        repeats=True)
 
     x_cpmd_section_input_QMMM_MAXNN = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_QMMM_MAXNN'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.MAXNN'))
+        repeats=True)
 
     x_cpmd_section_input_QMMM_NOSPLIT = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_QMMM_NOSPLIT'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.NOSPLIT'))
+        repeats=True)
 
     x_cpmd_section_input_QMMM_RESTART_TRAJECTORY = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_QMMM_RESTART_TRAJECTORY'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.RESTART_TRAJECTORY'))
+        repeats=True)
 
     x_cpmd_section_input_QMMM_SAMPLE_INTERACTING = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_QMMM_SAMPLE_INTERACTING'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.SAMPLE_INTERACTING'))
+        repeats=True)
 
     x_cpmd_section_input_QMMM_SPLIT = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_QMMM_SPLIT'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.SPLIT'))
+        repeats=True)
 
     x_cpmd_section_input_QMMM_TIMINGS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_QMMM_TIMINGS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.TIMINGS'))
+        repeats=True)
 
     x_cpmd_section_input_QMMM_TOPOLOGY = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_QMMM_TOPOLOGY'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.TOPOLOGY'))
+        repeats=True)
 
     x_cpmd_section_input_QMMM_UPDATE_LIST = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_QMMM_UPDATE_LIST'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.UPDATE_LIST'))
+        repeats=True)
 
     x_cpmd_section_input_QMMM_VERBOSE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_QMMM_VERBOSE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.VERBOSE'))
+        repeats=True)
 
     x_cpmd_section_input_QMMM_WRITE_LOCALTEMP = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_QMMM_WRITE_LOCALTEMP'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM.WRITE_LOCALTEMP'))
+        repeats=True)
 
 
 class x_cpmd_section_input_RESP_DISCARD(MSection):
@@ -8424,23 +7680,21 @@ class x_cpmd_section_input_RESP_DISCARD(MSection):
     molecule (not implemented yet).
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP.DISCARD'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_RESP_DISCARD_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword DISCARD.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_RESP.DISCARD_options'))
+        ''')
 
     x_cpmd_input_RESP_DISCARD_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword DISCARD.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_RESP.DISCARD_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_RESP_EIGENSYSTEM(MSection):
@@ -8448,23 +7702,21 @@ class x_cpmd_section_input_RESP_EIGENSYSTEM(MSection):
     Not documented.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP.EIGENSYSTEM'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_RESP_EIGENSYSTEM_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword EIGENSYSTEM.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_RESP.EIGENSYSTEM_options'))
+        ''')
 
     x_cpmd_input_RESP_EIGENSYSTEM_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword EIGENSYSTEM.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_RESP.EIGENSYSTEM_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_RESP_EPR(MSection):
@@ -8485,23 +7737,21 @@ class x_cpmd_section_input_RESP_EPR(MSection):
     Reinout.Declerck@UGent.be should you require further information.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP.EPR'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_RESP_EPR_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword EPR.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_RESP.EPR_options'))
+        ''')
 
     x_cpmd_input_RESP_EPR_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword EPR.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_RESP.EPR_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_RESP_FUKUI(MSection):
@@ -8516,23 +7766,21 @@ class x_cpmd_section_input_RESP_FUKUI(MSection):
     electrons are put in or taken from the orbital. For example;
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP.FUKUI'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_RESP_FUKUI_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword FUKUI.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_RESP.FUKUI_options'))
+        ''')
 
     x_cpmd_input_RESP_FUKUI_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword FUKUI.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_RESP.FUKUI_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_RESP_HARDNESS(MSection):
@@ -8540,23 +7788,21 @@ class x_cpmd_section_input_RESP_HARDNESS(MSection):
     Not documented.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP.HARDNESS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_RESP_HARDNESS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword HARDNESS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_RESP.HARDNESS_options'))
+        ''')
 
     x_cpmd_input_RESP_HARDNESS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword HARDNESS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_RESP.HARDNESS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_RESP_INTERACTION(MSection):
@@ -8564,23 +7810,21 @@ class x_cpmd_section_input_RESP_INTERACTION(MSection):
     Not documented.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP.INTERACTION'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_RESP_INTERACTION_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword INTERACTION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_RESP.INTERACTION_options'))
+        ''')
 
     x_cpmd_input_RESP_INTERACTION_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword INTERACTION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_RESP.INTERACTION_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_RESP_KEEPREALSPACE(MSection):
@@ -8590,23 +7834,21 @@ class x_cpmd_section_input_RESP_KEEPREALSPACE(MSection):
     incredibly memory intensive.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP.KEEPREALSPACE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_RESP_KEEPREALSPACE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword KEEPREALSPACE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_RESP.KEEPREALSPACE_options'))
+        ''')
 
     x_cpmd_input_RESP_KEEPREALSPACE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword KEEPREALSPACE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_RESP.KEEPREALSPACE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_RESP_KPERT(MSection):
@@ -8614,23 +7856,21 @@ class x_cpmd_section_input_RESP_KPERT(MSection):
     \\label{sec:kpert
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP.KPERT'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_RESP_KPERT_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword KPERT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_RESP.KPERT_options'))
+        ''')
 
     x_cpmd_input_RESP_KPERT_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword KPERT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_RESP.KPERT_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_RESP_LANCZOS(MSection):
@@ -8642,23 +7882,21 @@ class x_cpmd_section_input_RESP_LANCZOS(MSection):
     for verbosity. prints a lot of stuff
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP.LANCZOS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_RESP_LANCZOS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword LANCZOS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_RESP.LANCZOS_options'))
+        ''')
 
     x_cpmd_input_RESP_LANCZOS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword LANCZOS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_RESP.LANCZOS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_RESP_NMR(MSection):
@@ -8671,23 +7909,21 @@ class x_cpmd_section_input_RESP_NMR(MSection):
     details.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP.NMR'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_RESP_NMR_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword NMR.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_RESP.NMR_options'))
+        ''')
 
     x_cpmd_input_RESP_NMR_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword NMR.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_RESP.NMR_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_RESP_NOOPT(MSection):
@@ -8696,23 +7932,21 @@ class x_cpmd_section_input_RESP_NOOPT(MSection):
     BO-surface.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP.NOOPT'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_RESP_NOOPT_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword NOOPT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_RESP.NOOPT_options'))
+        ''')
 
     x_cpmd_input_RESP_NOOPT_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword NOOPT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_RESP.NOOPT_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_RESP_OACP(MSection):
@@ -8720,23 +7954,21 @@ class x_cpmd_section_input_RESP_OACP(MSection):
     Not documented.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP.OACP'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_RESP_OACP_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword OACP.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_RESP.OACP_options'))
+        ''')
 
     x_cpmd_input_RESP_OACP_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword OACP.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_RESP.OACP_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_RESP_PHONON(MSection):
@@ -8744,23 +7976,21 @@ class x_cpmd_section_input_RESP_PHONON(MSection):
     Calculate the harmonic frequencies from perturbation theory.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP.PHONON'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_RESP_PHONON_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword PHONON.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_RESP.PHONON_options'))
+        ''')
 
     x_cpmd_input_RESP_PHONON_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword PHONON.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_RESP.PHONON_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_RESP_POLAK(MSection):
@@ -8769,23 +7999,21 @@ class x_cpmd_section_input_RESP_POLAK(MSection):
     the convergence.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP.POLAK'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_RESP_POLAK_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword POLAK.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_RESP.POLAK_options'))
+        ''')
 
     x_cpmd_input_RESP_POLAK_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword POLAK.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_RESP.POLAK_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_RESP_RAMAN(MSection):
@@ -8794,23 +8022,21 @@ class x_cpmd_section_input_RESP_RAMAN(MSection):
     dipole moment.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP.RAMAN'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_RESP_RAMAN_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword RAMAN.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_RESP.RAMAN_options'))
+        ''')
 
     x_cpmd_input_RESP_RAMAN_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword RAMAN.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_RESP.RAMAN_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_RESP_TIGHTPREC(MSection):
@@ -8824,23 +8050,21 @@ class x_cpmd_section_input_RESP_TIGHTPREC(MSection):
     the default formula does never diverge.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP.TIGHTPREC'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_RESP_TIGHTPREC_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword TIGHTPREC.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_RESP.TIGHTPREC_options'))
+        ''')
 
     x_cpmd_input_RESP_TIGHTPREC_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword TIGHTPREC.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_RESP.TIGHTPREC_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_RESP(MSection):
@@ -8848,95 +8072,78 @@ class x_cpmd_section_input_RESP(MSection):
     Response calculations
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_RESP_default_keyword = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters that are present in the section RESP even without a keyword.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_RESP_default_keyword'))
+        ''')
 
     x_cpmd_section_input_RESP_DISCARD = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_RESP_DISCARD'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP.DISCARD'))
+        repeats=True)
 
     x_cpmd_section_input_RESP_EIGENSYSTEM = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_RESP_EIGENSYSTEM'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP.EIGENSYSTEM'))
+        repeats=True)
 
     x_cpmd_section_input_RESP_EPR = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_RESP_EPR'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP.EPR'))
+        repeats=True)
 
     x_cpmd_section_input_RESP_FUKUI = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_RESP_FUKUI'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP.FUKUI'))
+        repeats=True)
 
     x_cpmd_section_input_RESP_HARDNESS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_RESP_HARDNESS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP.HARDNESS'))
+        repeats=True)
 
     x_cpmd_section_input_RESP_INTERACTION = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_RESP_INTERACTION'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP.INTERACTION'))
+        repeats=True)
 
     x_cpmd_section_input_RESP_KEEPREALSPACE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_RESP_KEEPREALSPACE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP.KEEPREALSPACE'))
+        repeats=True)
 
     x_cpmd_section_input_RESP_KPERT = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_RESP_KPERT'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP.KPERT'))
+        repeats=True)
 
     x_cpmd_section_input_RESP_LANCZOS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_RESP_LANCZOS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP.LANCZOS'))
+        repeats=True)
 
     x_cpmd_section_input_RESP_NMR = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_RESP_NMR'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP.NMR'))
+        repeats=True)
 
     x_cpmd_section_input_RESP_NOOPT = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_RESP_NOOPT'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP.NOOPT'))
+        repeats=True)
 
     x_cpmd_section_input_RESP_OACP = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_RESP_OACP'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP.OACP'))
+        repeats=True)
 
     x_cpmd_section_input_RESP_PHONON = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_RESP_PHONON'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP.PHONON'))
+        repeats=True)
 
     x_cpmd_section_input_RESP_POLAK = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_RESP_POLAK'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP.POLAK'))
+        repeats=True)
 
     x_cpmd_section_input_RESP_RAMAN = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_RESP_RAMAN'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP.RAMAN'))
+        repeats=True)
 
     x_cpmd_section_input_RESP_TIGHTPREC = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_RESP_TIGHTPREC'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP.TIGHTPREC'))
+        repeats=True)
 
 
 class x_cpmd_section_input_SYSTEM_ACCEPTOR(MSection):
@@ -8952,23 +8159,21 @@ class x_cpmd_section_input_SYSTEM_ACCEPTOR(MSection):
     mutually exclusive.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.ACCEPTOR'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_ACCEPTOR_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword ACCEPTOR.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.ACCEPTOR_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_ACCEPTOR_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword ACCEPTOR.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.ACCEPTOR_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_ANGSTROM(MSection):
@@ -8980,23 +8185,21 @@ class x_cpmd_section_input_SYSTEM_ANGSTROM(MSection):
     for \\refkeyword{QMMM} calculations.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.ANGSTROM'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_ANGSTROM_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword ANGSTROM.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.ANGSTROM_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_ANGSTROM_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword ANGSTROM.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.ANGSTROM_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_CELL(MSection):
@@ -9011,23 +8214,21 @@ class x_cpmd_section_input_SYSTEM_CELL(MSection):
     line instead of the 6 numbers. In this case the {\\bf SYMMETRY} keyword is not used.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.CELL'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_CELL_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword CELL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.CELL_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_CELL_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword CELL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.CELL_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_CHARGE(MSection):
@@ -9036,23 +8237,21 @@ class x_cpmd_section_input_SYSTEM_CHARGE(MSection):
     \\defaultvalue{0}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.CHARGE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_CHARGE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword CHARGE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.CHARGE_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_CHARGE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword CHARGE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.CHARGE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_CHECK_SYMMETRY(MSection):
@@ -9065,23 +8264,21 @@ class x_cpmd_section_input_SYSTEM_CHECK_SYMMETRY(MSection):
     \\textbf{Default} value is: \\defaultvalue{1.0e-4}
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.CHECK_SYMMETRY'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_CHECK_SYMMETRY_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword CHECK_SYMMETRY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.CHECK_SYMMETRY_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_CHECK_SYMMETRY_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword CHECK_SYMMETRY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.CHECK_SYMMETRY_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_CLASSICAL_CELL(MSection):
@@ -9089,23 +8286,21 @@ class x_cpmd_section_input_SYSTEM_CLASSICAL_CELL(MSection):
     Not documented.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.CLASSICAL_CELL'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_CLASSICAL_CELL_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword CLASSICAL_CELL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.CLASSICAL_CELL_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_CLASSICAL_CELL_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword CLASSICAL_CELL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.CLASSICAL_CELL_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_CLUSTER(MSection):
@@ -9114,23 +8309,21 @@ class x_cpmd_section_input_SYSTEM_CLUSTER(MSection):
     0, but allows a non-orthorhombic cell. Only rarely useful.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.CLUSTER'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_CLUSTER_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword CLUSTER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.CLUSTER_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_CLUSTER_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword CLUSTER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.CLUSTER_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_CONSTANT_CUTOFF(MSection):
@@ -9142,23 +8335,21 @@ class x_cpmd_section_input_SYSTEM_CONSTANT_CUTOFF(MSection):
     $$
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.CONSTANT_CUTOFF'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_CONSTANT_CUTOFF_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword CONSTANT_CUTOFF.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.CONSTANT_CUTOFF_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_CONSTANT_CUTOFF_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword CONSTANT_CUTOFF.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.CONSTANT_CUTOFF_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_COUPLINGS_LINRES(MSection):
@@ -9176,23 +8367,21 @@ class x_cpmd_section_input_SYSTEM_COUPLINGS_LINRES(MSection):
     \\refkeyword{COUPLINGS NSURF}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.COUPLINGS_LINRES'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_COUPLINGS_LINRES_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword COUPLINGS_LINRES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.COUPLINGS_LINRES_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_COUPLINGS_LINRES_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword COUPLINGS_LINRES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.COUPLINGS_LINRES_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_COUPLINGS_NSURF(MSection):
@@ -9207,23 +8396,21 @@ class x_cpmd_section_input_SYSTEM_COUPLINGS_NSURF(MSection):
     of the corresponding Slater transition-state density should be used.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.COUPLINGS_NSURF'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_COUPLINGS_NSURF_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword COUPLINGS_NSURF.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.COUPLINGS_NSURF_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_COUPLINGS_NSURF_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword COUPLINGS_NSURF.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.COUPLINGS_NSURF_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_COUPLINGS(MSection):
@@ -9235,23 +8422,21 @@ class x_cpmd_section_input_SYSTEM_COUPLINGS(MSection):
     numbers is expected. See \\refkeyword{COUPLINGS NSURF}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.COUPLINGS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_COUPLINGS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword COUPLINGS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.COUPLINGS_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_COUPLINGS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword COUPLINGS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.COUPLINGS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_CUTOFF(MSection):
@@ -9261,23 +8446,21 @@ class x_cpmd_section_input_SYSTEM_CUTOFF(MSection):
     E_{cut}$ instead of $|g|^2 < E_{cut}$. This is the default.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.CUTOFF'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_CUTOFF_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword CUTOFF.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.CUTOFF_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_CUTOFF_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword CUTOFF.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.CUTOFF_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_DENSITY_CUTOFF(MSection):
@@ -9290,23 +8473,21 @@ class x_cpmd_section_input_SYSTEM_DENSITY_CUTOFF(MSection):
     has to be bigger than the one to have the required plane wave density number.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.DENSITY_CUTOFF'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_DENSITY_CUTOFF_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword DENSITY_CUTOFF.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.DENSITY_CUTOFF_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_DENSITY_CUTOFF_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword DENSITY_CUTOFF.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.DENSITY_CUTOFF_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_DONOR(MSection):
@@ -9317,23 +8498,21 @@ class x_cpmd_section_input_SYSTEM_DONOR(MSection):
     read from the next line else only use an Acceptor group in the CDFT weight.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.DONOR'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_DONOR_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword DONOR.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.DONOR_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_DONOR_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword DONOR.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.DONOR_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_DUAL(MSection):
@@ -9352,23 +8531,21 @@ class x_cpmd_section_input_SYSTEM_DUAL(MSection):
     electronic density.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.DUAL'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_DUAL_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword DUAL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.DUAL_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_DUAL_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword DUAL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.DUAL_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_ENERGY_PROFILE(MSection):
@@ -9377,23 +8554,21 @@ class x_cpmd_section_input_SYSTEM_ENERGY_PROFILE(MSection):
     the ROKS or ROSS methods.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.ENERGY_PROFILE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_ENERGY_PROFILE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword ENERGY_PROFILE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.ENERGY_PROFILE_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_ENERGY_PROFILE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword ENERGY_PROFILE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.ENERGY_PROFILE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_EXTERNAL_FIELD(MSection):
@@ -9402,23 +8577,21 @@ class x_cpmd_section_input_SYSTEM_EXTERNAL_FIELD(MSection):
     field vector in AU is read from the next line.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.EXTERNAL_FIELD'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_EXTERNAL_FIELD_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword EXTERNAL_FIELD.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.EXTERNAL_FIELD_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_EXTERNAL_FIELD_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword EXTERNAL_FIELD.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.EXTERNAL_FIELD_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_HFX_CUTOFF(MSection):
@@ -9429,23 +8602,21 @@ class x_cpmd_section_input_SYSTEM_HFX_CUTOFF(MSection):
     cutoffs than the defaults can be specified.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.HFX_CUTOFF'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_HFX_CUTOFF_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword HFX_CUTOFF.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.HFX_CUTOFF_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_HFX_CUTOFF_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword HFX_CUTOFF.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.HFX_CUTOFF_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_ISOTROPIC_CELL(MSection):
@@ -9454,23 +8625,21 @@ class x_cpmd_section_input_SYSTEM_ISOTROPIC_CELL(MSection):
     optimization. The shape of the cell is held fixed, only the volume changes.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.ISOTROPIC_CELL'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_ISOTROPIC_CELL_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword ISOTROPIC_CELL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.ISOTROPIC_CELL_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_ISOTROPIC_CELL_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword ISOTROPIC_CELL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.ISOTROPIC_CELL_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_KPOINTS(MSection):
@@ -9480,23 +8649,21 @@ class x_cpmd_section_input_SYSTEM_KPOINTS(MSection):
     weight.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.KPOINTS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_KPOINTS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword KPOINTS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.KPOINTS_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_KPOINTS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword KPOINTS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.KPOINTS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_LOW_SPIN_EXCITATION_LSETS(MSection):
@@ -9506,23 +8673,21 @@ class x_cpmd_section_input_SYSTEM_LOW_SPIN_EXCITATION_LSETS(MSection):
     Ref.~\\cite{lsets}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.LOW_SPIN_EXCITATION_LSETS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_LOW_SPIN_EXCITATION_LSETS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword LOW_SPIN_EXCITATION_LSETS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.LOW_SPIN_EXCITATION_LSETS_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_LOW_SPIN_EXCITATION_LSETS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword LOW_SPIN_EXCITATION_LSETS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.LOW_SPIN_EXCITATION_LSETS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_LOW_SPIN_EXCITATION(MSection):
@@ -9531,23 +8696,21 @@ class x_cpmd_section_input_SYSTEM_LOW_SPIN_EXCITATION(MSection):
     also the \\refkeyword{ROKS} keyword in the \\&CPMD-section.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.LOW_SPIN_EXCITATION'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_LOW_SPIN_EXCITATION_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword LOW_SPIN_EXCITATION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.LOW_SPIN_EXCITATION_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_LOW_SPIN_EXCITATION_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword LOW_SPIN_EXCITATION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.LOW_SPIN_EXCITATION_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_LSE_PARAMETERS(MSection):
@@ -9560,23 +8723,21 @@ class x_cpmd_section_input_SYSTEM_LSE_PARAMETERS(MSection):
     method.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.LSE_PARAMETERS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_LSE_PARAMETERS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword LSE_PARAMETERS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.LSE_PARAMETERS_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_LSE_PARAMETERS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword LSE_PARAMETERS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.LSE_PARAMETERS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_MESH(MSection):
@@ -9588,23 +8749,21 @@ class x_cpmd_section_input_SYSTEM_MESH(MSection):
     energy cutoff and the {\\bf FFT} requirements.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.MESH'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_MESH_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword MESH.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.MESH_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_MESH_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword MESH.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.MESH_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_MULTIPLICITY(MSection):
@@ -9613,23 +8772,21 @@ class x_cpmd_section_input_SYSTEM_MULTIPLICITY(MSection):
     the next line. {\\bf Default} is the {\\bf smallest possible} multiplicity.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.MULTIPLICITY'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_MULTIPLICITY_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword MULTIPLICITY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.MULTIPLICITY_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_MULTIPLICITY_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword MULTIPLICITY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.MULTIPLICITY_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_NSUP(MSection):
@@ -9639,23 +8796,21 @@ class x_cpmd_section_input_SYSTEM_NSUP(MSection):
     \\refkeyword{LSD}).
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.NSUP'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_NSUP_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword NSUP.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.NSUP_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_NSUP_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword NSUP.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.NSUP_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_OCCUPATION(MSection):
@@ -9665,23 +8820,21 @@ class x_cpmd_section_input_SYSTEM_OCCUPATION(MSection):
     diagonalization scheme, otherwise this option is meaningless.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.OCCUPATION'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_OCCUPATION_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword OCCUPATION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.OCCUPATION_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_OCCUPATION_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword OCCUPATION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.OCCUPATION_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_POINT_GROUP(MSection):
@@ -9693,23 +8846,21 @@ class x_cpmd_section_input_SYSTEM_POINT_GROUP(MSection):
     number is read from the next line. Crystal symmetry groups:
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.POINT_GROUP'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_POINT_GROUP_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword POINT_GROUP.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.POINT_GROUP_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_POINT_GROUP_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword POINT_GROUP.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.POINT_GROUP_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_POISSON_SOLVER(MSection):
@@ -9722,23 +8873,21 @@ class x_cpmd_section_input_SYSTEM_POISSON_SOLVER(MSection):
     section \\ref{hints:symm0}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.POISSON_SOLVER'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_POISSON_SOLVER_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword POISSON_SOLVER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.POISSON_SOLVER_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_POISSON_SOLVER_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword POISSON_SOLVER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.POISSON_SOLVER_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_POLYMER(MSection):
@@ -9747,23 +8896,21 @@ class x_cpmd_section_input_SYSTEM_POLYMER(MSection):
     to set the 'cluster option' (i.e. \\refkeyword{SYMMETRY} 0).
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.POLYMER'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_POLYMER_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword POLYMER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.POLYMER_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_POLYMER_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword POLYMER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.POLYMER_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_PRESSURE(MSection):
@@ -9771,23 +8918,21 @@ class x_cpmd_section_input_SYSTEM_PRESSURE(MSection):
     The {\\bf external pressure} on the system is read from the next line (in {\\bf kbar}).
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.PRESSURE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_PRESSURE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword PRESSURE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.PRESSURE_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_PRESSURE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword PRESSURE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.PRESSURE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_REFERENCE_CELL(MSection):
@@ -9800,23 +8945,21 @@ class x_cpmd_section_input_SYSTEM_REFERENCE_CELL(MSection):
     described in {\\bf CELL} option.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.REFERENCE_CELL'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_REFERENCE_CELL_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword REFERENCE_CELL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.REFERENCE_CELL_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_REFERENCE_CELL_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword REFERENCE_CELL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.REFERENCE_CELL_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_SCALE(MSection):
@@ -9833,23 +8976,21 @@ class x_cpmd_section_input_SYSTEM_SCALE(MSection):
     the atomic coordinates in the direct lattice basis.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.SCALE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_SCALE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword SCALE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.SCALE_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_SCALE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword SCALE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.SCALE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_STATES(MSection):
@@ -9858,23 +8999,21 @@ class x_cpmd_section_input_SYSTEM_STATES(MSection):
     has to preceed the keyword {\\bf OCCUPATION}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.STATES'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_STATES_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword STATES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.STATES_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_STATES_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword STATES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.STATES_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_SURFACE(MSection):
@@ -9886,23 +9025,21 @@ class x_cpmd_section_input_SYSTEM_SURFACE(MSection):
     \\refkeyword{SYMMETRY} 0).
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.SURFACE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_SURFACE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword SURFACE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.SURFACE_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_SURFACE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword SURFACE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.SURFACE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_SYMMETRIZE_COORDINATES(MSection):
@@ -9912,23 +9049,21 @@ class x_cpmd_section_input_SYSTEM_SYMMETRIZE_COORDINATES(MSection):
     one.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.SYMMETRIZE_COORDINATES'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_SYMMETRIZE_COORDINATES_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword SYMMETRIZE_COORDINATES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.SYMMETRIZE_COORDINATES_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_SYMMETRIZE_COORDINATES_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword SYMMETRIZE_COORDINATES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.SYMMETRIZE_COORDINATES_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_SYMMETRY(MSection):
@@ -9950,23 +9085,21 @@ class x_cpmd_section_input_SYSTEM_SYMMETRY(MSection):
     keyword {\\bf CELL VECTORS}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.SYMMETRY'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_SYMMETRY_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword SYMMETRY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.SYMMETRY_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_SYMMETRY_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword SYMMETRY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.SYMMETRY_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_TESR(MSection):
@@ -9976,23 +9109,21 @@ class x_cpmd_section_input_SYSTEM_TESR(MSection):
     have to be used.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.TESR'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_TESR_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword TESR.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.TESR_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_TESR_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword TESR.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.TESR_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_WCUT(MSection):
@@ -10002,23 +9133,21 @@ class x_cpmd_section_input_SYSTEM_WCUT(MSection):
     where the magnitude of the respective promolecular density is smaller than $10^{-6}$.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.WCUT'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_WCUT_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword WCUT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.WCUT_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_WCUT_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword WCUT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.WCUT_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_WGAUSS(MSection):
@@ -10029,23 +9158,21 @@ class x_cpmd_section_input_SYSTEM_WGAUSS(MSection):
     $\\sigma_i$ of the species $i$ are read from subsequent lines.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.WGAUSS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_WGAUSS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword WGAUSS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.WGAUSS_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_WGAUSS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword WGAUSS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.WGAUSS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM_ZFLEXIBLE_CELL(MSection):
@@ -10058,23 +9185,21 @@ class x_cpmd_section_input_SYSTEM_ZFLEXIBLE_CELL(MSection):
     of system.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.ZFLEXIBLE_CELL'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_ZFLEXIBLE_CELL_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword ZFLEXIBLE_CELL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.ZFLEXIBLE_CELL_options'))
+        ''')
 
     x_cpmd_input_SYSTEM_ZFLEXIBLE_CELL_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword ZFLEXIBLE_CELL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM.ZFLEXIBLE_CELL_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_SYSTEM(MSection):
@@ -10082,220 +9207,178 @@ class x_cpmd_section_input_SYSTEM(MSection):
     Simulation cell and plane wave parameters (\\textbf{required}).
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_SYSTEM_default_keyword = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters that are present in the section SYSTEM even without a keyword.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_SYSTEM_default_keyword'))
+        ''')
 
     x_cpmd_section_input_SYSTEM_ACCEPTOR = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_ACCEPTOR'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.ACCEPTOR'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_ANGSTROM = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_ANGSTROM'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.ANGSTROM'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_CELL = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_CELL'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.CELL'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_CHARGE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_CHARGE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.CHARGE'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_CHECK_SYMMETRY = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_CHECK_SYMMETRY'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.CHECK_SYMMETRY'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_CLASSICAL_CELL = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_CLASSICAL_CELL'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.CLASSICAL_CELL'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_CLUSTER = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_CLUSTER'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.CLUSTER'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_CONSTANT_CUTOFF = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_CONSTANT_CUTOFF'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.CONSTANT_CUTOFF'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_COUPLINGS_LINRES = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_COUPLINGS_LINRES'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.COUPLINGS_LINRES'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_COUPLINGS_NSURF = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_COUPLINGS_NSURF'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.COUPLINGS_NSURF'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_COUPLINGS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_COUPLINGS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.COUPLINGS'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_CUTOFF = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_CUTOFF'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.CUTOFF'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_DENSITY_CUTOFF = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_DENSITY_CUTOFF'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.DENSITY_CUTOFF'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_DONOR = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_DONOR'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.DONOR'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_DUAL = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_DUAL'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.DUAL'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_ENERGY_PROFILE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_ENERGY_PROFILE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.ENERGY_PROFILE'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_EXTERNAL_FIELD = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_EXTERNAL_FIELD'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.EXTERNAL_FIELD'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_HFX_CUTOFF = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_HFX_CUTOFF'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.HFX_CUTOFF'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_ISOTROPIC_CELL = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_ISOTROPIC_CELL'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.ISOTROPIC_CELL'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_KPOINTS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_KPOINTS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.KPOINTS'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_LOW_SPIN_EXCITATION_LSETS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_LOW_SPIN_EXCITATION_LSETS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.LOW_SPIN_EXCITATION_LSETS'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_LOW_SPIN_EXCITATION = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_LOW_SPIN_EXCITATION'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.LOW_SPIN_EXCITATION'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_LSE_PARAMETERS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_LSE_PARAMETERS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.LSE_PARAMETERS'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_MESH = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_MESH'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.MESH'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_MULTIPLICITY = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_MULTIPLICITY'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.MULTIPLICITY'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_NSUP = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_NSUP'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.NSUP'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_OCCUPATION = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_OCCUPATION'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.OCCUPATION'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_POINT_GROUP = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_POINT_GROUP'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.POINT_GROUP'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_POISSON_SOLVER = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_POISSON_SOLVER'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.POISSON_SOLVER'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_POLYMER = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_POLYMER'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.POLYMER'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_PRESSURE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_PRESSURE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.PRESSURE'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_REFERENCE_CELL = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_REFERENCE_CELL'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.REFERENCE_CELL'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_SCALE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_SCALE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.SCALE'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_STATES = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_STATES'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.STATES'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_SURFACE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_SURFACE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.SURFACE'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_SYMMETRIZE_COORDINATES = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_SYMMETRIZE_COORDINATES'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.SYMMETRIZE_COORDINATES'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_SYMMETRY = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_SYMMETRY'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.SYMMETRY'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_TESR = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_TESR'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.TESR'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_WCUT = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_WCUT'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.WCUT'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_WGAUSS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_WGAUSS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.WGAUSS'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM_ZFLEXIBLE_CELL = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM_ZFLEXIBLE_CELL'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM.ZFLEXIBLE_CELL'))
+        repeats=True)
 
 
 class x_cpmd_section_input_TDDFT_DAVIDSON_RDIIS(MSection):
@@ -10309,23 +9392,21 @@ class x_cpmd_section_input_TDDFT_DAVIDSON_RDIIS(MSection):
     \\defaultvalue{$10^{-3}$}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_TDDFT.DAVIDSON_RDIIS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_TDDFT_DAVIDSON_RDIIS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword DAVIDSON_RDIIS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_TDDFT.DAVIDSON_RDIIS_options'))
+        ''')
 
     x_cpmd_input_TDDFT_DAVIDSON_RDIIS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword DAVIDSON_RDIIS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_TDDFT.DAVIDSON_RDIIS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_TDDFT_DIAGONALIZER(MSection):
@@ -10340,23 +9421,21 @@ class x_cpmd_section_input_TDDFT_DIAGONALIZER(MSection):
     \\textbf{Default} is \\defaultvalue{not to use line minimization}.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_TDDFT.DIAGONALIZER'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_TDDFT_DIAGONALIZER_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword DIAGONALIZER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_TDDFT.DIAGONALIZER_options'))
+        ''')
 
     x_cpmd_input_TDDFT_DIAGONALIZER_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword DIAGONALIZER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_TDDFT.DIAGONALIZER_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_TDDFT_EXTPOT(MSection):
@@ -10387,23 +9466,21 @@ class x_cpmd_section_input_TDDFT_EXTPOT(MSection):
     the file SH\\_EXTPT.dat (step, A(t), E(t)).
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_TDDFT.EXTPOT'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_TDDFT_EXTPOT_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword EXTPOT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_TDDFT.EXTPOT_options'))
+        ''')
 
     x_cpmd_input_TDDFT_EXTPOT_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword EXTPOT.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_TDDFT.EXTPOT_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_TDDFT_FORCE_STATE(MSection):
@@ -10412,23 +9489,21 @@ class x_cpmd_section_input_TDDFT_FORCE_STATE(MSection):
     for state 1.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_TDDFT.FORCE_STATE'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_TDDFT_FORCE_STATE_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword FORCE_STATE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_TDDFT.FORCE_STATE_options'))
+        ''')
 
     x_cpmd_input_TDDFT_FORCE_STATE_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword FORCE_STATE.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_TDDFT.FORCE_STATE_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_TDDFT_LOCALIZATION(MSection):
@@ -10436,23 +9511,21 @@ class x_cpmd_section_input_TDDFT_LOCALIZATION(MSection):
     Use localized orbitals in the TDDFT calculation. Default is to use canonical orbitals.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_TDDFT.LOCALIZATION'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_TDDFT_LOCALIZATION_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword LOCALIZATION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_TDDFT.LOCALIZATION_options'))
+        ''')
 
     x_cpmd_input_TDDFT_LOCALIZATION_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword LOCALIZATION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_TDDFT.LOCALIZATION_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_TDDFT_MOLECULAR_STATES(MSection):
@@ -10460,23 +9533,21 @@ class x_cpmd_section_input_TDDFT_MOLECULAR_STATES(MSection):
     Calculate and group Kohn--Sham orbitals into molecular states for a TDDFT calculation.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_TDDFT.MOLECULAR_STATES'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_TDDFT_MOLECULAR_STATES_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword MOLECULAR_STATES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_TDDFT.MOLECULAR_STATES_options'))
+        ''')
 
     x_cpmd_input_TDDFT_MOLECULAR_STATES_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword MOLECULAR_STATES.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_TDDFT.MOLECULAR_STATES_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_TDDFT_PCG_PARAMETER(MSection):
@@ -10488,23 +9559,21 @@ class x_cpmd_section_input_TDDFT_PCG_PARAMETER(MSection):
     given.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_TDDFT.PCG_PARAMETER'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_TDDFT_PCG_PARAMETER_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword PCG_PARAMETER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_TDDFT.PCG_PARAMETER_options'))
+        ''')
 
     x_cpmd_input_TDDFT_PCG_PARAMETER_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword PCG_PARAMETER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_TDDFT.PCG_PARAMETER_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_TDDFT_PROPERTY(MSection):
@@ -10515,23 +9584,21 @@ class x_cpmd_section_input_TDDFT_PROPERTY(MSection):
     of the state is read from the next line.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_TDDFT.PROPERTY'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_TDDFT_PROPERTY_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword PROPERTY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_TDDFT.PROPERTY_options'))
+        ''')
 
     x_cpmd_input_TDDFT_PROPERTY_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword PROPERTY.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_TDDFT.PROPERTY_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_TDDFT_REORDER_LOCAL(MSection):
@@ -10545,23 +9612,21 @@ class x_cpmd_section_input_TDDFT_REORDER_LOCAL(MSection):
     DANCOFF} calculation this can be used to select specific states for a calculation.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_TDDFT.REORDER_LOCAL'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_TDDFT_REORDER_LOCAL_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword REORDER_LOCAL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_TDDFT.REORDER_LOCAL_options'))
+        ''')
 
     x_cpmd_input_TDDFT_REORDER_LOCAL_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword REORDER_LOCAL.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_TDDFT.REORDER_LOCAL_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_TDDFT_REORDER(MSection):
@@ -10576,23 +9641,21 @@ class x_cpmd_section_input_TDDFT_REORDER(MSection):
     eigenvalues.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_TDDFT.REORDER'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_TDDFT_REORDER_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword REORDER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_TDDFT.REORDER_options'))
+        ''')
 
     x_cpmd_input_TDDFT_REORDER_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword REORDER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_TDDFT.REORDER_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_TDDFT_ROTATION_PARAMETER(MSection):
@@ -10603,23 +9666,21 @@ class x_cpmd_section_input_TDDFT_ROTATION_PARAMETER(MSection):
     0.5) have to be given.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_TDDFT.ROTATION_PARAMETER'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_TDDFT_ROTATION_PARAMETER_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword ROTATION_PARAMETER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_TDDFT.ROTATION_PARAMETER_options'))
+        ''')
 
     x_cpmd_input_TDDFT_ROTATION_PARAMETER_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword ROTATION_PARAMETER.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_TDDFT.ROTATION_PARAMETER_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_TDDFT(MSection):
@@ -10627,70 +9688,58 @@ class x_cpmd_section_input_TDDFT(MSection):
     Input for TDDFT calculations
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_TDDFT'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_TDDFT_default_keyword = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters that are present in the section TDDFT even without a keyword.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_TDDFT_default_keyword'))
+        ''')
 
     x_cpmd_section_input_TDDFT_DAVIDSON_RDIIS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_TDDFT_DAVIDSON_RDIIS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_TDDFT.DAVIDSON_RDIIS'))
+        repeats=True)
 
     x_cpmd_section_input_TDDFT_DIAGONALIZER = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_TDDFT_DIAGONALIZER'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_TDDFT.DIAGONALIZER'))
+        repeats=True)
 
     x_cpmd_section_input_TDDFT_EXTPOT = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_TDDFT_EXTPOT'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_TDDFT.EXTPOT'))
+        repeats=True)
 
     x_cpmd_section_input_TDDFT_FORCE_STATE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_TDDFT_FORCE_STATE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_TDDFT.FORCE_STATE'))
+        repeats=True)
 
     x_cpmd_section_input_TDDFT_LOCALIZATION = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_TDDFT_LOCALIZATION'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_TDDFT.LOCALIZATION'))
+        repeats=True)
 
     x_cpmd_section_input_TDDFT_MOLECULAR_STATES = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_TDDFT_MOLECULAR_STATES'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_TDDFT.MOLECULAR_STATES'))
+        repeats=True)
 
     x_cpmd_section_input_TDDFT_PCG_PARAMETER = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_TDDFT_PCG_PARAMETER'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_TDDFT.PCG_PARAMETER'))
+        repeats=True)
 
     x_cpmd_section_input_TDDFT_PROPERTY = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_TDDFT_PROPERTY'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_TDDFT.PROPERTY'))
+        repeats=True)
 
     x_cpmd_section_input_TDDFT_REORDER_LOCAL = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_TDDFT_REORDER_LOCAL'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_TDDFT.REORDER_LOCAL'))
+        repeats=True)
 
     x_cpmd_section_input_TDDFT_REORDER = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_TDDFT_REORDER'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_TDDFT.REORDER'))
+        repeats=True)
 
     x_cpmd_section_input_TDDFT_ROTATION_PARAMETER = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_TDDFT_ROTATION_PARAMETER'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_TDDFT.ROTATION_PARAMETER'))
+        repeats=True)
 
 
 class x_cpmd_section_input_VDW_VDW_PARAMETERS(MSection):
@@ -10733,23 +9782,21 @@ class x_cpmd_section_input_VDW_VDW_PARAMETERS(MSection):
     PBE, TPSS, REVPBE, PBE0}. Note that Grimme vdW does not support other functionals.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_VDW.VDW_PARAMETERS'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_VDW_VDW_PARAMETERS_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword VDW_PARAMETERS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_VDW.VDW_PARAMETERS_options'))
+        ''')
 
     x_cpmd_input_VDW_VDW_PARAMETERS_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword VDW_PARAMETERS.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_VDW.VDW_PARAMETERS_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_VDW_WANNIER_CORRECTION(MSection):
@@ -10778,23 +9825,21 @@ class x_cpmd_section_input_VDW_WANNIER_CORRECTION(MSection):
     are mutually exclusive.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_VDW.WANNIER_CORRECTION'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_VDW_WANNIER_CORRECTION_options = Quantity(
         type=str,
         shape=[],
         description='''
         The options given for keyword WANNIER_CORRECTION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_VDW.WANNIER_CORRECTION_options'))
+        ''')
 
     x_cpmd_input_VDW_WANNIER_CORRECTION_parameters = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters for keyword WANNIER_CORRECTION.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_VDW.WANNIER_CORRECTION_parameters'))
+        ''')
 
 
 class x_cpmd_section_input_VDW(MSection):
@@ -10803,25 +9848,22 @@ class x_cpmd_section_input_VDW(MSection):
     functions
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input_VDW'))
+    m_def = Section(validate=False)
 
     x_cpmd_input_VDW_default_keyword = Quantity(
         type=str,
         shape=[],
         description='''
         The parameters that are present in the section VDW even without a keyword.
-        ''',
-        a_legacy=LegacyDefinition(name='x_cpmd_input_VDW_default_keyword'))
+        ''')
 
     x_cpmd_section_input_VDW_VDW_PARAMETERS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_VDW_VDW_PARAMETERS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_VDW.VDW_PARAMETERS'))
+        repeats=True)
 
     x_cpmd_section_input_VDW_WANNIER_CORRECTION = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_VDW_WANNIER_CORRECTION'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_VDW.WANNIER_CORRECTION'))
+        repeats=True)
 
 
 class x_cpmd_section_input(MSection):
@@ -10829,107 +9871,85 @@ class x_cpmd_section_input(MSection):
     Contains the CPMD input file contents.
     '''
 
-    m_def = Section(validate=False, a_legacy=LegacyDefinition(name='x_cpmd_section_input'))
+    m_def = Section(validate=False)
 
     x_cpmd_section_input_ATOMS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_ATOMS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_ATOMS'))
+        repeats=True)
 
     x_cpmd_section_input_BASIS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_BASIS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_BASIS'))
+        repeats=True)
 
     x_cpmd_section_input_CLASSIC = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CLASSIC'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CLASSIC'))
+        repeats=True)
 
     x_cpmd_section_input_CPMD = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_CPMD'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_CPMD'))
+        repeats=True)
 
     x_cpmd_section_input_DFT = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_DFT'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_DFT'))
+        repeats=True)
 
     x_cpmd_section_input_EXTE = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_EXTE'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_EXTE'))
+        repeats=True)
 
     x_cpmd_section_input_HARDNESS = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_HARDNESS'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_HARDNESS'))
+        repeats=True)
 
     x_cpmd_section_input_INFO = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_INFO'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_INFO'))
+        repeats=True)
 
     x_cpmd_section_input_LINRES = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_LINRES'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_LINRES'))
+        repeats=True)
 
     x_cpmd_section_input_PATH = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PATH'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PATH'))
+        repeats=True)
 
     x_cpmd_section_input_PIMD = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PIMD'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PIMD'))
+        repeats=True)
 
     x_cpmd_section_input_PROP = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PROP'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PROP'))
+        repeats=True)
 
     x_cpmd_section_input_PTDDFT = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_PTDDFT'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_PTDDFT'))
+        repeats=True)
 
     x_cpmd_section_input_QMMM = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_QMMM'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_QMMM'))
+        repeats=True)
 
     x_cpmd_section_input_RESP = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_RESP'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_RESP'))
+        repeats=True)
 
     x_cpmd_section_input_SYSTEM = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_SYSTEM'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_SYSTEM'))
+        repeats=True)
 
     x_cpmd_section_input_TDDFT = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_TDDFT'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_TDDFT'))
+        repeats=True)
 
     x_cpmd_section_input_VDW = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input_VDW'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input_VDW'))
+        repeats=True)
 
 
-class section_run(public.section_run):
+class Run(run.run.Run):
 
-    m_def = Section(validate=False, extends_base_section=True, a_legacy=LegacyDefinition(name='section_run'))
+    m_def = Section(validate=False, extends_base_section=True)
 
     x_cpmd_section_input = SubSection(
         sub_section=SectionProxy('x_cpmd_section_input'),
-        repeats=True,
-        a_legacy=LegacyDefinition(name='x_cpmd_section_input'))
-
-
-m_package.__init_metainfo__()
+        repeats=True)

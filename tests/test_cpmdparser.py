@@ -35,33 +35,33 @@ def test_single_point(parser):
     archive = EntryArchive()
     parser.parse('tests/data/single_point/output.out', archive, None)
 
-    assert archive.section_run[0].program_version == '4.1-rUnversioned directory'
+    assert archive.run[0].program.version == '4.1-rUnversioned directory'
 
-    sec_system = archive.section_run[0].section_system[0]
-    assert sec_system.atom_labels == ['H', 'H']
-    assert sec_system.atom_positions[1][2].magnitude == approx(3.99999974e-10)
-    assert sec_system.lattice_vectors[2][2].magnitude == approx(7.99999524e-10)
+    sec_system = archive.run[0].system[0]
+    assert sec_system.atoms.labels == ['H', 'H']
+    assert sec_system.atoms.positions[1][2].magnitude == approx(3.99999974e-10)
+    assert sec_system.atoms.lattice_vectors[2][2].magnitude == approx(7.99999524e-10)
 
-    sec_scc = archive.section_run[0].section_single_configuration_calculation[0]
-    assert sec_scc.energy_total.magnitude == approx(-4.78219396e-18)
-    assert sec_scc.energy_XC.magnitude == approx(-2.50324989e-18)
+    sec_scc = archive.run[0].calculation[0]
+    assert sec_scc.energy.total.value.magnitude == approx(-4.78219396e-18)
+    assert sec_scc.energy.xc.value.magnitude == approx(-2.50324989e-18)
 
 
 def test_geometry_optimization(parser):
     archive = EntryArchive()
     parser.parse('tests/data/geo_opt/output.out', archive, None)
 
-    sec_systems = archive.section_run[0].section_system
+    sec_systems = archive.run[0].system
     assert len(sec_systems) == 8
-    assert sec_systems[2].atom_positions[0][1].magnitude == approx(3.99999762e-10)
+    assert sec_systems[2].atoms.positions[0][1].magnitude == approx(3.99999762e-10)
 
-    sec_sccs = archive.section_run[0].section_single_configuration_calculation
-    assert sec_sccs[2].energy_total.magnitude == approx(-4.93913736e-18)
-    assert sec_sccs[1].energy_electrostatic.magnitude == approx(-2.14706759e-18)
+    sec_sccs = archive.run[0].calculation
+    assert sec_sccs[2].energy.total.value.magnitude == approx(-4.93913736e-18)
+    assert sec_sccs[1].energy.electrostatic.value.magnitude == approx(-2.14706759e-18)
 
 
 def test_molecular_dynamics(parser):
     archive = EntryArchive()
     parser.parse('tests/data/md/output.out', archive, None)
 
-    assert archive.section_run[0].section_system[1].atom_positions[1][0].magnitude == approx(-3.70999792e-11)
+    assert archive.run[0].system[1].atoms.positions[1][0].magnitude == approx(-3.70999792e-11)

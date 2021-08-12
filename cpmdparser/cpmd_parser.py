@@ -38,6 +38,6 @@ class CPMDParser(BasicParser):
                 rf'(LATTICE VECTOR A2\(BOHR\):\s*{re_f}\s+{re_f}\s+{re_f}\s+)'
                 rf'(LATTICE VECTOR A3\(BOHR\):\s*{re_f}\s+{re_f}\s+{re_f}\s+)'),
             energy_total=rf' ETOT\s*\=\s*({re_f})|\(K\+E1\+L\+N\+X\)\s*TOTAL ENERGY\s*\=\s*({re_f})',
-            electronic_kinetic_energy=rf'\(K\)\s*KINETIC ENERGY\s*=\s*({re_f})',
+            energy_kinetic_electronic=rf'\(K\)\s*KINETIC ENERGY\s*=\s*({re_f})',
             energy_electrostatic=rf'\(E1\=A\-S\+R\)\s*ELECTROSTATIC ENERGY\s*=\s*({re_f})',
             energy_XC=rf'\(X\)\s*EXCHANGE\-CORRELATION ENERGY\s*=\s*({re_f})')
