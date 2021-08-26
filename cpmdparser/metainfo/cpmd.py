@@ -25,6 +25,9 @@ from nomad.metainfo import (  # pylint: disable=unused-import
 from nomad.datamodel.metainfo import run
 
 
+m_package = Package()
+
+
 class x_cpmd_section_input_ATOMS_ATOMIC_CHARGES(MSection):
     '''
     Changes the default charge (0) of the atoms for the initial guess to the values read

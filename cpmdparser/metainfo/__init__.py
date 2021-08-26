@@ -16,5 +16,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-import cpmdparser.metainfo.cpmd
-import cpmdparser.metainfo.cpmd_general
+from nomad.metainfo import Environment
+
+from . import cpmd, cpmd_general
+
+m_env = Environment()
+m_env.m_add_sub_section(Environment.packages, cpmd.m_package)
+m_env.m_add_sub_section(Environment.packages, cpmd_general.m_package)
