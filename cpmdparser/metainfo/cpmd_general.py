@@ -22,7 +22,7 @@ from nomad.metainfo import (  # pylint: disable=unused-import
     MSection, MCategory, Category, Package, Quantity, Section, SubSection, SectionProxy,
     Reference
 )
-from nomad.datamodel.metainfo import run
+from nomad.datamodel.metainfo import simulation
 from nomad.datamodel.metainfo import workflow
 
 
@@ -757,7 +757,7 @@ class x_cpmd_section_end_information(MSection):
     m_def = Section(validate=False)
 
 
-class Run(run.run.Run):
+class Run(simulation.run.Run):
 
     m_def = Section(validate=False, extends_base_section=True)
 
@@ -798,7 +798,7 @@ class Run(run.run.Run):
         repeats=True)
 
 
-class Method(run.method.Method):
+class Method(simulation.method.Method):
 
     m_def = Section(validate=False, extends_base_section=True)
 
@@ -815,7 +815,7 @@ class Method(run.method.Method):
         repeats=True)
 
 
-class Calculation(run.calculation.Calculation):
+class Calculation(simulation.calculation.Calculation):
 
     m_def = Section(validate=False, extends_base_section=True)
 
